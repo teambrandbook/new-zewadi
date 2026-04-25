@@ -6,12 +6,12 @@
     "ctaText": "Learn More"
   },
   "statsSection": {
-    "largeImage": "/community1.png",
+    "largeImage": "/community/com-1.webp",
     "card": {
       "title": "Zewadi Community",
       "description": "The Zewadi community is rooted in simple, meaningful choices choosing better ingredients, better habits, and a better way of living.",
       "ctaText": "Join the Community",
-      "image": "/community2.png"
+      "image": "/community/com-2.webp"
     },
     "stats": [
       {
@@ -37,7 +37,7 @@
     "items": [
       {
         "type": "image",
-        "src": "/grid1.png"
+        "src": "/community/grid-1.webp"
       },
       {
         "type": "text",
@@ -46,7 +46,7 @@
       },
       {
         "type": "image",
-        "src": "/grid2.png"
+        "src": "/community/grid-2.webp"
       },
       {
         "type": "text",
@@ -55,7 +55,7 @@
       },
       {
         "type": "image",
-        "src": "/grid3.png"
+        "src": "/community/grid-3.webp"
       },
       {
         "type": "text",
@@ -67,7 +67,7 @@
   "overviewSection": {
     "title": "Growing Better, Together.",
     "subtitle": "OVERVIEW",
-    "image": "/overview.png",
+    "image": "/community/com-3.webp",
     "cards": [
       {
         "id": "01",
@@ -91,6 +91,7 @@
   },
   "valuesGridSection": {
     "title": "Lorem ipsum\ndolor sit amet,\nconsectetur\nadipiscing elit",
+    "backgroundImage": "/community/com-value.webp",
     "cards": [
       {
         "title": "Wellness First",

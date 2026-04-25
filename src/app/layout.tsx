@@ -1,21 +1,27 @@
 import type { Metadata } from "next";
-import { Inter, Outfit, Playfair_Display } from "next/font/google";
+import { Inter, Playfair_Display, DM_Sans, Caveat } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/common/Navbar";
 import Footer from "@/components/common/Footer";
 
 const inter = Inter({
-  variable: "--font-inter",
+  variable: "--inter-font",
   subsets: ["latin"],
 });
 
-const outfit = Outfit({
-  variable: "--font-outfit",
+const dmSans = DM_Sans({
+  variable: "--dm-font",
   subsets: ["latin"],
 });
 
 const playfair = Playfair_Display({
-  variable: "--font-playfair",
+  variable: "--playfair-font",
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700", "800", "900"],
+});
+
+const caveat = Caveat({
+  variable: "--caveat-font",
   subsets: ["latin"],
 });
 
@@ -30,9 +36,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="scroll-smooth">
+    <html lang="en" className={`scroll-smooth ${inter.variable} ${dmSans.variable} ${playfair.variable} ${caveat.variable}`}>
       <body
-        className={`${inter.variable} ${outfit.variable} ${playfair.variable} antialiased font-sans`}
+        className="antialiased font-sans"
       >
         <Navbar />
         <main>{children}</main>
