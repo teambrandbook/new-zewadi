@@ -1,0 +1,21 @@
+{
+  "navLinks": [
+    { "name": "Home", "href": "/" },
+    { "name": "About Us", "href": "/about" },
+    { "name": "Community", "href": "/community" },
+    { "name": "Product", "href": "/products" },
+    { "name": "Contact Us", "href": "/contact" },
+    { "name": "Pages", "href": "#", "hasDropdown": true }
+  ],
+  "footer": {
+    "products": ["Analytics", "Marketing", "Security", "E-commerce"],
+    "company": ["About Us", "Careers", "Blog", "Press"],
+    "support": ["Help Center", "Privacy Policy", "Terms of Service", "Contact"]
+  },
+  "socials": [
+    { "platform": "Github", "href": "#" },
+    { "platform": "Twitter", "href": "#" },
+    { "platform": "Linkedin", "href": "#" },
+    { "platform": "Instagram", "href": "#" }
+  ]
+}
