@@ -62,7 +62,7 @@ const Navbar = () => {
                 {link.name}
                 {link.hasDropdown && <ChevronDown size={14} className="group-hover:rotate-180 transition-transform duration-300" />}
               </Link>
-              
+
               <span className={cn(
                 "absolute -bottom-1 left-0 h-[2px] bg-brand-primary transition-all duration-300",
                 link.name === "Home" ? "w-full" : "w-0 group-hover:w-full"
@@ -114,13 +114,13 @@ const Navbar = () => {
             </Link>
           ))}
         </div>
-        
+
         <div className="mt-auto mb-20">
           <div className="flex items-center space-x-4">
-             <div className="flex items-center bg-white/10 rounded-full px-6 py-4">
-                <Globe className="text-white mr-3" size={24} />
-                <span className="text-white font-bold text-xl">English (En)</span>
-             </div>
+            <div className="flex items-center bg-white/10 rounded-full px-6 py-4">
+              <Globe className="text-white mr-3" size={24} />
+              <span className="text-white font-bold text-xl">English (En)</span>
+            </div>
           </div>
         </div>
       </div>
