@@ -1,0 +1,45 @@
+{
+  "hero": {
+    "title": "Products",
+    "subtitle": "ZEWADI BUCKWHEAT"
+  },
+  "details": {
+    "title": "Zewadi Buckwheat",
+    "price": "$ 120.00 USD",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    "benefits": [
+      "Only the finest local and seasonal ingredients.",
+      "Healthy, chemical-free components for every dish.",
+      "Supporting local farmers and sustainable produce.",
+      "Each ingredient carefully selected for peak flavor.",
+      "Ingredients that celebrate each season's best.",
+      "Top-quality meats, seafood, and plant-based options.",
+      "Freshly baked, handmade, or house-prepared items."
+    ],
+    "images": [
+      "/product/p-main.webp",
+      "/product/p-2.webp",
+      "/product/p-3.webp",
+      "/product/p-4.webp"
+    ],
+    "fullDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+  },
+  "items": [
+    {
+      "id": 1,
+      "title": "Buckwheat Flour",
+      "category": "FLOUR",
+      "image": "/product1.png",
+      "price": "KSh 450",
+      "description": "Premium quality organic buckwheat flour."
+    },
+    {
+      "id": 2,
+      "title": "Buckwheat Groats",
+      "category": "GROATS",
+      "image": "/product2.png",
+      "price": "KSh 600",
+      "description": "Whole grain buckwheat groats for healthy meals."
+    }
+  ]
+}

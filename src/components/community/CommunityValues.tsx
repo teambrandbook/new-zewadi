@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useEffect, useRef } from "react";
+import Image from "next/image";
 import gsap from "@/lib/gsap";
 import { Heart, Clock, Leaf, LayoutGrid, Layers } from "lucide-react";
 import communityData from "@/data/community.json";
@@ -19,22 +20,24 @@ const CommunityValues = () => {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      gsap.from(".value-card", {
-        y: 60,
+      // Smooth Fade-In for Heading
+      gsap.from(".value-heading", {
         opacity: 0,
-        duration: 1,
-        stagger: 0.2,
-        ease: "power2.out",
+        y: 20,
+        duration: 1.2,
+        ease: "power3.out",
         scrollTrigger: {
           trigger: sectionRef.current,
           start: "top 85%",
         },
       });
 
-      gsap.from(".value-heading", {
-        x: -40,
+      // Premium Staggered Fade-Up for Cards
+      gsap.from(".value-card", {
         opacity: 0,
-        duration: 1,
+        y: 30,
+        duration: 1.2,
+        stagger: 0.15,
         ease: "power2.out",
         scrollTrigger: {
           trigger: sectionRef.current,
@@ -50,29 +53,29 @@ const CommunityValues = () => {
   return (
     <section ref={sectionRef} className="py-24 bg-white">
       <div className="container mx-auto px-4 md:px-0">
-        <div className="relative w-full max-w-7xl mx-auto bg-[#F2F8F0] rounded-[3rem] md:rounded-[5rem] p-12 md:p-24 overflow-hidden min-h-[800px]">
+        <div className="relative w-full max-w-7xl mx-auto bg-[#F3F7F2] rounded-[2rem] md:rounded-[2rem] py-16 px-8 md:py-24 md:px-20">
           
-          {/* Subtle Leaf Pattern Overlay (Elegant & Large) */}
-          <div className="absolute inset-0 opacity-[0.05] pointer-events-none select-none overflow-hidden">
-             {[...Array(8)].map((_, i) => (
-                <Leaf 
-                   key={i} 
-                   size={400} 
-                   className="absolute stroke-[1px]" 
-                   style={{
-                      left: `${(i % 3) * 40 - 10}%`,
-                      top: `${Math.floor(i / 3) * 50 - 10}%`,
-                      transform: `rotate(${i * 45}deg)`
-                   }}
-                />
-             ))}
-          </div>
+          {/* Background Layer with Image */}
+          {valuesGridSection.backgroundImage && (
+            <div className="absolute inset-0 pointer-events-none select-none overflow-hidden rounded-[3rem] md:rounded-[5rem] z-0">
+               <Image 
+                 src={valuesGridSection.backgroundImage} 
+                 alt="Background Pattern" 
+                 fill
+                 className="object-cover opacity-50 transition-opacity duration-700"
+                 priority
+               />
+               {/* White Overlay to soften the image */}
+               <div className="absolute inset-0 bg-white/80 mix-blend-overlay" />
+               <div className="absolute inset-0 bg-[#F3F7F2]/40" />
+            </div>
+          )}
 
-          <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 lg:gap-x-12 lg:gap-y-8 items-stretch">
+          <div className="relative z-20 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10 lg:gap-12">
             
-            {/* Header Content */}
-            <div className="value-heading flex flex-col justify-start pt-12 pr-8 lg:pr-16">
-              <h2 className="text-4xl md:text-5xl font-serif font-medium text-brand-green leading-[1.1] whitespace-pre-line tracking-tight">
+            {/* Header Content - Direct Color for debugging */}
+            <div className="value-heading flex flex-col justify-start pt-12 relative z-30">
+              <h2 className="text-3xl md:text-4xl lg:text-[52px] font-playfair font-medium text-[#1A4331] leading-[1.1] whitespace-pre-line tracking-tight">
                 {valuesGridSection.title}
               </h2>
             </div>
@@ -83,16 +86,16 @@ const CommunityValues = () => {
               return (
                 <div
                   key={idx}
-                  className="value-card bg-white p-10 md:p-14 rounded-[3rem] shadow-[0_10px_40px_rgba(0,0,0,0.03)] hover:shadow-[0_20px_50px_rgba(0,0,0,0.06)] transition-all duration-700 flex flex-col items-start min-h-[320px]"
+                  className="value-card bg-white p-10 md:p-12 rounded-[2.5rem] shadow-[0_10px_40px_rgba(0,0,0,0.02)] flex flex-col items-start aspect-square relative z-30"
                 >
-                  <div className="w-16 h-16 md:w-20 md:h-20 rounded-full border border-brand-green/20 flex items-center justify-center text-brand-green mb-10 group transition-colors">
+                  <div className="w-16 h-16 md:w-20 md:h-20 rounded-full border border-[#1A4331]/20 flex items-center justify-center text-[#1A4331] mb-8">
                     <Icon size={28} className="stroke-[1.5px]" />
                   </div>
 
-                  <h4 className="text-xl md:text-2xl font-bold text-brand-green mb-5">
+                  <h4 className="text-xl md:text-2xl font-bold text-[#1A4331] mb-4 leading-tight">
                     {card.title}
                   </h4>
-                  <p className="text-gray-900/70 text-sm md:text-[15px] leading-relaxed max-w-[260px] font-medium">
+                  <p className="text-[#333333] text-xs md:text-sm leading-relaxed max-w-[240px] font-medium font-inter">
                     {card.description}
                   </p>
                 </div>
