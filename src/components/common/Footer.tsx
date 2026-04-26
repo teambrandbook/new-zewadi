@@ -1,10 +1,12 @@
 import React from "react";
 import Link from "next/link";
-import { LucideIcon } from "lucide-react";
 import * as Brands from "./BrandIcons";
 import navData from "@/data/navigation.json";
 
-const iconMap: Record<string, any> = {
+const iconMap: Record<
+  string,
+  React.ComponentType<{ size?: number; className?: string }>
+> = {
   Github: Brands.Github,
   Twitter: Brands.Twitter,
   Linkedin: Brands.Linkedin,
