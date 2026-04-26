@@ -25,7 +25,7 @@ const CommunitySection = () => {
             <div className="flex items-center gap-3">
               <div className="w-10 h-10 relative">
                 {/* Replace with your specific SVG icon for Wellness */}
-                <Image src="/icons/wellness.svg" alt="Wellness" width={40} height={40} />
+                <Image src="/home/wellness.png" alt="Wellness" width={40} height={40} />
               </div>
               <h3 className="text-[#121414] text-[16px] font-bold font-['Inter']">
                 Wellness First
@@ -34,7 +34,7 @@ const CommunitySection = () => {
             <div className="flex items-center gap-3">
               <div className="w-10 h-10 relative">
                  {/* Replace with your specific SVG icon for Inclusive */}
-                <Image src="/icons/inclusive.svg" alt="Inclusive" width={40} height={40} />
+                <Image src="/home/inclusive.png" alt="Inclusive" width={40} height={40} />
               </div>
               <h3 className="text-[#121414] text-[16px] font-bold font-['Inter']">
                 Inclusive & Evolving

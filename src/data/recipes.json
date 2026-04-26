@@ -311,5 +311,305 @@
       "Season well and add lemon juice.",
       "Serve warm or as bowl meal."
     ]
+  },{
+    "id": "buckwheat-date-energy-balls",
+    "title": "BUCKWHEAT DATE ENERGY BALLS",
+    "description": "A healthy and naturally sweet snack made with buckwheat, dates, and nuts. These no-bake energy balls are rich in fiber, healthy fats, and natural sugars.",
+    "benefits": [
+      "Provides quick natural energy",
+      "Rich in fiber and supports digestion",
+      "No refined sugar",
+      "Packed with healthy fats",
+      "Supports heart health",
+      "Perfect guilt-free snack"
+    ],
+    "image": "/recipe/dessert-1.webp",
+    "categories": ["DESSERT"],
+    "nutrition": {
+      "calories": "220g",
+      "fat": "9g",
+      "carbs": "30g",
+      "protein": "6g"
+    },
+    "ingredients": [
+      "Buckwheat groats (roasted)",
+      "Dates (seedless)",
+      "Almonds",
+      "Cashews",
+      "Coconut (grated)",
+      "Honey",
+      "Cardamom powder"
+    ],
+    "optional": ["Chia seeds", "Dark chocolate"],
+    "steps": [
+      "Grind roasted buckwheat and nuts.",
+      "Add dates and blend into sticky mixture.",
+      "Mix coconut and cardamom.",
+      "Roll into small balls.",
+      "Chill and serve."
+    ]
+  },
+  {
+    "id": "buckwheat-muffins",
+    "title": "BUCKWHEAT MUFFINS",
+    "description": "Soft and healthy muffins made with buckwheat flour and natural sweeteners. Perfect for breakfast or snacks.",
+    "benefits": [
+      "Rich in fiber",
+      "Gluten-free",
+      "Provides steady energy",
+      "Healthy natural sweetness",
+      "Supports digestion"
+    ],
+    "image": "/recipe/dessert-2.webp",
+    "categories": ["DESSERT"],
+    "nutrition": {
+      "calories": "260g",
+      "fat": "8g",
+      "carbs": "38g",
+      "protein": "7g"
+    },
+    "ingredients": [
+      "Buckwheat flour",
+      "Eggs",
+      "Milk",
+      "Honey",
+      "Baking powder",
+      "Vanilla extract",
+      "Chocolate chips",
+      "Oats"
+    ],
+    "optional": ["Nuts", "Dry fruits"],
+    "steps": [
+      "Mix dry ingredients.",
+      "Add wet ingredients and mix well.",
+      "Pour into muffin molds.",
+      "Bake at 180°C for 20–25 minutes.",
+      "Cool and serve."
+    ]
+  },
+  {
+    "id": "buckwheat-savoury-fritters",
+    "title": "BUCKWHEAT SAVOURY FRITTERS",
+    "description": "Crispy and nutritious fritters made with buckwheat flour and vegetables. Perfect snack or light meal.",
+    "benefits": [
+      "Rich in fiber",
+      "Good plant protein source",
+      "Gluten-free",
+      "Supports metabolism",
+      "Healthy snack option"
+    ],
+    "image": "/recipe/dessert-3.webp",
+    "categories": ["DESSERT"],
+    "nutrition": {
+      "calories": "240g",
+      "fat": "10g",
+      "carbs": "28g",
+      "protein": "8g"
+    },
+    "ingredients": [
+      "Buckwheat flour",
+      "Carrot",
+      "Onion",
+      "Spinach",
+      "Green chili",
+      "Coriander",
+      "Salt",
+      "Oil"
+    ],
+    "optional": ["Paneer", "Corn"],
+    "steps": [
+      "Mix flour with vegetables and spices.",
+      "Add water to form batter.",
+      "Heat oil and drop small portions.",
+      "Fry until golden brown.",
+      "Serve hot."
+    ]
+  },
+  {
+    "id": "buckwheat-granola-mix-dessert",
+    "title": "BUCKWHEAT GRANOLA MIX",
+    "description": "Crunchy granola made with buckwheat, oats, nuts, and seeds. Perfect for breakfast or snack.",
+    "benefits": [
+      "Rich in fiber",
+      "Provides long-lasting energy",
+      "Healthy fats",
+      "Gluten-free",
+      "Good for digestion"
+    ],
+    "image": "/recipe/dessert-4.webp",
+    "categories": ["DESSERT"],
+    "nutrition": {
+      "calories": "300g",
+      "fat": "9g",
+      "carbs": "45g",
+      "protein": "9g"
+    },
+    "ingredients": [
+      "Buckwheat groats",
+      "Oats",
+      "Almonds",
+      "Pumpkin seeds",
+      "Honey",
+      "Coconut oil",
+      "Cinnamon"
+    ],
+    "optional": ["Raisins", "Dark chocolate"],
+    "steps": [
+      "Mix all ingredients.",
+      "Spread on tray.",
+      "Bake at 180°C for 20 minutes.",
+      "Cool and store."
+    ]
+  },
+  {
+    "id": "buckwheat-arabic-style-salad",
+    "title": "BUCKWHEAT ARABIC-STYLE SALAD",
+    "description": "A fresh and nutritious salad made with cooked buckwheat, crisp vegetables, herbs, and a light lemon dressing.",
+    "benefits": [
+      "Rich in fiber and supports digestion",
+      "Gluten-free and easy to digest",
+      "Maintains steady energy levels",
+      "Packed with vitamins and antioxidants",
+      "Supports heart health",
+      "Light and refreshing meal"
+    ],
+    "image": "/recipe/dinner-1.webp",
+    "categories": ["DINNER"],
+    "nutrition": {
+      "calories": "240g",
+      "fat": "7g",
+      "carbs": "32g",
+      "protein": "7g"
+    },
+    "ingredients": [
+      "Cooked buckwheat",
+      "Tomato",
+      "Cucumber",
+      "Parsley",
+      "Mint",
+      "Lemon juice",
+      "Olive oil",
+      "Salt",
+      "Black pepper"
+    ],
+    "optional": ["Feta cheese", "Olives"],
+    "steps": [
+      "Cook and cool buckwheat.",
+      "Chop vegetables finely.",
+      "Mix all ingredients in a bowl.",
+      "Add lemon juice and olive oil.",
+      "Toss well and serve fresh."
+    ]
+  },
+  {
+    "id": "buckwheat-lentil-bowl-dinner",
+    "title": "BUCKWHEAT LENTIL BOWL",
+    "description": "A nourishing bowl made with buckwheat, lentils, and fresh vegetables. Balanced and protein-rich meal.",
+    "benefits": [
+      "High in plant protein",
+      "Rich in fiber",
+      "Supports digestion",
+      "Maintains energy levels",
+      "Balanced healthy meal"
+    ],
+    "image": "/recipe/dinner-2.webp",
+    "categories": ["DINNER"],
+    "nutrition": {
+      "calories": "300g",
+      "fat": "8g",
+      "carbs": "45g",
+      "protein": "14g"
+    },
+    "ingredients": [
+      "Buckwheat groats",
+      "Cooked lentils",
+      "Carrot",
+      "Capsicum",
+      "Onion",
+      "Garlic",
+      "Olive oil",
+      "Salt",
+      "Pepper",
+      "Fresh herbs"
+    ],
+    "optional": ["Avocado", "Boiled egg"],
+    "steps": [
+      "Cook buckwheat and lentils.",
+      "Sauté vegetables.",
+      "Mix everything together.",
+      "Season well.",
+      "Serve warm."
+    ]
+  },
+  {
+    "id": "buckwheat-wrap",
+    "title": "BUCKWHEAT WRAP",
+    "description": "A healthy wrap made with buckwheat flatbread filled with vegetables and protein-rich fillings.",
+    "benefits": [
+      "Rich in fiber",
+      "Gluten-free",
+      "Maintains energy",
+      "Good plant protein",
+      "Supports metabolism"
+    ],
+    "image": "/recipe/dinner-3.webp",
+    "categories": ["DINNER"],
+    "nutrition": {
+      "calories": "280g",
+      "fat": "9g",
+      "carbs": "38g",
+      "protein": "10g"
+    },
+    "ingredients": [
+      "Buckwheat flour",
+      "Water",
+      "Salt",
+      "Vegetables",
+      "Beans or paneer",
+      "Lettuce",
+      "Sauce or dip"
+    ],
+    "optional": ["Chicken", "Avocado"],
+    "steps": [
+      "Prepare buckwheat flatbread.",
+      "Cook or prepare filling.",
+      "Place filling on wrap.",
+      "Roll tightly.",
+      "Serve fresh."
+    ]
+  },
+  {
+    "id": "buckwheat-kuboos-flatbread",
+    "title": "BUCKWHEAT KUBOOS / FLATBREAD",
+    "description": "A soft and healthy flatbread made with buckwheat flour. Gluten-free and perfect for daily meals.",
+    "benefits": [
+      "Gluten-free",
+      "Rich in fiber",
+      "Provides steady energy",
+      "Supports digestion",
+      "Healthy alternative to wheat"
+    ],
+    "image": "/recipe/dinner-4.webp",
+    "categories": ["DINNER"],
+    "nutrition": {
+      "calories": "260g",
+      "fat": "4g",
+      "carbs": "48g",
+      "protein": "8g"
+    },
+    "ingredients": [
+      "Buckwheat flour",
+      "Water",
+      "Salt",
+      "Olive oil"
+    ],
+    "optional": ["Herbs", "Garlic"],
+    "steps": [
+      "Mix flour, water, and salt to make dough.",
+      "Roll into flatbread.",
+      "Cook on hot pan.",
+      "Flip until cooked.",
+      "Serve warm."
+    ]
   }
 ]
