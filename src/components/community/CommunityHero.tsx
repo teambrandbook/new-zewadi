@@ -5,6 +5,7 @@ import gsap from "@/lib/gsap";
 import { ArrowRight } from "lucide-react";
 import communityData from "@/data/community.json";
 
+
 const CommunityHero = () => {
   const containerRef = useRef<HTMLDivElement>(null);
   const { hero } = communityData;
@@ -73,16 +74,16 @@ const CommunityHero = () => {
 
       {/* Content */}
       <div className="container mx-auto px-6 relative z-10">
-        <h1 className="reveal-text text-5xl md:text-[5.5rem] font-serif font-medium leading-[1.1] mb-8 tracking-tight">
+        <h1 className="reveal-text text-5xl md:text-[5.5rem] font-playfair font-medium leading-[1.1] mb-8 tracking-tight">
           {hero.title} <span className="text-brand-primary font-normal">{hero.titleAccent}</span>
         </h1>
         
-        <p className="reveal-text text-base md:text-lg text-white/90 max-w-2xl mx-auto mb-10 leading-relaxed font-sans opacity-80">
+        <p className="reveal-text text-base md:text-lg text-white/90 max-w-2xl mx-auto mb-10 leading-relaxed font-inter opacity-80">
           {hero.description}
         </p>
 
         <div className="reveal-button">
-          <button className="bg-[#E2D1A1] text-[#1A4331] font-bold px-10 py-5 rounded-full hover:bg-white transition-all duration-300 flex items-center gap-3 mx-auto group shadow-2xl">
+          <button className="bg-[#D8C29A] text-[#1A4331] font-bold px-10 py-5 rounded-full hover:bg-white transition-all duration-300 flex items-center gap-3 mx-auto group shadow-2xl">
             {hero.ctaText}
             <ArrowRight size={20} className="group-hover:translate-x-2 transition-transform duration-300" />
           </button>

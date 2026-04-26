@@ -14,7 +14,7 @@ const MeaningSection = () => {
             <div className="flex items-center gap-6 mb-8">
               <div className="relative w-19 h-4">
                 <svg xmlns="http://www.w3.org/2000/svg" width="92" height="14" viewBox="0 0 92 14" fill="none">
-                  <path d="M0 12.5986H90L81.0373 0.598633" stroke="#121414" stroke-width="2" />
+                  <path d="M0 12.5986H90L81.0373 0.598633" stroke="#121414" strokeWidth="2" />
                 </svg>
               </div>
               <span className="text-[#121414] text-[11px] font-bold font-sans uppercase tracking-[2.5px]">
