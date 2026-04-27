@@ -15,7 +15,7 @@ export default function EventsExperiencePage() {
       fadeIn(".fade-in");
     }, []);
   return (
-    <div className="bg-white pb-24 pt-[42px] text-[#0e2207]">
+    <div className="bg-white pb-24  text-[#0e2207]">
       <ContentSection title="Zewadi Events" subtitle="Zewadi Community Events " />
       <MomentsSection />
       <CommunitySection />

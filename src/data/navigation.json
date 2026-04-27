@@ -10,10 +10,11 @@
       "href": "#",
       "hasDropdown": true,
       "items": [
-        { "name": "Gallary", "href": "/gallary" },
         { "name": "Recipy", "href": "/recipes" },
         { "name": "FAQ", "href": "/faq" },
-        { "name": "Bloges", "href": "/blogs" }
+        { "name": "Bloges", "href": "/blogs" },
+        { "name": "Events", "href": "/events" },
+        { "name": "Gallary", "href": "/gallery" }
       ]
     }
   ],
