@@ -48,17 +48,17 @@ const CommunityHero = () => {
       <div className="absolute inset-0 pointer-events-none">
         {/* Top Right Cluster */}
         <div className="triangle-cluster absolute top-[-10%] right-[-5%] w-[40%] h-[50%] opacity-0">
-           <Triangle color="var(--color-brand-primary)" size="w-64 h-64" rotate="rotate-45" top="10%" right="10%" opacity="opacity-20" />
-           <Triangle color="white" size="w-48 h-48" rotate="rotate-12" top="20%" right="20%" opacity="opacity-10" />
-           <Triangle color="var(--color-brand-primary)" size="w-32 h-32" rotate="rotate-[-15deg]" top="5%" right="30%" opacity="opacity-30" />
+          <Triangle color="var(--color-brand-primary)" size="w-64 h-64" rotate="rotate-45" top="10%" right="10%" opacity="opacity-20" />
+          <Triangle color="white" size="w-48 h-48" rotate="rotate-12" top="20%" right="20%" opacity="opacity-10" />
+          <Triangle color="var(--color-brand-primary)" size="w-32 h-32" rotate="rotate-[-15deg]" top="5%" right="30%" opacity="opacity-30" />
         </div>
 
         {/* Bottom Right Cluster */}
         <div className="triangle-cluster absolute bottom-[-10%] right-[-5%] w-[50%] h-[60%] opacity-0">
-           <Triangle color="var(--color-brand-primary)" size="w-[300px] h-[300px]" rotate="rotate-[20deg]" bottom="10%" right="5%" opacity="opacity-20" />
-           <Triangle color="white" size="w-[200px] h-[200px]" rotate="rotate-[-10deg]" bottom="20%" right="15%" opacity="opacity-10" />
-           <Triangle color="var(--color-brand-primary)" size="w-48 h-48" rotate="rotate-[45deg]" bottom="5%" right="25%" opacity="opacity-15" />
-           <Triangle color="white" size="w-32 h-32" rotate="rotate-[120deg]" bottom="30%" right="10%" opacity="opacity-5" />
+          <Triangle color="var(--color-brand-primary)" size="w-[300px] h-[300px]" rotate="rotate-[20deg]" bottom="10%" right="5%" opacity="opacity-20" />
+          <Triangle color="white" size="w-[200px] h-[200px]" rotate="rotate-[-10deg]" bottom="20%" right="15%" opacity="opacity-10" />
+          <Triangle color="var(--color-brand-primary)" size="w-48 h-48" rotate="rotate-[45deg]" bottom="5%" right="25%" opacity="opacity-15" />
+          <Triangle color="white" size="w-32 h-32" rotate="rotate-[120deg]" bottom="30%" right="10%" opacity="opacity-5" />
         </div>
 
         {/* Left Clusters */}
@@ -77,7 +77,7 @@ const CommunityHero = () => {
         <h1 className="reveal-text text-5xl md:text-[5.5rem] font-playfair font-medium leading-[1.1] mb-8 tracking-tight">
           {hero.title} <span className="text-brand-primary font-normal">{hero.titleAccent}</span>
         </h1>
-        
+
         <p className="reveal-text text-base md:text-lg text-white/90 max-w-2xl mx-auto mb-10 leading-relaxed font-inter opacity-80">
           {hero.description}
         </p>

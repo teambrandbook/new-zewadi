@@ -28,7 +28,7 @@
     "innerPages": [
       { "name": "Recipes", "href": "#" },
       { "name": "Events", "href": "#" },
-      { "name": "Gallery", "href": "#" },
+      { "name": "Gallery", "href": "/gallery" },
       { "name": "Blogs", "href": "#" },
       { "name": "FAQs", "href": "#" }
     ],

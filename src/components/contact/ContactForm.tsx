@@ -1,22 +1,37 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import Image from "next/image";
 import { Phone, Mail, MapPin, ArrowRight } from "lucide-react";
 import contactData from "@/data/contact.json";
+import gsap, { animateFadeInLeft } from "@/lib/gsap";
 
 const ContactForm = () => {
   const { map } = contactData;
+  const sectionRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      animateFadeInLeft(".contact-stagger", {
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: "top 80%",
+        }
+      });
+    }, sectionRef);
+
+    return () => ctx.revert();
+  }, []);
   return (
-    <section className="py-24 bg-white overflow-hidden">
+    <section ref={sectionRef} className="py-24 bg-white overflow-hidden">
       <div className="container mx-auto px-6 lg:px-20">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
           
           {/* Left Side: Contact Info */}
-          <div className="space-y-10">
+          <div className="contact-stagger space-y-10">
             <div className="space-y-4">
-              <span className="text-[#1A4331] font-playfair italic text-lg">Contact Us</span>
-              <h2 className="text-4xl md:text-5xl font-playfair font-bold text-[#1A4331]">
+              <span className="text-[#1A4331] font-caveat text-2xl">Contact Us</span>
+              <h2 className="text-4xl md:text-5xl font-inter font-bold text-[#1A4331]">
                 Get in Touch Now
               </h2>
               <p className="text-gray-500 text-sm max-w-md leading-relaxed font-inter">
@@ -24,7 +39,7 @@ const ContactForm = () => {
               </p>
             </div>
 
-            <div className="space-y-8">
+            <div className="contact-stagger space-y-8">
               {/* Phone */}
               <div className="flex items-center gap-5 group">
                 <div className="w-12 h-12 rounded-full bg-[#1A4331] flex items-center justify-center text-white shrink-0 group-hover:scale-110 transition-transform duration-300">
@@ -61,7 +76,7 @@ const ContactForm = () => {
           </div>
 
           {/* Right Side: Form Card */}
-          <div className="bg-[#F9F9F7] p-8 md:p-12 rounded-[1.5rem]">
+          <div className="contact-stagger bg-[#F9F9F7] p-8 md:p-12 rounded-[1.5rem]">
             <form className="space-y-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <input
