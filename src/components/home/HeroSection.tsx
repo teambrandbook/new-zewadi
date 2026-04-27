@@ -21,7 +21,7 @@ const HeroSection = () => {
         {/* Bottom Column (Mobile) / Left Column (Desktop): Copy and CTA */}
         <div className="w-full lg:w-5/12 flex flex-col items-center lg:items-start z-20 mt-12 lg:mt-0">
           <div className="max-w-[480px] mb-8 lg:mb-10">
-            <p className="text-white text-base lg:text-[17px] font-light font-['Inter'] leading-relaxed opacity-90 text-center lg:text-left">
+            <p className="text-white text-base lg:text-[17px] font-light font-['Inter'] leading-relaxed opacity-90 text-center lg:text-left fade-in">
               Wellness doesn't start with big leaps. It's all those small choices you make every day that add up and slowly shape how you live. That's the heart of Zewadi—making that shift feel natural, easy, and honestly, something you want to keep doing.
             </p>
           </div>
@@ -70,7 +70,7 @@ const HeroSection = () => {
 
         {/* Top Column (Mobile) / Right Column (Desktop): Giant Heading */}
         <div className="w-full lg:w-7/12 flex justify-center lg:justify-end">
-          <h1 className="font-['Playfair_Display'] font-black text-5xl md:text-8xl lg:text-[110px] xl:text-[140px] text-white text-center lg:text-right leading-[1] lg:leading-[0.95] tracking-tight">
+          <h1 className="font-['Playfair_Display'] font-black text-5xl md:text-8xl lg:text-[110px] xl:text-[140px] text-white text-center lg:text-right leading-[1] lg:leading-[0.95] tracking-tight fade-in">
             The Zewadi<br className="hidden md:block"/> Way of<br className="hidden md:block"/> Living
           </h1>
         </div>

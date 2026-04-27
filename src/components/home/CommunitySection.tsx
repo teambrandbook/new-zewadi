@@ -8,20 +8,20 @@ const CommunitySection = () => {
         
         {/* Left Content */}
         <div className="w-full lg:w-[45%] flex flex-col items-start">
-          <p className="text-[#3d634d] text-base lg:text-[22px] font-semibold font-['Inter'] mb-3">
+          <p className="text-[#3d634d] text-base lg:text-[22px] font-semibold font-['Inter'] mb-3 fade-in">
             Zewadi Community
           </p>
           
-          <h2 className="text-[#121414] text-4xl lg:text-[64px] font-bold font-['Playfair_Display'] leading-[1.1] mb-8">
+          <h2 className="text-[#121414] text-4xl lg:text-[64px] font-bold font-['Playfair_Display'] leading-[1.1] mb-8 fade-in">
             Eat Fresh. Live Well.
           </h2>
           
-          <p className="text-[#444] text-sm lg:text-[15px] font-medium font-['Inter'] leading-relaxed mb-10 max-w-[480px]">
+          <p className="text-[#444] text-sm lg:text-[15px] font-medium font-['Inter'] leading-relaxed mb-10 max-w-[480px] fade-in">
             This isn't just about food. It's about how we live, how we connect, how we grow one day at a time. The Zewadi community is made of people, just like you, trying to make better choices every day in their own way.
           </p>
           
           {/* Icons Row */}
-          <div className="flex flex-wrap items-center gap-8 lg:gap-12 mb-12">
+          <div className="flex flex-wrap items-center gap-8 lg:gap-12 mb-12 fade-in">
             <div className="flex items-center gap-3">
               <div className="w-10 h-10 relative">
                 {/* Replace with your specific SVG icon for Wellness */}
