@@ -17,7 +17,7 @@ const Footer = () => {
   const { footer, socials } = navData;
 
   return (
-    <footer className="relative bg-[#1A4331] pt-24 pb-12 overflow-hidden text-white mt-12 md:mt-24">
+    <footer className="relative bg-[#1A4331] pt-24 pb-12 overflow-hidden text-white ">
       {/* World Map Overlay - High-Dramatization */}
       <div className="absolute inset-0 opacity-40 pointer-events-none select-none">
         <Image 
