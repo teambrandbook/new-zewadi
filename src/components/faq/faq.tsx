@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { ChevronRight } from "lucide-react";
-import { StarIcon } from "../common/BrandIcons";
+import ContentSection from "../common/ContentSection";
 
 type FaqItem = {
   question: string;
@@ -79,19 +79,7 @@ export default function Faq() {
 
   return (
     <div className="bg-white">
-      <section className="bg-[#1f4d3a] pt-20 sm:pt-24 pb-0">
-        <div className="container mx-auto px-4 sm:px-6">
-          <div className="h-[140px] sm:h-[180px]" />
-          <div className="max-w-[440px] rounded-t-[24px] bg-white px-7 py-7 sm:px-10 sm:py-10 shadow-[0_-15px_60px_rgba(0,0,0,0.05)]">
-            <h1 className="font-serif text-[2.25rem] font-bold leading-none text-[#0e2207] sm:text-[2.75rem]">
-              FAQ
-            </h1>
-            <p className="mt-4 text-base font-bold text-[#1f6306] sm:text-lg">
-              Frequently Asked Concerns
-            </p>
-          </div>
-        </div>
-      </section>
+      <ContentSection title="FAQ" subtitle="Frequently Asked Concerns" />
 
       <section className="py-14 sm:py-20 pt-10 sm:pt-16">
         <div className="container mx-auto px-4 sm:px-6">

@@ -22,6 +22,12 @@ const Navbar = () => {
   const [isMenuBgVisible, setIsMenuBgVisible] = useState(false);
   const pathname = usePathname();
 
+  const isLinkActive = (href: string) => {
+    if (href === "#") return false;
+    if (href === "/") return pathname === href;
+    return pathname === href || pathname.startsWith(`${href}/`);
+  };
+
   useEffect(() => {
     setMounted(true);
     const handleScroll = () => {
@@ -178,6 +184,7 @@ const Navbar = () => {
 
       {/* Mobile Menu Container */}
       <div
+        id="mobile-navigation"
         className={cn(
           "fixed inset-y-0 right-0 w-[85%] md:w-[60%] bg-[#1A4331] z-[1100] flex flex-col pt-32 px-10 transition-transform duration-700 lg:hidden shadow-2xl border-l border-white/10",
           isMobileMenuOpen ? "translate-x-0" : "translate-x-full"
@@ -247,13 +254,6 @@ const Navbar = () => {
               )}
             </div>
           ))}
-        </div>
-
-        <div className="mt-auto mb-20 mobile-link opacity-0">
-          <div className="flex items-center bg-white/5 border border-white/10 rounded-2xl px-6 py-4">
-            <Globe className="text-brand-primary mr-3" size={20} />
-            <span className="text-white font-bold text-lg">En - English</span>
-          </div>
         </div>
       </div>
     </>
