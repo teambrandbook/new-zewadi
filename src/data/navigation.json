@@ -5,7 +5,7 @@
     { "name": "Community", "href": "/community", "hasDropdown": false },
     { "name": "Product", "href": "/products", "hasDropdown": false },
     { "name": "Contact Us", "href": "/contact", "hasDropdown": false },
-    { "name": "Gallery", "href": "/gallery", "hasDropdown": false }
+    { "name": "Pages", "href": "#", "hasDropdown": true }
   ],
   "footer": {
     "quickLinks": [
