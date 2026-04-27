@@ -1,0 +1,64 @@
+import React from 'react';
+import Image from 'next/image';
+
+const NewsletterSection = () => {
+  return (
+    // White background + spacing
+    <section className="w-full bg-white py-10 lg:py-16">
+
+      {/* Inner Green Box */}
+      <div className=" rounded-md overflow-hidden">
+
+        <div className="flex flex-col lg:flex-row w-full h-auto lg:h-[562px] bg-[#244d3a]">
+
+          {/* Left Side Image */}
+          <div className="w-full lg:w-1/2 relative h-[300px] lg:h-full">
+            <Image
+              src="/home/newsletterBg.png"
+              alt="newsletter"
+              fill
+              className="object-cover"
+            />
+
+            {/* Play Button */}
+            <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 
+                            w-14 h-14 lg:w-[80px] lg:h-[80px] bg-[#8dae84] rounded-full 
+                            flex items-center justify-center shadow-lg">
+              <svg width="24" height="24" fill="white" viewBox="0 0 24 24">
+                <path d="M8 5v14l11-7z" />
+              </svg>
+            </div>
+          </div>
+
+          {/* Right Side */}
+          <div className="w-full lg:w-1/2 flex flex-col justify-center px-8 py-12 lg:px-20">
+
+            <h2 className="text-white text-3xl lg:text-[50px] font-semibold leading-[1.1] mb-6">
+              Subscribe to Our <br /> Newsletter
+            </h2>
+
+            <p className="text-white/80 text-sm mb-8 max-w-[500px]">
+              It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.
+            </p>
+
+            <form className="flex flex-col sm:flex-row gap-4 max-w-[500px]">
+              <input
+                type="email"
+                placeholder="Enter Your Email"
+                className="flex-1 bg-white px-5 py-3 rounded text-sm outline-none text-gray-900 placeholder:text-gray-500"
+              />
+              <button className="bg-[#8dae84] text-white px-8 py-3 rounded text-sm hover:bg-[#7a9972] transition-colors">
+                Subscribe
+              </button>
+            </form>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+  );
+};
+
+export default NewsletterSection;

@@ -26,7 +26,7 @@ const ContactForm = () => {
     <section ref={sectionRef} className="py-24 bg-white overflow-hidden">
       <div className="container mx-auto px-6 lg:px-20">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
-          
+
           {/* Left Side: Contact Info */}
           <div className="contact-stagger space-y-10">
             <div className="space-y-4">
@@ -107,7 +107,7 @@ const ContactForm = () => {
                 rows={5}
                 className="w-full bg-white border-none rounded-lg px-6 py-4 text-sm focus:ring-1 focus:ring-[#1A4331] transition-all outline-none resize-none placeholder:text-black"
               ></textarea>
-              
+
               <button
                 type="submit"
                 className="group flex items-center gap-4 bg-[#1A4331] text-white px-10 py-4 rounded-full font-bold hover:bg-[#1A4331]/90 transition-all shadow-lg active:scale-95"
