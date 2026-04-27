@@ -1,28 +1,54 @@
-import React from 'react';
+import React from "react";
 
-type ContentProps = {
+import { cn } from "@/lib/utils";
+
+type ContentSectionProps = {
   title: string;
   subtitle: string;
-}
+  sectionClassName?: string;
+  containerClassName?: string;
+  spacerClassName?: string;
+  cardClassName?: string;
+  titleClassName?: string;
+  subtitleClassName?: string;
+};
 
-const ContentSection = ({ title, subtitle }: ContentProps) => {
+const ContentSection = ({
+  title,
+  subtitle,
+  sectionClassName,
+  containerClassName,
+  spacerClassName,
+  cardClassName,
+  titleClassName,
+  subtitleClassName,
+}: ContentSectionProps) => {
   return (
-    // items-end keeps the box pinned to the bottom of the green section
-    <section className="relative w-full bg-[#1B3C2E] min-h-[400px] flex items-end">
-      
-      <div className="container mx-auto px-6 lg:px-20">
-        <div 
-          /* Removed translate-y to prevent overflow from the green section */
-          className="bg-white p-8 md:p-14 max-w-lg "
-          style={{ borderRadius: '16px 16px 0 0' }}
+    <section className={cn("bg-[#1f4d3a] pt-20 sm:pt-24 pb-0", sectionClassName)}>
+      <div className={cn("container mx-auto px-4 sm:px-6", containerClassName)}>
+        <div className={cn("h-[140px] sm:h-[180px]", spacerClassName)} />
+
+        <div
+          className={cn(
+            "relative -mb-px max-w-[440px] rounded-t-[24px] bg-white px-7 py-7 sm:px-10 sm:py-10",
+            cardClassName
+          )}
         >
-          {/* Title: Playfair Display + Black Color */}
-          <h2 className="text-4xl md:text-[52px] font-['Playfair_Display'] font-bold text-black mb-3 leading-[1.1]">
+          <h1
+            className={cn(
+              "font-serif text-[2.25rem] font-bold leading-none text-[#0e2207] sm:text-[2.75rem]",
+              titleClassName
+            )}
+          >
             {title}
-          </h2>
-          
-          {/* Subtitle: DM Sans + Greenish Tint */}
-          <p className="text-[14px] font-bold text-[#0e8f39] tracking-normal font-['DM_Sans']">
+          </h1>
+
+          <p
+            className={cn(
+              "mt-4 text-base font-bold text-[#1f6306] sm:text-lg",
+              subtitleClassName
+            )}
+          >
             {subtitle}
           </p>
         </div>

@@ -1,12 +1,12 @@
+import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowRight, CalendarDays, ChevronRight, Search } from "lucide-react";
+import ContentSection from "../common/ContentSection";
 
-const blogImageOne =
-  "https://www.figma.com/api/mcp/asset/0f3399c6-deed-4381-81d7-28b9cce3fa3b";
-const blogImageTwo =
-  "https://www.figma.com/api/mcp/asset/774d5d2b-3f0f-4e4a-880c-528556cf4028";
-const blogImageThree =
-  "https://www.figma.com/api/mcp/asset/1829f903-6117-4865-a37f-147501ca430e";
+const blogImageOne = "/blogs/blog-1.webp";
+const blogImageTwo = "/blogs/blog-2.webp";
+const blogImageThree = "/blogs/blog-3.webp";
 
 const blogPosts = [
   {
@@ -59,31 +59,21 @@ const popularPosts = [
 export default function Blogs() {
   return (
     <div className="bg-white">
-      <section className="bg-[#1f4d3a] pt-20 sm:pt-24 pb-0">
-        <div className="container mx-auto px-4 sm:px-6">
-          <div className="h-[140px] sm:h-[180px]" />
-          <div className="max-w-[440px] rounded-t-[24px] bg-white px-7 py-7 sm:px-10 sm:py-10 shadow-[0_-15px_60px_rgba(0,0,0,0.05)]">
-            <h1 className="font-serif text-[2.25rem] font-bold leading-none text-[#0e2207] sm:text-[2.75rem]">
-              Blogs
-            </h1>
-            <p className="mt-4 text-base font-bold text-[#1f6306] sm:text-lg">
-              Zewadi Blogs
-            </p>
-          </div>
-        </div>
-      </section>
+      <ContentSection title="Blogs" subtitle="Zewadi Blogs" />
 
       <section className="pb-20 pt-10 sm:pb-24 sm:pt-14">
         <div className="container mx-auto px-4 sm:px-6">
           <div className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_340px] xl:grid-cols-[minmax(0,850px)_340px] xl:gap-14">
             <div className="space-y-10 sm:space-y-12">
-              {blogPosts.map((post) => (
+              {blogPosts.map((post, index) => (
                 <article key={post.title} className="max-w-[850px]">
-                  <div className="overflow-hidden rounded-[20px]">
-                    <img
+                  <div className="relative overflow-hidden rounded-[20px] h-[220px] sm:h-[280px] lg:h-[320px]">
+                    <Image
                       src={post.image}
                       alt={post.title}
-                      className="h-[220px] w-full object-cover sm:h-[280px] lg:h-[320px]"
+                      fill
+                      priority={index === 0}
+                      className="object-cover"
                     />
                   </div>
 
@@ -92,7 +82,7 @@ export default function Blogs() {
                     <span className="font-sans">{post.date}</span>
                   </div>
 
-                  <h2 className="mt-4 font-serif text-[1.5rem] leading-tight text-black sm:text-[2rem] sm:leading-[1.2]">
+                  <h2 className="mt-4 font-serif font-bold text-[1.5rem] leading-tight text-black sm:text-[2rem] sm:leading-[1.2]">
                     {post.title}
                   </h2>
 
@@ -162,7 +152,15 @@ export default function Blogs() {
                       href={post.href}
                       className="group flex items-center gap-4"
                     >
-                      <div className="h-[65px] w-[65px] flex-shrink-0 rounded-[18px] bg-[#d9d9d9]" />
+                      <div className="relative h-[65px] w-[65px] flex-shrink-0 overflow-hidden rounded-[18px] bg-[#d9d9d9]">
+                        <Image
+                          src={post.image}
+                          alt={post.title}
+                          fill
+                          loading="lazy"
+                          className="object-cover"
+                        />
+                      </div>
                       <div className="min-w-0 flex-1">
                         <div className="flex items-center gap-1.5 text-xs font-medium text-[#727272]">
                           <CalendarDays size={13} className="text-[#1a4331]" />

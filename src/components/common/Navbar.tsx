@@ -14,6 +14,12 @@ const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const pathname = usePathname();
 
+  const isLinkActive = (href: string) => {
+    if (href === "#") return false;
+    if (href === "/") return pathname === href;
+    return pathname === href || pathname.startsWith(`${href}/`);
+  };
+
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
@@ -32,21 +38,29 @@ const Navbar = () => {
     }
   }, [isMobileMenuOpen]);
 
-  const { navLinks } = navData;
+  useEffect(() => {
+    document.body.style.overflow = isMobileMenuOpen ? "hidden" : "";
+
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [isMobileMenuOpen]);
+
+  const { navLinks, footer } = navData;
 
   return (
     <nav
       className={cn(
         "fixed top-0 left-0 w-full z-[1000] transition-all duration-500",
         isScrolled
-          ? "bg-brand-green/95 backdrop-blur-md shadow-lg py-0"
-          : "bg-brand-green py-0"
+          ? "bg-[#1A4331]/95 backdrop-blur-md shadow-lg py-0"
+          : "bg-[#1A4331] py-0"
       )}
     >
       <div className="container mx-auto px-4 flex items-center justify-between h-14 md:h-20">
         <div className="relative z-10 w-[90px] md:w-[130px]">
           <Link href="/" className="block">
-            <div className="absolute -top-10 left-0 bg-brand-green border-x border-b border-white/10 rounded-b-xl shadow-2xl transition-all duration-500 overflow-hidden w-[90px] h-[90px] md:w-[130px] md:h-[130px] flex items-center justify-center p-2 md:p-3">
+            <div className="absolute -top-10 left-0 bg-[#1A4331] border-x border-b border-white/10 rounded-b-xl shadow-2xl transition-all duration-500 overflow-hidden w-[90px] h-[90px] md:w-[130px] md:h-[130px] flex items-center justify-center p-2 md:p-3">
               <div className="relative w-full h-full">
                 <Image
                   src="/logo/zewadi-logo.webp"
@@ -60,24 +74,50 @@ const Navbar = () => {
           </Link>
         </div>
 
-        <div className="hidden lg:flex items-center space-x-10">
+        <div className="hidden lg:flex items-center space-x-10 h-full">
           {navLinks.map((link) => (
-            <div key={link.name} className="relative group">
-              <Link
-                href={link.href}
-                className={cn(
-                  "text-[15px] font-semibold transition-all duration-300 flex items-center gap-1",
-                  pathname === link.href ? "text-brand-primary" : "text-white/90 hover:text-brand-primary"
-                )}
-              >
-                {link.name}
-                {link.hasDropdown && (
+            <div key={link.name} className="relative group h-full flex items-center">
+              {link.hasDropdown ? (
+                <div
+                  className={cn(
+                    "text-[15px] font-semibold transition-all duration-300 flex items-center gap-1 cursor-pointer py-4",
+                    isLinkActive(link.href)
+                      ? "text-[#83cd20]"
+                      : "text-white/90 hover:text-[#83cd20]"
+                  )}
+                >
+                  {link.name}
                   <ChevronDown
                     size={14}
                     className="group-hover:rotate-180 transition-transform duration-300"
                   />
-                )}
-              </Link>
+                  {/* Desktop Dropdown */}
+                  <div className="absolute top-full left-0 mt-0 w-48 bg-white rounded-xl shadow-xl border border-gray-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 py-2 z-[1001]">
+                    {footer.innerPages.map((subLink) => (
+                      <Link
+                        key={subLink.name}
+                        href={subLink.href}
+                        className="block px-6 py-2.5 text-sm font-medium text-[#1A4331] hover:bg-[#83cd20]/10 hover:text-[#83cd20] transition-colors"
+                      >
+                        {subLink.name}
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              ) : (
+                <Link
+                  href={link.href}
+                  className={cn(
+                    "text-[15px] font-semibold transition-all duration-300 flex items-center gap-1 py-4",
+                    isLinkActive(link.href)
+                      ? "text-[#83cd20]"
+                      : "text-white/90 hover:text-[#83cd20]"
+                  )}
+                  aria-current={isLinkActive(link.href) ? "page" : undefined}
+                >
+                  {link.name}
+                </Link>
+              )}
             </div>
           ))}
         </div>
@@ -88,13 +128,17 @@ const Navbar = () => {
             <span className="text-white font-bold text-sm">En</span>
           </div>
 
-          <div className="w-10 h-10 bg-white/15 rounded-full flex items-center justify-center text-white cursor-pointer hover:bg-brand-primary hover:text-brand-dark transition-all shadow-inner">
+          <div className="w-10 h-10 bg-white/15 rounded-full flex items-center justify-center text-white cursor-pointer hover:bg-[#83cd20] hover:text-[#1A4331] transition-all shadow-inner">
             <User size={22} />
           </div>
 
           <button
+            type="button"
             className="lg:hidden text-white ml-2 z-[1001]"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            aria-expanded={isMobileMenuOpen}
+            aria-controls="mobile-navigation"
+            aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
           >
             {isMobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
           </button>
@@ -111,44 +155,50 @@ const Navbar = () => {
       />
 
       <div
+        id="mobile-navigation"
         className={cn(
           "fixed inset-y-0 right-0 w-[85%] md:w-[60%] bg-[#1A4331] z-[1000] flex flex-col pt-32 px-10 transition-transform duration-700 lg:hidden shadow-2xl",
           isMobileMenuOpen ? "translate-x-0" : "translate-x-full"
         )}
       >
-        {/* Background Accent */}
-        <div className={cn(
-          "absolute inset-y-0 right-0 w-1/2 bg-brand-primary/5 transition-transform duration-1000 delay-300",
-          isMobileMenuOpen ? "scale-x-100" : "scale-x-0"
-        )} />
-
         <div className="flex flex-col space-y-6 relative z-10">
           {navLinks.map((link, idx) => (
-            <Link
-              key={link.name}
-              href={link.href}
-              className={cn(
-                "mobile-link text-2xl md:text-3xl font-playfair font-bold transition-colors flex items-center justify-between",
-                pathname === link.href ? "text-brand-primary" : "text-white/80 hover:text-brand-primary"
+            <div key={link.name} className="flex flex-col space-y-4">
+              <Link
+                href={link.href}
+                className={cn(
+                  "mobile-link text-2xl md:text-3xl font-bold transition-colors flex items-center justify-between",
+                  isLinkActive(link.href)
+                    ? "text-[#83cd20]"
+                    : "text-white/80 hover:text-[#83cd20]"
+                )}
+                onClick={() => !link.hasDropdown && setIsMobileMenuOpen(false)}
+              >
+                <div className="flex items-center gap-4">
+                  <span className="text-xs tracking-[0.3em] text-[#83cd20]/60 mt-2">
+                    0{idx + 1}
+                  </span>
+                  {link.name}
+                </div>
+                {!link.hasDropdown && <ArrowRight size={20} className="text-[#83cd20]/40" />}
+              </Link>
+              
+              {link.hasDropdown && (
+                <div className="pl-10 flex flex-col space-y-4 pt-2">
+                  {footer.innerPages.map((subLink) => (
+                    <Link
+                      key={subLink.name}
+                      href={subLink.href}
+                      className="mobile-link text-lg text-white/60 hover:text-[#83cd20]"
+                      onClick={() => setIsMobileMenuOpen(false)}
+                    >
+                      {subLink.name}
+                    </Link>
+                  ))}
+                </div>
               )}
-              onClick={() => setIsMobileMenuOpen(false)}
-            >
-              <div className="flex items-center gap-4">
-                <span className="text-xs font-dm tracking-[0.3em] text-brand-primary/60 mt-2">
-                  0{idx + 1}
-                </span>
-                {link.name}
-              </div>
-              <ArrowRight size={20} className="text-brand-primary/40" />
-            </Link>
+            </div>
           ))}
-        </div>
-
-        <div className="mt-auto mb-20 mobile-link opacity-0">
-          <div className="flex items-center bg-white/5 border border-white/10 rounded-2xl px-6 py-4">
-            <Globe className="text-brand-primary mr-3" size={20} />
-            <span className="text-white font-bold text-lg">En - English</span>
-          </div>
         </div>
       </div>
     </nav>
