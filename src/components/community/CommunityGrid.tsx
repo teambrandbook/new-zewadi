@@ -56,7 +56,7 @@ const CommunityGrid = () => {
             // Mobile (1-col): DOM Order (I,T,I,T...)
             // Desktop (3-col): DOM Order (I-T-I, T-I-T)
             // Tablet (2-col): Custom Order to make Row 2 (T,I) -> Row1(0,1), Row2(3,2), Row3(4,5)
-            
+
             const orders: any = {
               0: "order-1 md:order-1 lg:order-1",
               1: "order-2 md:order-2 lg:order-2",
@@ -100,7 +100,7 @@ const CommunityGrid = () => {
 
         {gridSection.footerText && (
           <div className="footer-text mt-12 max-w-6xl mx-auto px-6 border-t border-gray-100/10 pt-10">
-            <p className="text-lg md:text-xl text-black/80 font-dm leading-relaxed max-w-4xl">
+            <p className="text-lg md:text-xl text-black/80 font-inter leading-relaxed max-w-4xl">
               {gridSection.footerText}
             </p>
           </div>

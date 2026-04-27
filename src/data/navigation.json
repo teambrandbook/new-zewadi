@@ -1,11 +1,11 @@
 {
   "navLinks": [
-    { "name": "Home", "href": "/" },
-    { "name": "About Us", "href": "/about" },
-    { "name": "Community", "href": "/community" },
-    { "name": "Product", "href": "/products" },
-    { "name": "Contact Us", "href": "/contact" },
-    { "name": "Pages", "href": "#", "hasDropdown": true }
+    { "name": "Home", "href": "/", "hasDropdown": false },
+    { "name": "About Us", "href": "/about", "hasDropdown": false },
+    { "name": "Community", "href": "/community", "hasDropdown": false },
+    { "name": "Product", "href": "/products", "hasDropdown": false },
+    { "name": "Contact Us", "href": "/contact", "hasDropdown": false },
+    { "name": "Gallery", "href": "/gallery", "hasDropdown": false }
   ],
   "footer": {
     "quickLinks": [
@@ -18,7 +18,7 @@
     "innerPages": [
       { "name": "Recipes", "href": "#" },
       { "name": "Events", "href": "#" },
-      { "name": "Gallery", "href": "#" },
+      { "name": "Gallery", "href": "/gallery" },
       { "name": "Blogs", "href": "#" },
       { "name": "FAQs", "href": "#" }
     ],

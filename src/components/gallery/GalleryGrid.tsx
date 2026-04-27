@@ -4,12 +4,13 @@
 
 import React, { useState, useEffect, useRef } from "react";
 import Image from "next/image";
-import gsap from "@/lib/gsap";
+import gsap, { animatePopUp } from "@/lib/gsap";
 import galleryData from "@/data/gallery.json";
 import { cn } from "@/lib/utils";
 
 const GalleryGrid = () => {
   const [activeCategory, setActiveCategory] = useState("SHOW ALL");
+  const [mounted, setMounted] = useState(false);
   const gridRef = useRef<HTMLDivElement>(null);
   const { categories, items } = galleryData;
 
@@ -18,18 +19,24 @@ const GalleryGrid = () => {
     : items.filter(item => item.category === activeCategory);
 
   useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  useEffect(() => {
+    if (!mounted) return;
+
     const ctx = gsap.context(() => {
-      // Direct entrance without opacity to ensure visibility
-      gsap.from(".gallery-item", {
-        y: 30,
-        duration: 0.6,
-        stagger: 0.05,
-        ease: "power2.out",
-        clearProps: "all" // Ensure no styles are left over
+      animatePopUp(".gallery-item", {
+        scrollTrigger: {
+          trigger: gridRef.current,
+          start: "top 85%",
+        },
       });
     }, gridRef);
     return () => ctx.revert();
-  }, [activeCategory]);
+  }, [mounted, activeCategory]);
+
+  if (!mounted) return null;
 
   return (
     <section className="pt-40 pb-20 md:pt-48 bg-white min-h-screen">
@@ -58,7 +65,7 @@ const GalleryGrid = () => {
           {filteredItems.map((item) => (
             <div
               key={item.id}
-              className="gallery-item group relative aspect-square  overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-500 cursor-pointer"
+              className="gallery-item opacity-0 group relative aspect-square  overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-500 cursor-pointer"
             >
               <Image
                 src={item.image}
