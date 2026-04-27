@@ -67,3 +67,16 @@ export const Instagram = ({ size = 24, className = "" }: { size?: number, classN
     <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
   </svg>
 );
+
+export const StarIcon = ({ size = 24, className = "" }: { size?: number, className?: string }) => (
+    <svg
+        width={size}
+        height={size}
+        viewBox="0 0 24 24"
+        fill="currentColor"
+        xmlns="http://www.w3.org/2000/svg"
+        className={className}
+    >
+        <path d="M12 0Q12 12 24 12Q12 12 12 24Q12 12 0 12Q12 12 12 0Z" />
+    </svg>
+);
