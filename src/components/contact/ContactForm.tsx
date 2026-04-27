@@ -123,19 +123,14 @@ const ContactForm = () => {
 
         {/* Map Section Container */}
         <div className="mt-24 relative w-full h-[400px] md:h-[500px] rounded-[1rem] overflow-hidden bg-gray-50 border border-gray-100 group shadow-sm flex items-center justify-center">
-          {map?.image ? (
-            <Image
-              src={map.image}
-              alt="World Map Location"
-              fill
-              className="object-cover object-[center_30%] transition-transform duration-1000 group-hover:scale-105"
-            />
-          ) : (
-            <React.Fragment>
-              <div className="absolute inset-0 opacity-20 bg-[radial-gradient(#1A4331_1px,transparent_1px)] [background-size:20px_20px]"></div>
-              <p className="relative text-[#1A4331]/20 font-serif text-6xl md:text-8xl font-bold uppercase select-none">World Map</p>
-            </React.Fragment>
-          )}
+            <iframe 
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d98169.78498569176!2d-105.2835841698285!3d39.74401336929289!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x876b981287686cf7%3A0x14c64654208055dc!2sGolden%2C%20CO%2C%20USA!5e0!3m2!1sen!2sin!4v1777295173458!5m2!1sen!2sin" 
+              className="w-full h-full border-0" 
+              allowFullScreen={true}
+              loading="lazy" 
+              referrerPolicy="no-referrer-when-downgrade"
+              title="Google Maps Location"
+            ></iframe>
         </div>
       </div>
     </section>
