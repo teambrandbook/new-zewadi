@@ -1,24 +1,17 @@
 import Link from "next/link";
 import { ArrowRight, Leaf, MoveRight, SendHorizontal } from "lucide-react";
 
-import { StarIcon } from "../common/BrandIcons";
+import { StarIcon, ApproachIcon } from "../common/BrandIcons";
+import ContentSection from "../common/ContentSection";
 
-const introTallImage =
-    "https://www.figma.com/api/mcp/asset/3afd8e53-bdde-4de5-bc42-957e680686bc";
-const introTopImage =
-    "https://www.figma.com/api/mcp/asset/b3ae8695-686f-45fb-929b-ac98aea9765b";
-const introBottomImage =
-    "https://www.figma.com/api/mcp/asset/171cdcc5-319b-4600-a11c-ef4f05d031f8";
-const storyLeftImage =
-    "https://www.figma.com/api/mcp/asset/35f363c1-e4d5-456f-83be-a2317bf5f5ed";
-const storyCenterImage =
-    "https://www.figma.com/api/mcp/asset/19652279-79e8-4f16-8e8e-06a014ecb182";
-const storyRightImage =
-    "https://www.figma.com/api/mcp/asset/eac7ce6c-b4bd-455b-9512-1d7e94b09688";
-const approachImage =
-    "https://www.figma.com/api/mcp/asset/eb21481a-4b3a-49ee-8357-ea1799a03359";
-const testimonialImage =
-    "https://www.figma.com/api/mcp/asset/a63ca89f-bbff-446c-a1fc-ae30f830f5f5";
+const introTallImage = "/about/intro-tall.webp";
+const introTopImage = "/about/intro-top.webp";
+const introBottomImage = "/about/intro-bottom.webp";
+const storyLeftImage = "/about/story-left.webp";
+const storyCenterImage = "/about/story-center.webp";
+const storyRightImage = "/about/story-right.webp";
+const approachImage = "/about/approach.webp";
+const testimonialImage = "/about/testimonial.webp";
 
 const introCards = [
     {
@@ -44,24 +37,12 @@ const sectionTitleClass =
 export default function About() {
     return (
         <div className="bg-white text-[#121414]">
-            <section className="bg-[#1f4d3a] pt-20 sm:pt-24 pb-0">
-                <div className="container mx-auto px-4 sm:px-6">
-                    <div className="h-[140px] sm:h-[180px]" />
-                    <div className="max-w-[440px] rounded-t-[24px] bg-white px-7 py-7 sm:px-10 sm:py-10 shadow-[0_-15px_60px_rgba(0,0,0,0.05)]">
-                        <h1 className="font-serif text-[2.25rem] font-bold leading-none text-[#0e2207] sm:text-[2.75rem]">
-                            About Zewadi
-                        </h1>
-                        <p className="mt-4 text-base font-bold text-[#1f6306] sm:text-lg">
-                            What is Zewadi
-                        </p>
-                    </div>
-                </div>
-            </section>
+            <ContentSection title="About Zewadi" subtitle="What is Zewadi" />
 
             <section className="pb-16 pt-10 sm:pb-20 sm:pt-14 lg:pt-16">
                 <div className="container mx-auto px-4 sm:px-6">
                     <div className="grid gap-12 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] lg:items-start lg:gap-16">
-                        <div className="mx-auto grid w-full max-w-[580px] grid-cols-[1.05fr_0.95fr] gap-5 sm:gap-6 items-end">
+                        <div className="mx-auto grid w-full max-w-[580px] grid-cols-2 gap-4 sm:gap-6 items-start lg:grid-cols-[1.05fr_0.95fr]">
                             <div className="space-y-4 sm:space-y-5">
                                 <div className="overflow-hidden rounded-[20px]">
                                     <img
@@ -70,16 +51,16 @@ export default function About() {
                                         className="h-[270px] w-full object-cover sm:h-[350px] lg:h-[450px] -scale-x-100"
                                     />
                                 </div>
-                                <div className="rounded-[22px] border-2 border-[#83cd20] bg-white px-6 py-6 shadow-[0_10px_26px_rgba(0,0,0,0.05)]">
-                                    <div className="flex items-center gap-3">
-                                        <div className="flex h-11 w-11 items-center justify-center rounded-full bg-[#f1f5eb] text-[#034833]">
-                                            <Leaf size={20} />
+                                <div className="rounded-[22px] border-2 border-[#83cd20] bg-white px-4 py-5 shadow-[0_10px_26px_rgba(0,0,0,0.05)] sm:px-6 sm:py-6">
+                                    <div className="flex items-center gap-2 sm:gap-3">
+                                        <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#f1f5eb] text-[#034833] sm:h-11 sm:w-11">
+                                            <Leaf size={18} className="sm:w-5 sm:h-5" />
                                         </div>
                                         <div>
-                                            <p className="text-base font-semibold leading-6 text-[#034833]">
+                                            <p className="text-sm font-semibold leading-tight text-[#034833] sm:text-base sm:leading-6">
                                                 Natural Health
                                             </p>
-                                            <p className="text-[13px] leading-4 text-[#727272]">
+                                            <p className="text-[11px] leading-3 text-[#727272] sm:text-[13px] sm:leading-4">
                                                 Wellness Made Simple
                                             </p>
                                         </div>
@@ -99,14 +80,14 @@ export default function About() {
                                     <img
                                         src={introBottomImage}
                                         alt="Hands holding a seedling"
-                                        className="h-[230px] w-full object-cover sm:h-[390px]"
+                                        className="h-[238px] w-full object-cover sm:h-[408px] lg:h-[412px]"
                                     />
                                 </div>
                             </div>
                         </div>
 
                         <div className="lg:pl-4 xl:pl-8">
-                            <h2 className="font-serif font-bold text-[1.35rem] leading-[1.3] sm:text-[1.85rem] sm:leading-[1.2] text-[#034833] tracking-normal">
+                            <h2 className="font-serif font-bold text-[1.48rem] leading-[1.3] sm:text-[2.05rem] sm:leading-[1.2] text-[#034833] tracking-normal">
                                 Food That Feels Right,<br />
                                 Every Day Thoughtfully<br />
                                 Crafted for You.
@@ -116,12 +97,12 @@ export default function About() {
                                 {introCards.map((card) => (
                                     <article
                                         key={card.title}
-                                        className="rounded-[20px] border border-[#e3dbd8] bg-white px-7 py-4 shadow-[0_10px_30px_rgba(0,0,0,0.03)] sm:px-8 sm:py-5"
+                                        className="rounded-[20px] border border-[#e3dbd8] bg-white px-6 py-4 shadow-[0_10px_30px_rgba(0,0,0,0.03)] sm:px-7 sm:py-5"
                                     >
-                                        <h3 className="text-lg font-semibold leading-tight text-[#034833]">
+                                        <h3 className="text-[1.06rem] font-semibold leading-tight text-[#034833] sm:text-[1.1rem]">
                                             {card.title}
                                         </h3>
-                                        <p className="mt-3 text-[15px] leading-relaxed text-black/80">
+                                        <p className="mt-3 text-[15.25px] leading-relaxed text-black/80 sm:text-[15.5px]">
                                             {card.body}
                                         </p>
                                     </article>
@@ -171,8 +152,8 @@ export default function About() {
                 </div>
             </section>
 
-            <section className="py-10 sm:py-12">
-                <div className="container mx-auto px-4 sm:px-6">
+            <section className="pb-10 sm:py-12">
+                <div className="container mx-auto px-4 sm:px-6 lg:pl-32 lg:pr-6 xl:pl-48">
                     <h2 className={sectionTitleClass}>Our Approach</h2>
 
                     <div className="mt-8 grid gap-10 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:items-start">
@@ -205,16 +186,16 @@ export default function About() {
                                             className={`flex h-9 w-9 items-center justify-center ${step.active ? "text-white" : "text-[#1f4d3a]"
                                                 }`}
                                         >
-                                            <StarIcon size={28} />
+                                            <ApproachIcon size={24} />
                                         </div>
                                         <p className="font-serif text-lg leading-tight sm:text-[1.25rem]">
                                             {step.label}
                                         </p>
                                     </div>
                                     <div
-                                        className={`flex h-8 w-8 items-center justify-center rounded-full border text-sm font-bold sm:h-10 sm:w-10 sm:text-lg ${step.active
-                                                ? "border-white/40 text-white"
-                                                : "border-black/10 text-black/40"
+                                        className={`flex h-8 w-8 items-center justify-center rounded-full text-sm font-bold sm:h-10 sm:w-10 sm:text-lg ${step.active
+                                                ? "bg-white text-[#1f4d3a]"
+                                                : "bg-[#1f4d3a] text-white"
                                             }`}
                                     >
                                         {step.number}
@@ -236,9 +217,9 @@ export default function About() {
                 </div>
             </section>
 
-            <section className="pb-12 pt-4 sm:pb-16">
+            <section className="pb-12 pt-4 sm:pb-24 lg:pb-32">
                 <div className="container mx-auto px-4 sm:px-6">
-                    <div className="flex justify-center mb-8">
+                    <div className="flex justify-center mb-8 pt-10">
                         <div className="inline-flex items-center gap-5 rounded-full bg-[#1a4331] px-7 py-2.5 shadow-sm border border-white/10">
                             <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-white/80">
                                 Client Testimonials
@@ -248,20 +229,23 @@ export default function About() {
                         </div>
                     </div>
 
-                    <h2 className="mx-auto text-center font-serif text-[2.2rem] leading-tight text-[#1a4331] sm:text-[2.75rem] max-w-[18ch]">
-                        Real Stories from Everyday Moments
+                    <h2 className="mx-auto text-center font-serif font-bold text-[2.2rem] leading-tight text-[#1a4331] sm:text-[2.75rem]">
+                        Real Stories from Everyday<br />Moments
                     </h2>
 
-                    <div className="relative mx-auto mt-10 grid max-w-[1140px] gap-8 lg:min-h-[380px] lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] lg:items-center">
-                        <div className="relative z-20 overflow-hidden rounded-[32px] bg-[#f2f6ee] p-10 shadow-[0_20px_60px_rgba(0,0,0,0.04)] sm:p-14 lg:max-w-[760px]">
+                    <div className="relative mx-auto mt-12 grid max-w-[1140px] gap-8 lg:min-h-[380px] lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] lg:items-center lg:gap-0">
+                        <div className="relative z-20 overflow-hidden rounded-[32px] bg-[#f2f6ee] p-10 shadow-[0_20px_60px_rgba(0,0,0,0.04)] sm:p-14 lg:max-w-[540px] lg:translate-x-40">
                             {/* Large Background Quote Marks - Centered */}
                             <div className="pointer-events-none absolute inset-0 flex items-center justify-center text-[#1f4d3a]/5 translate-x-12">
-                                <svg width="230" height="170" viewBox="0 0 220 160" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M40 140C20 140 0 120 0 90C0 40 40 0 60 0L80 20C70 20 40 50 40 80H80V140H40ZM160 140C140 140 120 120 120 90C120 40 160 0 180 0L200 20C190 20 160 50 160 80H200V140H160Z" />
+                                <svg width="280" height="200" viewBox="0 0 340 240" fill="none" stroke="currentColor" strokeWidth="8" xmlns="http://www.w3.org/2000/svg">
+                                    {/* Left Quote */}
+                                    <path d="M115 130V220H25V130C25 70 65 30 115 30V80C95 80 85 95 85 110H115V130Z" />
+                                    {/* Right Quote */}
+                                    <path d="M265 130V220H175V130C175 70 215 30 265 30V80C245 80 235 95 235 110H265V130Z" />
                                 </svg>
                             </div>
 
-                            <p className="relative z-10 max-w-[42ch] text-[1.1rem] font-medium leading-[1.6] text-[#1f4d3a] sm:text-[1.35rem] sm:leading-[1.5]">
+                            <p className="relative z-10 max-w-[36ch] text-[1.1rem] font-medium leading-[1.6] text-[#1f4d3a] sm:text-[1.35rem] sm:leading-[1.5]">
                                 Zewadi products truly changed the way I look at everyday food
                                 simple, high-quality, and made to fit effortlessly into my
                                 life.
@@ -297,7 +281,7 @@ export default function About() {
                             </div>
                         </div>
 
-                        <div className="relative z-10 overflow-hidden rounded-[32px] lg:-ml-40 lg:justify-self-end">
+                        <div className="relative z-10 overflow-hidden rounded-[32px] lg:-ml-[380px] lg:justify-self-end xl:-ml-[440px]">
                             <img
                                 src={testimonialImage}
                                 alt="People stacking hands together"

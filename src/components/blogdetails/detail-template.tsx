@@ -1,4 +1,6 @@
 import { CalendarDays, Check, Search } from "lucide-react";
+import Image from "next/image";
+import ContentSection from "../common/ContentSection";
 
 type PopularPost = {
   title: string;
@@ -41,38 +43,36 @@ export default function BlogDetailTemplate({
 }: BlogDetailTemplateProps) {
   return (
     <div className="bg-white">
-      <section className="bg-[#1f4d3a] pt-28 sm:pt-32">
-        <div className="container mx-auto px-4 sm:px-6">
-          <div className="h-[170px] sm:h-[210px]" />
-          <div className="max-w-[460px] rounded-t-xl bg-white px-6 py-7 shadow-[0_12px_30px_rgba(0,0,0,0.08)] sm:px-10">
-            <h1 className="font-serif text-[2rem] leading-none text-[#0e2207] sm:text-[3.125rem]">
-              {heroTitle}
-            </h1>
-            <p className="mt-3 text-sm font-semibold text-[#1f6306]">
-              {heroSubtitle}
-            </p>
-          </div>
-        </div>
-      </section>
+      <ContentSection
+        title={heroTitle}
+        subtitle={heroSubtitle}
+        sectionClassName="pt-28 sm:pt-32"
+        spacerClassName="h-[170px] sm:h-[210px]"
+        cardClassName="max-w-[460px] rounded-t-xl px-6 py-7 sm:px-10 sm:py-7"
+        titleClassName="text-[2rem] sm:text-[3.125rem] font-normal"
+        subtitleClassName="mt-3 text-sm font-semibold sm:text-sm"
+      />
 
       <section className="pb-20 pt-12 sm:pb-24 lg:pt-16">
         <div className="container mx-auto px-4 sm:px-6">
           <div className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_340px] xl:grid-cols-[minmax(0,850px)_340px] xl:gap-14">
             <article className="max-w-[850px]">
-              <div className="mb-3 flex gap-[2px]">
-                <span className="h-[2px] w-[44px] bg-[#1f4d3a]" />
-                <span className="h-[2px] w-[44px] bg-[#d8d6d1]" />
-                <span className="h-[2px] w-[44px] bg-[#d8d6d1]" />
-                <span className="h-[2px] w-[44px] bg-[#d8d6d1]" />
-                <span className="h-[2px] w-[44px] bg-[#d8d6d1]" />
-                <span className="h-[2px] w-[44px] bg-[#d8d6d1]" />
+              <div className="mb-3 flex w-[99%] gap-[4px]">
+                <span className="h-[2.5px] flex-1 bg-[#1f4d3a]" />
+                <span className="h-[2.5px] flex-1 bg-[#d8d6d1]" />
+                <span className="h-[2.5px] flex-1 bg-[#d8d6d1]" />
+                <span className="h-[2.5px] flex-1 bg-[#d8d6d1]" />
+                <span className="h-[2.5px] flex-1 bg-[#d8d6d1]" />
+                <span className="h-[2.5px] flex-1 bg-[#d8d6d1]" />
               </div>
 
-              <div className="overflow-hidden rounded-[20px]">
-                <img
+              <div className="relative overflow-hidden rounded-[20px] h-[250px] sm:h-[360px] lg:h-[416px]">
+                <Image
                   src={image}
                   alt={title}
-                  className="h-[250px] w-full object-cover sm:h-[360px] lg:h-[416px]"
+                  fill
+                  priority
+                  className="object-cover"
                 />
               </div>
 
@@ -81,7 +81,7 @@ export default function BlogDetailTemplate({
                 <span>October 19, 2022</span>
               </div>
 
-              <h2 className="mt-4 font-serif text-[2rem] leading-tight text-black sm:text-[3.125rem] sm:leading-[1.2]">
+              <h2 className="mt-4 font-serif font-bold text-[2rem] leading-tight text-black sm:text-[3.125rem] sm:leading-[1.2]">
                 {title}
               </h2>
 
@@ -97,13 +97,13 @@ export default function BlogDetailTemplate({
                 {detailParagraphTwo}
               </p>
 
-              <div className="mt-6 rounded-[5px] bg-[#f1f5eb] p-6">
-                <p className="text-[15px] leading-[1.625rem] text-[#141417]">
+              <div className="mt-10 border-l-[6px] border-[#1f4d3a] bg-[#f3f6ee] p-8 rounded-[12px]">
+                <p className="text-[16px] leading-relaxed text-[#111111]">
                   This is thanks to their outstanding service, competitive
-                  pricing, and exceptional customer support. It's truly
+                  pricing, and exceptional customer support. It&apos;s truly
                   refreshing to experience such a personal touch.
                 </p>
-                <p className="mt-5 text-[19px] font-medium leading-6 text-[#1f4d3a]">
+                <p className="mt-4 text-[18px] font-semibold text-[#1a4331]">
                   Robert Denbhai
                 </p>
               </div>
@@ -158,11 +158,13 @@ export default function BlogDetailTemplate({
                 <div className="mt-6 space-y-5">
                   {popularPosts.map((post) => (
                     <article key={post.title} className="flex items-center gap-4">
-                      <div className="h-[85px] w-20 overflow-hidden rounded-[20px] bg-[#d9d9d9]">
-                        <img
+                      <div className="relative h-[65px] w-[65px] flex-shrink-0 overflow-hidden rounded-[18px] bg-[#d9d9d9]">
+                        <Image
                           src={post.image}
                           alt={post.title}
-                          className="h-full w-full object-cover"
+                          fill
+                          loading="lazy"
+                          className="object-cover"
                         />
                       </div>
                       <div className="min-w-0">
