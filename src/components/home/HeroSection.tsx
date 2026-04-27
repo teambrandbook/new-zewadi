@@ -19,7 +19,7 @@ const HeroSection = () => {
       <div className="container mx-auto px-6 lg:px-20 relative z-10 flex flex-col-reverse lg:flex-row items-center lg:items-center justify-between h-full pt-28 pb-12 lg:py-0">
         
         {/* Bottom Column (Mobile) / Left Column (Desktop): Copy and CTA */}
-        <div className="w-full lg:w-5/12 flex flex-col items-start z-20 mt-12 lg:mt-0">
+        <div className="w-full lg:w-5/12 flex flex-col items-center lg:items-start z-20 mt-12 lg:mt-0">
           <div className="max-w-[480px] mb-8 lg:mb-10">
             <p className="text-white text-base lg:text-[17px] font-light font-['Inter'] leading-relaxed opacity-90 text-center lg:text-left">
               Wellness doesn't start with big leaps. It's all those small choices you make every day that add up and slowly shape how you live. That's the heart of Zewadi—making that shift feel natural, easy, and honestly, something you want to keep doing.

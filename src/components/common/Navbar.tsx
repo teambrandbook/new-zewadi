@@ -20,6 +20,7 @@ const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isMenuBgVisible, setIsMenuBgVisible] = useState(false);
+  const [expandedLink, setExpandedLink] = useState<string | null>(null);
   const pathname = usePathname();
 
   useEffect(() => {
@@ -47,15 +48,21 @@ const Navbar = () => {
       return () => clearTimeout(timer);
     } else {
       setIsMenuBgVisible(false);
+      setExpandedLink(null);
     }
   }, [isMobileMenuOpen]);
 
   const handleCloseMenu = () => {
     setIsMenuBgVisible(false);
+    setExpandedLink(null);
     // Delay closing of the menu container to allow background to disappear
     setTimeout(() => {
       setIsMobileMenuOpen(false);
     }, 400);
+  };
+
+  const toggleExpand = (name: string) => {
+    setExpandedLink(expandedLink === name ? null : name);
   };
 
   const { navLinks, footer } = navData as any;
@@ -201,19 +208,33 @@ const Navbar = () => {
           {navLinks.map((link: any, idx: number) => (
             <div key={link.name} className="flex flex-col">
               {link.hasDropdown ? (
-                <div className="group/mobile">
-                  <div className="mobile-link text-2xl md:text-3xl font-playfair font-bold text-white/80 flex items-center justify-between py-2 cursor-pointer transition-colors hover:text-brand-primary">
+                <div className="flex flex-col">
+                  <div 
+                    className="mobile-link text-2xl md:text-3xl font-playfair font-bold text-white/80 flex items-center justify-between py-2 cursor-pointer transition-colors hover:text-brand-primary"
+                    onClick={() => toggleExpand(link.name)}
+                  >
                     <div className="flex items-center gap-4">
                       <span className="text-xs font-dm tracking-[0.3em] text-brand-primary/60 mt-2">
                         0{idx + 1}
                       </span>
                       {link.name}
                     </div>
-                    <ChevronDown size={20} className="text-brand-primary/40 group-hover/mobile:rotate-180 transition-transform" />
+                    <ChevronDown 
+                      size={20} 
+                      className={cn(
+                        "text-brand-primary/40 transition-transform duration-300",
+                        expandedLink === link.name && "rotate-180"
+                      )} 
+                    />
                   </div>
                   
                   {/* Sub-links in Mobile */}
-                  <div className="flex flex-col space-y-4 pl-8 mt-4 overflow-hidden max-h-0 group-hover/mobile:max-h-[500px] transition-all duration-500 ease-in-out opacity-0 group-hover/mobile:opacity-100">
+                  <div 
+                    className={cn(
+                      "flex flex-col space-y-4 pl-8 overflow-hidden transition-all duration-500 ease-in-out opacity-0",
+                      expandedLink === link.name ? "max-h-[500px] mt-4 opacity-100" : "max-h-0"
+                    )}
+                  >
                     {innerPages.map((item: any) => (
                       <Link
                         key={item.name}
