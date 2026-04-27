@@ -31,7 +31,7 @@ const Footer = () => {
       </div>
 
       <div className="container relative z-10 mx-auto px-6">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-16">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
           
           {/* Logo & Info Column */}
           <div className="lg:col-span-4 flex flex-col items-start">
@@ -65,55 +65,58 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* Quick Links Column */}
-          <div className="lg:col-span-2">
-            <h4 className="text-[17px] font-bold mb-8 text-white uppercase tracking-widest border-b border-white/10 pb-2 inline-block">Quick Links</h4>
-            <ul className="space-y-4">
-              {footer.quickLinks.map((item) => (
-                <li key={item.name}>
-                  <Link
-                    href={item.href}
-                    className="text-white/60 hover:text-white transition-colors text-[15px] font-medium block h-full w-full"
-                  >
-                    {item.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
+          {/* Links Grid Container */}
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:col-span-8 gap-12 lg:gap-16">
+            {/* Quick Links Column - Span 2 on mobile to sit on top of the next row */}
+            <div className="col-span-2 md:col-span-1">
+              <h4 className="text-[17px] font-bold mb-8 text-white uppercase tracking-widest border-b border-white/10 pb-2 inline-block">Quick Links</h4>
+              <ul className="space-y-4">
+                {footer.quickLinks.map((item) => (
+                  <li key={item.name}>
+                    <Link
+                      href={item.href}
+                      className="text-white/60 hover:text-white transition-colors text-[15px] font-medium block h-full w-full"
+                    >
+                      {item.name}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
 
-          {/* Inner Pages Column */}
-          <div className="lg:col-span-2">
-            <h4 className="text-[17px] font-bold mb-8 text-white uppercase tracking-widest border-b border-white/10 pb-2 inline-block">Inner Pages</h4>
-            <ul className="space-y-4">
-              {footer.innerPages.map((item) => (
-                <li key={item.name}>
-                  <Link
-                    href={item.href}
-                    className="text-white/60 hover:text-white transition-colors text-[15px] font-medium block h-full w-full"
-                  >
-                    {item.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
+            {/* Inner Pages Column */}
+            <div className="col-span-1">
+              <h4 className="text-[17px] font-bold mb-8 text-white uppercase tracking-widest border-b border-white/10 pb-2 inline-block">Inner Pages</h4>
+              <ul className="space-y-4">
+                {footer.innerPages.map((item) => (
+                  <li key={item.name}>
+                    <Link
+                      href={item.href}
+                      className="text-white/60 hover:text-white transition-colors text-[15px] font-medium block h-full w-full"
+                    >
+                      {item.name}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
 
-          {/* Support Column */}
-          <div className="lg:col-span-4 lg:pl-10">
-            <h4 className="text-[17px] font-bold mb-8 text-white uppercase tracking-widest border-b border-white/10 pb-2 inline-block">Support</h4>
-            <ul className="space-y-4">
-              {footer.support.map((item) => (
-                <li key={item.name}>
-                  <Link
-                    href={item.href}
-                    className="text-white/60 hover:text-white transition-colors text-[15px] font-medium block h-full w-full"
-                  >
-                    {item.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
+            {/* Support Column */}
+            <div className="col-span-1">
+              <h4 className="text-[17px] font-bold mb-8 text-white uppercase tracking-widest border-b border-white/10 pb-2 inline-block">Support</h4>
+              <ul className="space-y-4">
+                {footer.support.map((item) => (
+                  <li key={item.name}>
+                    <Link
+                      href={item.href}
+                      className="text-white/60 hover:text-white transition-colors text-[15px] font-medium block h-full w-full"
+                    >
+                      {item.name}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
 
         </div>
