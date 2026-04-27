@@ -9,10 +9,10 @@ export default function UpcomingEvents() {
       <div className="mx-auto max-w-[1320px]">
         <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
           <div>
-            <h2 className="font-serif text-[34px] tracking-[-0.02em] text-[#0e2207] md:text-[45px]">
+            <h2 className="font-serif text-[34px] tracking-[-0.02em] text-[#0e2207] md:text-[45px] fade-in">
               Upcoming Events
             </h2>
-            <p className="mt-3 max-w-[980px] font-sans text-[15px] leading-7 text-black md:text-[20px] md:leading-[30px]">
+            <p className="mt-3 max-w-[980px] font-sans text-[15px] leading-7 text-black md:text-[20px] md:leading-[30px] fade-in">
               There&apos;s always something happening at Zewadi. From small, thoughtful
               gatherings to special experiences, each event is a chance to connect,
               explore, and be part of something more. Take a look at what&apos;s coming

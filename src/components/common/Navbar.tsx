@@ -9,6 +9,16 @@ import { cn } from "@/lib/utils";
 import navData from "@/data/navigation.json";
 import gsap from "@/lib/gsap";
 
+type NavItem = {
+  name: string;
+  href: string;
+};
+
+type NavLink = NavItem & {
+  hasDropdown?: boolean;
+  items?: NavItem[];
+};
+
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -32,7 +42,15 @@ const Navbar = () => {
     }
   }, [isMobileMenuOpen]);
 
-  const { navLinks } = navData;
+  const { navLinks } = navData as { navLinks: NavLink[] };
+
+  const isLinkActive = (href: string) => {
+    if (href === "/") {
+      return pathname === "/";
+    }
+
+    return pathname === href || pathname.startsWith(`${href}/`);
+  };
 
   return (
     <nav
@@ -65,9 +83,17 @@ const Navbar = () => {
             <div key={link.name} className="relative group">
               <Link
                 href={link.href}
+                onClick={(event) => {
+                  if (link.items?.length) {
+                    event.preventDefault();
+                  }
+                }}
                 className={cn(
                   "text-[15px] font-semibold transition-all duration-300 flex items-center gap-1",
-                  pathname === link.href ? "text-brand-primary" : "text-white/90 hover:text-brand-primary"
+                  isLinkActive(link.href) ||
+                    link.items?.some((item) => isLinkActive(item.href))
+                    ? "text-brand-primary"
+                    : "text-white/90 hover:text-brand-primary"
                 )}
               >
                 {link.name}
@@ -78,6 +104,27 @@ const Navbar = () => {
                   />
                 )}
               </Link>
+
+              {link.items?.length ? (
+                <div className="absolute left-0 top-full pt-4 opacity-0 invisible translate-y-2 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 transition-all duration-300">
+                  <div className="min-w-[190px] rounded-2xl border border-white/10 bg-[#1A4331] p-2 shadow-2xl">
+                    {link.items.map((item) => (
+                      <Link
+                        key={item.name}
+                        href={item.href}
+                        className={cn(
+                          "flex items-center rounded-xl px-4 py-3 text-sm font-semibold transition-colors duration-200",
+                          isLinkActive(item.href)
+                            ? "bg-white/10 text-brand-primary"
+                            : "text-white/85 hover:bg-white/5 hover:text-brand-primary"
+                        )}
+                      >
+                        {item.name}
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              ) : null}
             </div>
           ))}
         </div>
@@ -124,23 +171,54 @@ const Navbar = () => {
 
         <div className="flex flex-col space-y-6 relative z-10">
           {navLinks.map((link, idx) => (
-            <Link
-              key={link.name}
-              href={link.href}
-              className={cn(
-                "mobile-link text-2xl md:text-3xl font-playfair font-bold transition-colors flex items-center justify-between",
-                pathname === link.href ? "text-brand-primary" : "text-white/80 hover:text-brand-primary"
-              )}
-              onClick={() => setIsMobileMenuOpen(false)}
-            >
-              <div className="flex items-center gap-4">
-                <span className="text-xs font-dm tracking-[0.3em] text-brand-primary/60 mt-2">
-                  0{idx + 1}
-                </span>
-                {link.name}
-              </div>
-              <ArrowRight size={20} className="text-brand-primary/40" />
-            </Link>
+            <div key={link.name} className="mobile-link">
+              <Link
+                href={link.href}
+                onClick={(event) => {
+                  if (link.items?.length) {
+                    event.preventDefault();
+                    return;
+                  }
+
+                  setIsMobileMenuOpen(false);
+                }}
+                className={cn(
+                  "text-2xl md:text-3xl font-playfair font-bold transition-colors flex items-center justify-between",
+                  isLinkActive(link.href) ||
+                    link.items?.some((item) => isLinkActive(item.href))
+                    ? "text-brand-primary"
+                    : "text-white/80 hover:text-brand-primary"
+                )}
+              >
+                <div className="flex items-center gap-4">
+                  <span className="text-xs font-dm tracking-[0.3em] text-brand-primary/60 mt-2">
+                    0{idx + 1}
+                  </span>
+                  {link.name}
+                </div>
+                <ArrowRight size={20} className="text-brand-primary/40" />
+              </Link>
+
+              {link.items?.length ? (
+                <div className="mt-4 ml-10 flex flex-col gap-3 border-l border-white/10 pl-6">
+                  {link.items.map((item) => (
+                    <Link
+                      key={item.name}
+                      href={item.href}
+                      className={cn(
+                        "text-base font-dm transition-colors duration-200",
+                        isLinkActive(item.href)
+                          ? "text-brand-primary"
+                          : "text-white/70 hover:text-brand-primary"
+                      )}
+                      onClick={() => setIsMobileMenuOpen(false)}
+                    >
+                      {item.name}
+                    </Link>
+                  ))}
+                </div>
+              ) : null}
+            </div>
           ))}
         </div>
 

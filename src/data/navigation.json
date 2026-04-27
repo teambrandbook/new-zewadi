@@ -5,7 +5,17 @@
     { "name": "Community", "href": "/community" },
     { "name": "Product", "href": "/products" },
     { "name": "Contact Us", "href": "/contact" },
-    { "name": "Pages", "href": "#", "hasDropdown": true }
+    {
+      "name": "Pages",
+      "href": "#",
+      "hasDropdown": true,
+      "items": [
+        { "name": "Gallary", "href": "/gallary" },
+        { "name": "Recipy", "href": "/recipes" },
+        { "name": "FAQ", "href": "/faq" },
+        { "name": "Bloges", "href": "/blogs" }
+      ]
+    }
   ],
   "footer": {
     "quickLinks": [
