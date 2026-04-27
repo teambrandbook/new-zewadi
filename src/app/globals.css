@@ -8,9 +8,12 @@
   --color-brand-light: #f8fafc;
   --color-brand-green: #1a4331;
   
-  --font-sans: "Inter", system-ui, sans-serif;
-  --font-display: "Outfit", system-ui, sans-serif;
-  --font-serif: var(--font-playfair), serif;
+  --font-sans: var(--inter-font), system-ui, sans-serif;
+  --font-inter: var(--inter-font), sans-serif;
+  --font-dm: var(--dm-font), sans-serif;
+  --font-serif: var(--playfair-font), serif;
+  --font-playfair: var(--playfair-font), serif;
+  --font-caveat: var(--caveat-font), cursive;
 }
 
 :root {
