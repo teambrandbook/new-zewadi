@@ -23,6 +23,7 @@ const playfair = Playfair_Display({
 const caveat = Caveat({
   variable: "--caveat-font",
   subsets: ["latin"],
+  weight: ["400", "700"],
 });
 
 export const metadata: Metadata = {
