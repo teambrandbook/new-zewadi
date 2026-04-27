@@ -7,12 +7,12 @@ export default function EventTestimonials() {
       <div className="mx-auto max-w-[1100px]">
         {/* Header */}
         <div className="mb-12 text-center">
-          <div className="inline-flex items-center gap-2 text-[11px] font-extrabold uppercase tracking-[0.2em] text-[#1f4d3a]">
+          <div className="inline-flex items-center gap-2 text-[11px] font-extrabold uppercase tracking-[0.2em] text-[#1f4d3a] ">
             <span>Client Testimonials</span>
             <span className="text-[8px]">▼</span>
           </div>
 
-          <h2 className="mt-4 font-serif text-[36px] leading-[1.1] text-[#1f4d3a] md:text-[48px]">
+          <h2 className="mt-4 font-serif text-[36px] leading-[1.1] text-[#1f4d3a] md:text-[48px] fade-in">
             Real Stories from Everyday <br className="hidden md:block" /> Moments
           </h2>
         </div>

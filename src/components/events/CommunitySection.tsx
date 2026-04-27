@@ -44,10 +44,10 @@ export default function CommunitySection() {
         </div>
 
         <div className="pt-2 lg:pl-4">
-          <h2 className="font-serif max-w-[630px] text-[38px] leading-[1.08] text-[#16171a] md:text-[50px]">
+          <h2 className="font-serif max-w-[630px] text-[38px] leading-[1.08] text-[#16171a] md:text-[50px] fade-in">
             Celebrating Our Community
           </h2>
-          <p className="mt-6 max-w-[630px] font-sans text-[16px] leading-8 text-black md:text-[20px] md:leading-[30px]">
+          <p className="mt-6 max-w-[630px] font-sans text-[16px] leading-8 text-black md:text-[20px] md:leading-[30px] fade-in">
             With new experiences, new faces, and a deeper look into what Zewadi
             stands for, we continue to grow together. Our community means
             everything to us, and it&apos;s at the heart of every decision we make.

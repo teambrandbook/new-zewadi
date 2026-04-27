@@ -9,7 +9,7 @@ const HistorySection = () => {
           
           {/* Header Row */}
           <div className="flex flex-col lg:flex-row gap-12 items-start lg:items-end justify-between mb-16">
-            <div className="w-full lg:w-2/3 flex flex-col gap-6">
+            <div className="w-full lg:w-2/3 flex flex-col gap-6 fade-in">
                <h2 className="text-white text-4xl lg:text-[48px] font-semibold font-['Playfair_Display'] leading-[1.2] uppercase text-left">
                   Where It Began
                </h2>
