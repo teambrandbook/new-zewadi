@@ -82,30 +82,30 @@ const ContactForm = () => {
                 <input
                   type="text"
                   placeholder="Your Name"
-                  className="w-full bg-white border-none rounded-lg px-6 py-4 text-sm focus:ring-1 focus:ring-[#1A4331] transition-all outline-none"
+                  className="w-full bg-white border-none rounded-lg px-6 py-4 text-sm focus:ring-1 focus:ring-[#1A4331] transition-all outline-none placeholder:text-black"
                 />
                 <input
                   type="email"
                   placeholder="Email Address"
-                  className="w-full bg-white border-none rounded-lg px-6 py-4 text-sm focus:ring-1 focus:ring-[#1A4331] transition-all outline-none"
+                  className="w-full bg-white border-none rounded-lg px-6 py-4 text-sm focus:ring-1 focus:ring-[#1A4331] transition-all outline-none placeholder:text-black"
                 />
               </div>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <input
                   type="text"
                   placeholder="Phone number"
-                  className="w-full bg-white border-none rounded-lg px-6 py-4 text-sm focus:ring-1 focus:ring-[#1A4331] transition-all outline-none"
+                  className="w-full bg-white border-none rounded-lg px-6 py-4 text-sm focus:ring-1 focus:ring-[#1A4331] transition-all outline-none placeholder:text-black"
                 />
                 <input
                   type="text"
                   placeholder="Subject"
-                  className="w-full bg-white border-none rounded-lg px-6 py-4 text-sm focus:ring-1 focus:ring-[#1A4331] transition-all outline-none"
+                  className="w-full bg-white border-none rounded-lg px-6 py-4 text-sm focus:ring-1 focus:ring-[#1A4331] transition-all outline-none placeholder:text-black"
                 />
               </div>
               <textarea
                 placeholder="Write Message"
                 rows={5}
-                className="w-full bg-white border-none rounded-lg px-6 py-4 text-sm focus:ring-1 focus:ring-[#1A4331] transition-all outline-none resize-none"
+                className="w-full bg-white border-none rounded-lg px-6 py-4 text-sm focus:ring-1 focus:ring-[#1A4331] transition-all outline-none resize-none placeholder:text-black"
               ></textarea>
               
               <button
