@@ -1,10 +1,10 @@
 {
   "navLinks": [
-    { "name": "Home", "href": "/" },
-    { "name": "About Us", "href": "/about" },
-    { "name": "Community", "href": "/community" },
-    { "name": "Product", "href": "/products" },
-    { "name": "Contact Us", "href": "/contact" },
+    { "name": "Home", "href": "/", "hasDropdown": false },
+    { "name": "About Us", "href": "/about", "hasDropdown": false },
+    { "name": "Community", "href": "/community", "hasDropdown": false },
+    { "name": "Product", "href": "/products", "hasDropdown": false },
+    { "name": "Contact Us", "href": "/contact", "hasDropdown": false },
     { "name": "Pages", "href": "#", "hasDropdown": true }
   ],
   "footer": {
@@ -16,11 +16,11 @@
       { "name": "Contact Us", "href": "/contact" }
     ],
     "innerPages": [
-      { "name": "Recipes", "href": "/recipes" },
-      { "name": "Events", "href": "/events" },
+      { "name": "Recipes", "href": "#" },
+      { "name": "Events", "href": "#" },
       { "name": "Gallery", "href": "/gallery" },
-      { "name": "Blogs", "href": "/blogs" },
-      { "name": "FAQs", "href": "/faq" }
+      { "name": "Blogs", "href": "#" },
+      { "name": "FAQs", "href": "#" }
     ],
     "support": [
       { "name": "Term and Conditions", "href": "#" },

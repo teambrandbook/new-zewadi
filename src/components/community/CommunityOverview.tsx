@@ -110,7 +110,7 @@ const CommunityOverview = () => {
                       <div className="text-gray-400 text-[10px] font-bold mb-2 tracking-widest uppercase opacity-70">
                         {card.id}
                       </div>
-                      <h4 className="text-xl md:text-2xl font-playfair font-bold text-brand-green mb-2 leading-tight">
+                      <h4 className="text-xl md:text-2xl font-inter font-bold text-brand-green mb-2 leading-tight">
                         {card.title}
                       </h4>
                       <p className="text-gray-600 text-xs md:text-sm leading-relaxed font-dm line-clamp-2">

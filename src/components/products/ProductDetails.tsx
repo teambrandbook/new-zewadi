@@ -1,24 +1,73 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import { Heart, Minus, Plus } from "lucide-react";
 import { cn } from "@/lib/utils";
 import productsData from "@/data/products.json";
+import gsap, { animateFadeInLeft, animateSwipeReveal } from "@/lib/gsap";
 
 const ProductDetails = () => {
   const { details } = productsData;
   const [quantity, setQuantity] = useState(3);
   const [activeThumb, setActiveThumb] = useState(0);
+  const [mounted, setMounted] = useState(false);
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const mainImageRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  useEffect(() => {
+    if (!mounted) return;
+
+    const ctx = gsap.context(() => {
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: "top 80%",
+        }
+      });
+
+      // Main image swipe steal
+      tl.set(mainImageRef.current, { opacity: 1 });
+      animateSwipeReveal(mainImageRef.current, {}, tl);
+
+      // Thumbnails fade in from right
+      tl.fromTo(".product-thumb-stagger",
+        { x: 30, opacity: 0 },
+        { x: 0, opacity: 1, duration: 0.8, stagger: 0.1, ease: "power2.out" },
+        "-=0.6"
+      );
+
+      animateFadeInLeft(".product-info-stagger", {}, tl, "-=1");
+
+      // Bottom description reveal
+      animateFadeInLeft(".description-stagger", {
+        scrollTrigger: {
+          trigger: ".description-section",
+          start: "top 85%",
+        }
+      });
+    }, sectionRef);
+
+    return () => ctx.revert();
+  }, [mounted]);
+
+  if (!mounted) return null;
 
   return (
-    <section className="py-20 animate-fade-in">
+    <section ref={sectionRef} className="py-20 lg:py-32">
       <div className="container mx-auto px-6 lg:px-20">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
-          
+
           {/* Left: Product Images */}
           <div className="space-y-6">
-            <div className="relative aspect-[4/3] rounded-[1rem] overflow-hidden bg-gray-100 shadow-sm transition-all duration-700 hover:shadow-2xl">
+            <div
+              ref={mainImageRef}
+              className="opacity-0 relative aspect-[4/3] rounded-[1rem] overflow-hidden bg-gray-100 shadow-sm transition-all duration-700 hover:shadow-2xl"
+            >
               <Image
                 src={details.images[activeThumb]}
                 alt={details.title}
@@ -26,14 +75,14 @@ const ProductDetails = () => {
                 className="object-cover"
               />
             </div>
-            
+
             <div className="grid grid-cols-4 gap-4">
               {details.images.map((thumb, index) => (
                 <button
                   key={index}
                   onClick={() => setActiveThumb(index)}
                   className={cn(
-                    "relative aspect-square rounded-[1.2rem] overflow-hidden border-2 transition-all duration-300",
+                    "product-thumb-stagger opacity-0 relative aspect-square rounded-[1.2rem] overflow-hidden border-2 transition-all duration-300",
                     activeThumb === index ? "border-[#1A4331]" : "border-transparent opacity-70 hover:opacity-100"
                   )}
                 >
@@ -45,18 +94,18 @@ const ProductDetails = () => {
 
           {/* Right: Product Info */}
           <div className="space-y-8">
-            <div>
+            <div className="product-info-stagger opacity-0">
               <h1 className="text-4xl md:text-5xl font-playfair font-bold text-[#1A4331] mb-4">
                 {details.title}
               </h1>
               <p className="text-xl font-bold text-gray-900">{details.price}</p>
             </div>
 
-            <p className="text-gray-600 text-sm leading-relaxed max-w-lg font-inter">
+            <p className="product-info-stagger opacity-0 text-gray-600 text-sm leading-relaxed max-w-lg font-inter">
               {details.description}
             </p>
 
-            <div className="space-y-4">
+            <div className="product-info-stagger opacity-0 space-y-4">
               <h3 className="font-bold text-gray-900">Benefits</h3>
               <ul className="space-y-2">
                 {details.benefits.map((benefit, i) => (
@@ -68,10 +117,10 @@ const ProductDetails = () => {
               </ul>
             </div>
 
-            <div className="flex flex-wrap items-center gap-6 pt-4">
+            <div className="product-info-stagger opacity-0 flex flex-wrap items-center gap-6 pt-4">
               {/* Quantity Selector */}
               <div className="flex items-center border border-gray-200 rounded-lg overflow-hidden">
-                <button 
+                <button
                   onClick={() => setQuantity(Math.max(1, quantity - 1))}
                   className="p-3 hover:bg-gray-50 transition-colors"
                 >
@@ -80,7 +129,7 @@ const ProductDetails = () => {
                 <div className="px-6 py-2 font-semibold text-gray-900 border-x border-gray-200">
                   {quantity}
                 </div>
-                <button 
+                <button
                   onClick={() => setQuantity(quantity + 1)}
                   className="p-3 hover:bg-gray-50 transition-colors"
                 >
@@ -101,15 +150,15 @@ const ProductDetails = () => {
         </div>
 
         {/* Bottom: Description Section */}
-        <div className="mt-24 space-y-8">
-          <div className="space-y-4">
+        <div className="description-section mt-24 space-y-8">
+          <div className="description-stagger opacity-0 space-y-4">
             <h2 className="text-xl font-bold text-gray-900 border-b border-gray-100 pb-4">Description</h2>
             <p className="text-gray-600 text-sm leading-relaxed max-w-4xl font-inter">
               {details.fullDescription}
             </p>
           </div>
 
-          <button className="bg-[#1A4331] text-white font-bold py-3.5 px-8 rounded-lg hover:bg-[#1A4331]/90 transition-all shadow-md active:scale-[0.98]">
+          <button className="description-stagger opacity-0 bg-[#1A4331] text-white font-bold py-3.5 px-8 rounded-lg hover:bg-[#1A4331]/90 transition-all shadow-md active:scale-[0.98]">
             Try Recipes
           </button>
         </div>
