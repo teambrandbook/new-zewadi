@@ -35,12 +35,12 @@ const Footer = () => {
           
           {/* Logo & Info Column */}
           <div className="lg:col-span-4 flex flex-col items-start">
-            <Link href="/" className="relative w-40 h-24 mb-6 block overflow-hidden rounded-xl">
+            <Link href="/" className="relative w-50 h-52 -mb-20 -top-20 block overflow-hidden rounded-xl ">
                <Image 
                 src="/logo/zewadi-logo.webp"
                 alt="Zewadi Logo"
                 fill
-                className="object-contain object-left scale-110"
+                className="object-contain object-left scale-150"
                />
             </Link>
             <p className="text-white/80 text-[15px] leading-relaxed max-w-[340px] mb-8 font-medium">
