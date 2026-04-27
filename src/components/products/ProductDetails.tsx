@@ -122,18 +122,18 @@ const ProductDetails = () => {
               <div className="flex items-center border border-gray-200 rounded-lg overflow-hidden">
                 <button
                   onClick={() => setQuantity(Math.max(1, quantity - 1))}
-                  className="p-3 hover:bg-gray-50 transition-colors group"
+                  className="p-3 hover:bg-gray-50 transition-colors"
                 >
-                  <Minus size={16} className="text-[#1A4331] group-hover:scale-110 transition-transform" />
+                  <Minus size={16} />
                 </button>
                 <div className="px-6 py-2 font-semibold text-gray-900 border-x border-gray-200">
                   {quantity}
                 </div>
                 <button
                   onClick={() => setQuantity(quantity + 1)}
-                  className="p-3 hover:bg-gray-50 transition-colors group"
+                  className="p-3 hover:bg-gray-50 transition-colors"
                 >
-                  <Plus size={16} className="text-[#1A4331] group-hover:scale-110 transition-transform" />
+                  <Plus size={16} />
                 </button>
               </div>
 

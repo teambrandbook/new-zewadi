@@ -122,7 +122,7 @@ const Navbar = () => {
                   <div className="flex items-center gap-1 text-[15px] font-semibold text-white/90 hover:text-brand-primary transition-all duration-300 cursor-pointer">
                     {link.name}
                     <ChevronDown size={14} className="group-hover:rotate-180 transition-transform duration-300" />
-                    
+
                     {/* Dropdown Menu */}
                     <div className="absolute top-full left-0 mt-0 pt-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 translate-y-2 group-hover:translate-y-0 z-[1100]">
                       <div className="bg-[#1A4331] border border-white/10 rounded-xl shadow-2xl p-4 min-w-[200px] backdrop-blur-xl">
@@ -216,7 +216,7 @@ const Navbar = () => {
             <div key={link.name} className="flex flex-col">
               {link.hasDropdown ? (
                 <div className="flex flex-col">
-                  <div 
+                  <div
                     className="mobile-link text-2xl md:text-3xl font-playfair font-bold text-white/80 flex items-center justify-between py-2 cursor-pointer transition-colors hover:text-brand-primary"
                     onClick={() => toggleExpand(link.name)}
                   >
@@ -226,17 +226,17 @@ const Navbar = () => {
                       </span>
                       {link.name}
                     </div>
-                    <ChevronDown 
-                      size={20} 
+                    <ChevronDown
+                      size={20}
                       className={cn(
                         "text-brand-primary/40 transition-transform duration-300",
                         expandedLink === link.name && "rotate-180"
-                      )} 
+                      )}
                     />
                   </div>
-                  
+
                   {/* Sub-links in Mobile */}
-                  <div 
+                  <div
                     className={cn(
                       "flex flex-col space-y-4 pl-8 overflow-hidden transition-all duration-500 ease-in-out opacity-0",
                       expandedLink === link.name ? "max-h-[500px] mt-4 opacity-100" : "max-h-0"

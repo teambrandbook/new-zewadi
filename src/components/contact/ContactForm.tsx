@@ -26,7 +26,7 @@ const ContactForm = () => {
     <section ref={sectionRef} className="py-24 bg-white overflow-hidden">
       <div className="container mx-auto px-6 lg:px-20">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
-          
+
           {/* Left Side: Contact Info */}
           <div className="contact-stagger space-y-10">
             <div className="space-y-4">
@@ -82,32 +82,32 @@ const ContactForm = () => {
                 <input
                   type="text"
                   placeholder="Your Name"
-                  className="w-full bg-white border-none rounded-lg px-6 py-4 text-sm focus:ring-1 focus:ring-[#1A4331] transition-all outline-none placeholder:text-black"
+                  className="w-full bg-white border-none rounded-lg px-6 py-4 text-sm focus:ring-1 focus:ring-[#1A4331] transition-all outline-none"
                 />
                 <input
                   type="email"
                   placeholder="Email Address"
-                  className="w-full bg-white border-none rounded-lg px-6 py-4 text-sm focus:ring-1 focus:ring-[#1A4331] transition-all outline-none placeholder:text-black"
+                  className="w-full bg-white border-none rounded-lg px-6 py-4 text-sm focus:ring-1 focus:ring-[#1A4331] transition-all outline-none"
                 />
               </div>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <input
                   type="text"
                   placeholder="Phone number"
-                  className="w-full bg-white border-none rounded-lg px-6 py-4 text-sm focus:ring-1 focus:ring-[#1A4331] transition-all outline-none placeholder:text-black"
+                  className="w-full bg-white border-none rounded-lg px-6 py-4 text-sm focus:ring-1 focus:ring-[#1A4331] transition-all outline-none"
                 />
                 <input
                   type="text"
                   placeholder="Subject"
-                  className="w-full bg-white border-none rounded-lg px-6 py-4 text-sm focus:ring-1 focus:ring-[#1A4331] transition-all outline-none placeholder:text-black"
+                  className="w-full bg-white border-none rounded-lg px-6 py-4 text-sm focus:ring-1 focus:ring-[#1A4331] transition-all outline-none"
                 />
               </div>
               <textarea
                 placeholder="Write Message"
                 rows={5}
-                className="w-full bg-white border-none rounded-lg px-6 py-4 text-sm focus:ring-1 focus:ring-[#1A4331] transition-all outline-none resize-none placeholder:text-black"
+                className="w-full bg-white border-none rounded-lg px-6 py-4 text-sm focus:ring-1 focus:ring-[#1A4331] transition-all outline-none resize-none"
               ></textarea>
-              
+
               <button
                 type="submit"
                 className="group flex items-center gap-4 bg-[#1A4331] text-white px-10 py-4 rounded-full font-bold hover:bg-[#1A4331]/90 transition-all shadow-lg active:scale-95"
@@ -123,19 +123,19 @@ const ContactForm = () => {
 
         {/* Map Section Container */}
         <div className="mt-24 relative w-full h-[400px] md:h-[500px] rounded-[1rem] overflow-hidden bg-gray-50 border border-gray-100 group shadow-sm flex items-center justify-center">
-           {map?.image ? (
-             <Image 
+          {map?.image ? (
+            <Image
               src={map.image}
               alt="World Map Location"
               fill
               className="object-cover object-[center_30%] transition-transform duration-1000 group-hover:scale-105"
-             />
-           ) : (
-             <React.Fragment>
-               <div className="absolute inset-0 opacity-20 bg-[radial-gradient(#1A4331_1px,transparent_1px)] [background-size:20px_20px]"></div>
-               <p className="relative text-[#1A4331]/20 font-serif text-6xl md:text-8xl font-bold uppercase select-none">World Map</p>
-             </React.Fragment>
-           )}
+            />
+          ) : (
+            <React.Fragment>
+              <div className="absolute inset-0 opacity-20 bg-[radial-gradient(#1A4331_1px,transparent_1px)] [background-size:20px_20px]"></div>
+              <p className="relative text-[#1A4331]/20 font-serif text-6xl md:text-8xl font-bold uppercase select-none">World Map</p>
+            </React.Fragment>
+          )}
         </div>
       </div>
     </section>
