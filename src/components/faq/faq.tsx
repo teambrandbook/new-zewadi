@@ -13,21 +13,61 @@ const leftFaqs: FaqItem[] = [
   {
     question: "What is Zewadi?",
     answer:
-      "Lorem Ipsum is simply dummy text the printing and typese Lorem Ipsum has been the industry's standard dummy text ever",
+      "Zewadi is a premium food brand focused on simple, healthy, and meaningful living",
   },
-  { question: "Do you use additives or preservatives?" },
-  { question: "Do you offer delivery?" },
-  { question: "How can I order?" },
-  { question: "What is the Zewadi Community?" },
+  {
+    question: "Do you use additives or preservatives?",
+    answer:
+      "We keep additives and preservatives as minimal as possible, focusing on quality and balanced ingredients.",
+  },
+  {
+    question: "Do you offer delivery?",
+    answer:
+      "Yes, we offer delivery services to bring Zewadi products straight to your doorstep with convenience and care",
+  },
+  {
+    question: "How can I order?",
+    answer:
+      "You can order directly through our website by browsing products, adding items to your cart, and completing checkout.",
+  },
+  {
+    question: "What is the Zewadi Community?",
+    answer:
+      "The Zewadi Community is a group of people working toward healthier, better living together through simple daily choices.",
+  },
 ];
 
 const rightFaqs: FaqItem[] = [
-  { question: "Are your products healthy?" },
-  { question: "what are the key benefits of Buckwheat?" },
-  { question: "When I Get may order?" },
-  { question: "How Zewadi Can bring Healthy Life Style?" },
-  { question: "Is Buckwheat good For children's ?" },
-  { question: "Is zewadi products Deliver All over the other countries?" },
+  {
+    question: "Are your products healthy?",
+    answer:
+      "Yes, our products are made with carefully selected, balanced ingredients to support healthier everyday living.",
+  },
+  {
+    question: "what are the key benefits of Buckwheat?",
+    answer:
+      "Buckwheat is rich in fiber, protein, and nutrients, supports digestion and heart health, provides steady energy, and is naturally gluten-free.",
+  },
+  {
+    question: "When I Get may order?",
+    answer:
+      "You can expect your order delivery within the estimated time shown at checkout, depending on your location and product availability.",
+  },
+  {
+    question: "How Zewadi Can bring Healthy Life Style?",
+    answer:
+      "Zewadi supports a healthy lifestyle by offering quality food choices, encouraging balanced daily habits, and making wellness simple through small, meaningful everyday choices",
+  },
+  {
+    question: "Is Buckwheat good For children's ?",
+    answer:
+      "Yes, buckwheat is good for children as it is rich in fiber, protein, and essential nutrients, supporting healthy growth, digestion, and steady energy",
+  },
+  {
+    question: "Is zewadi products Deliver All over the other countries?",
+    answer:
+      "Yes, international delivery may be available depending on the country and product availability.",
+  },
 ];
 
 function FaqCard({
@@ -43,29 +83,29 @@ function FaqCard({
     <button
       type="button"
       onClick={onClick}
-      className={`w-full rounded-[20px] text-left shadow-[0_0_60px_rgba(0,0,0,0.05)] transition-colors ${
+      className={`w-full rounded-[18px] text-left shadow-[0_0_45px_rgba(0,0,0,0.04)] transition-colors ${
         isOpen ? "bg-[#f1f5eb]" : "bg-white"
       }`}
     >
-      <div className="flex items-start justify-between gap-4 px-5 py-5 sm:px-6 sm:py-6">
+      <div className="flex items-start justify-between gap-3 px-4 py-4 sm:px-5 sm:py-5">
         <div className="min-w-0">
-          <h3 className="text-[16px] font-semibold leading-relaxed text-[#1f4d3a] sm:text-[17px]">
+          <h3 className="text-[15px] font-semibold leading-relaxed text-[#1f4d3a] sm:text-[16px]">
             {item.question}
           </h3>
           {isOpen && item.answer ? (
-            <p className="mt-3 max-w-[480px] text-[14px] leading-[26px] text-[#727272]">
+            <p className="mt-2.5 max-w-[450px] text-[13px] leading-6 text-[#727272]">
               {item.answer}
             </p>
           ) : null}
         </div>
 
         <span
-          className={`mt-0.5 flex h-10 w-10 shrink-0 items-center justify-center rounded-full ${
+          className={`mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-full ${
             isOpen ? "bg-[#1f4d3a] text-white" : "bg-[#f1f5eb] text-[#1f4d3a]"
           }`}
         >
           <ChevronRight
-            size={16}
+            size={15}
             className={`transition-transform ${isOpen ? "-rotate-90" : ""}`}
           />
         </span>
@@ -81,10 +121,10 @@ export default function Faq() {
     <div className="bg-white">
       <ContentSection title="FAQ" subtitle="Frequently Asked Concerns" />
 
-      <section className="py-14 sm:py-20 pt-10 sm:pt-16">
+      <section className="pb-12 pt-8 sm:pb-16 sm:pt-12">
         <div className="container mx-auto px-4 sm:px-6">
-          <div className="mx-auto grid max-w-[1140px] gap-4 lg:grid-cols-2">
-            <div className="space-y-5">
+          <div className="mx-auto grid max-w-[1040px] gap-3 lg:grid-cols-2 lg:gap-4">
+            <div className="space-y-4">
               {leftFaqs.map((item) => (
                 <FaqCard
                   key={item.question}
@@ -99,7 +139,7 @@ export default function Faq() {
               ))}
             </div>
 
-            <div className="space-y-5">
+            <div className="space-y-4">
               {rightFaqs.map((item) => (
                 <FaqCard
                   key={item.question}
