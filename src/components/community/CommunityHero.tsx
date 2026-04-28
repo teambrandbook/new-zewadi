@@ -1,114 +1,176 @@
 "use client";
 
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
+import Link from "next/link";
 import gsap from "@/lib/gsap";
 import { ArrowRight } from "lucide-react";
 import communityData from "@/data/community.json";
 
-
-const CommunityHero = () => {
+export default function CommunityHero() {
   const containerRef = useRef<HTMLDivElement>(null);
   const { hero } = communityData;
+  const [particles, setParticles] = useState<any[]>([]);
 
   useEffect(() => {
+    // Generate SVG particles mimicking the design (left edge sparse, right convex curve)
+    const newParticles = Array.from({ length: 55 }).map((_, i) => {
+      // 60% outline, 40% solid
+      const type = Math.random() > 0.4 ? "outline" : "solid";
+      
+      const isLeftSide = i < 15; // Dedicate 15 particles strictly to the far-left edge
+      let left, top;
+
+      if (isLeftSide) {
+        // Curved distribution tightly anchored to the left border
+        const yRatio = Math.random();
+        top = -10 + yRatio * 120; // Cover from top to bottom
+        
+        // Sine wave curve: gentle bulge keeping well clear of text
+        const curveOffset = Math.sin(yRatio * Math.PI) * 4; // reduced inward bulge
+        const baseLeft = -10 + curveOffset;
+        const spread = 6 + (yRatio * 10); 
+        
+        left = baseLeft + Math.random() * spread;
+      } else {
+        // Sweeping curved "slide" on the right side
+        const yRatio = Math.pow(Math.random(), 0.6);
+        top = -10 + yRatio * 120; 
+        
+        // Compute the left boundary using a curve that stays much further right
+        // Pushes the base boundary to the edge until the very bottom
+        const minLeft = 85 - (Math.pow(yRatio, 3) * 35); 
+        const spread = 15 + (yRatio * 25); 
+        
+        left = minLeft + Math.random() * spread;
+      }
+
+      const size = 15 + Math.random() * 110; // slightly smaller max size to prevent rogue points crossing center
+      const rotate = Math.random() * 360;
+      
+      // Ensure low opacity for scattered, layered look
+      const baseOpacity = type === "outline" ? (0.1 + Math.random() * 0.25) : (0.05 + Math.random() * 0.2);
+      
+      // Colors: light green, yellow accents, soft forest green
+      const colors = ["#89B092", "#E2C365", "#A6C79A", "#4A785E"]; 
+      let color = colors[Math.floor(Math.random() * colors.length)];
+      
+      // Subtle white outlines
+      if (type === "outline" && Math.random() > 0.2) {
+        color = "rgba(255, 255, 255, 0.25)";
+      }
+
+      return { id: i, type, left: `${left}%`, top: `${top}%`, size, rotate, baseOpacity, color };
+    });
+    setParticles(newParticles);
+  }, []);
+
+  useEffect(() => {
+    if (particles.length === 0) return;
+
     const ctx = gsap.context(() => {
       const tl = gsap.timeline({ defaults: { ease: "power4.out" } });
 
       tl.fromTo(
-        ".reveal-text",
-        { y: 60, opacity: 0 },
-        { y: 0, opacity: 1, duration: 1.5, stagger: 0.2 }
+        ".reveal-title",
+        { y: 40, opacity: 0, filter: "blur(20px)" },
+        { y: 0, opacity: 1, filter: "blur(0px)", duration: 2.2, ease: "power2.out" }
+      );
+
+      tl.fromTo(
+        ".reveal-desc",
+        { y: 20, opacity: 0 },
+        { y: 0, opacity: 1, duration: 1.5 },
+        "-=2"
       );
 
       tl.fromTo(
         ".reveal-button",
-        { scale: 0.8, opacity: 0 },
-        { scale: 1, opacity: 1, duration: 1 },
-        "-=1"
-      );
-
-      // Animate clusters
-      tl.fromTo(
-        ".triangle-cluster",
-        { opacity: 0, scale: 0.9 },
-        { opacity: 1, scale: 1, duration: 2, stagger: 0.3 },
+        { scale: 0.9, opacity: 0 },
+        { scale: 1, opacity: 1, duration: 1.5 },
         "-=1.5"
       );
+
+      // Animate individual particles popping in
+      tl.fromTo(
+        ".triangle-particle",
+        { opacity: 0, scale: 0 },
+        { opacity: 1, scale: 1, duration: 2.5, stagger: 0.05 },
+        "-=2"
+      );
+
+      // Continuous slow, wide, premium floating movement for particles
+      gsap.to(".triangle-particle", {
+        y: "random(-80, 80)",
+        x: "random(-80, 80)",
+        rotation: "random(-45, 45)",
+        duration: "random(15, 30)",
+        repeat: -1,
+        yoyo: true,
+        ease: "sine.inOut",
+        stagger: {
+          each: 0.2,
+          from: "random",
+        }
+      });
     }, containerRef);
 
     return () => ctx.revert();
-  }, []);
+  }, [particles]);
 
   return (
     <section
       ref={containerRef}
-      className="relative min-h-screen bg-brand-green flex flex-col items-center justify-center pt-32 overflow-hidden text-center text-white"
+      className="relative min-h-screen bg-[#1F4130] flex flex-col items-center justify-center pt-32 overflow-hidden text-center text-white"
     >
-      {/* Background Geometric Clusters (Design-aligned triangles) */}
+      {/* Dynamic Background Clusters (Mimicking the reference design) */}
       <div className="absolute inset-0 pointer-events-none">
-        {/* Top Right Cluster */}
-        <div className="triangle-cluster absolute top-[-10%] right-[-5%] w-[40%] h-[50%] opacity-0">
-          <Triangle color="var(--color-brand-primary)" size="w-64 h-64" rotate="rotate-45" top="10%" right="10%" opacity="opacity-20" />
-          <Triangle color="white" size="w-48 h-48" rotate="rotate-12" top="20%" right="20%" opacity="opacity-10" />
-          <Triangle color="var(--color-brand-primary)" size="w-32 h-32" rotate="rotate-[-15deg]" top="5%" right="30%" opacity="opacity-30" />
-        </div>
-
-        {/* Bottom Right Cluster */}
-        <div className="triangle-cluster absolute bottom-[-10%] right-[-5%] w-[50%] h-[60%] opacity-0">
-          <Triangle color="var(--color-brand-primary)" size="w-[300px] h-[300px]" rotate="rotate-[20deg]" bottom="10%" right="5%" opacity="opacity-20" />
-          <Triangle color="white" size="w-[200px] h-[200px]" rotate="rotate-[-10deg]" bottom="20%" right="15%" opacity="opacity-10" />
-          <Triangle color="var(--color-brand-primary)" size="w-48 h-48" rotate="rotate-[45deg]" bottom="5%" right="25%" opacity="opacity-15" />
-          <Triangle color="white" size="w-32 h-32" rotate="rotate-[120deg]" bottom="30%" right="10%" opacity="opacity-5" />
-        </div>
-
-        {/* Left Clusters */}
-        <div className="triangle-cluster absolute top-[20%] left-[-5%] w-[30%] h-[40%] opacity-0">
-          <Triangle color="var(--color-brand-primary)" size="w-48 h-48" rotate="rotate-[-30deg]" top="10%" left="10%" opacity="opacity-20" />
-          <Triangle color="white" size="w-32 h-32" rotate="rotate-[15deg]" top="40%" left="5%" opacity="opacity-10" />
-        </div>
-
-        <div className="triangle-cluster absolute bottom-[10%] left-[5%] w-[20%] h-[30%] opacity-0">
-          <Triangle color="var(--color-brand-primary)" size="w-40 h-40" rotate="rotate-[60deg]" bottom="0" left="0" opacity="opacity-15" />
-        </div>
+        {particles.map((p) => (
+          <div
+            key={p.id}
+            className="absolute triangle-particle"
+            style={{
+              left: p.left,
+              top: p.top,
+              width: `${p.size}px`,
+              height: `${p.size}px`,
+              transform: `rotate(${p.rotate}deg)`,
+            }}
+          >
+            <svg
+              className="w-full h-full"
+              viewBox="0 0 100 100"
+              preserveAspectRatio="none"
+              style={{ opacity: p.baseOpacity }}
+            >
+              {p.type === "solid" ? (
+                <polygon points="50,0 100,100 0,100" fill={p.color} />
+              ) : (
+                <polygon points="50,1 99,99 1,99" fill="none" stroke={p.color} strokeWidth="2" />
+              )}
+            </svg>
+          </div>
+        ))}
       </div>
 
       {/* Content */}
-      <div className="container mx-auto px-6 relative z-10">
-        <h1 className="reveal-text text-5xl md:text-[5.5rem] font-playfair font-medium leading-[1.1] mb-8 tracking-tight">
-          {hero.title} <span className="text-brand-primary font-normal">{hero.titleAccent}</span>
-        </h1>
+      <div className="container mx-auto px-6 relative z-10 w-full flex flex-col items-center justify-center">
+        <div className="flex flex-col items-center text-center w-full max-w-6xl">
+          <h1 className="reveal-title text-5xl md:text-6xl lg:text-[5.5rem] font-playfair font-medium leading-[1.1] mb-8 tracking-tight whitespace-normal md:whitespace-nowrap">
+            {hero.title} <span className="text-[#D8C29A] font-normal">{hero.titleAccent}</span>
+          </h1>
 
-        <p className="reveal-text text-base md:text-lg text-white/90 max-w-2xl mx-auto mb-10 leading-relaxed font-inter opacity-80">
-          {hero.description}
-        </p>
+          <p className="reveal-desc text-base md:text-lg text-white/90 max-w-2xl mb-10 leading-relaxed font-inter opacity-80">
+            {hero.description}
+          </p>
 
-        <div className="reveal-button">
-          <button className="bg-[#D8C29A] text-[#1A4331] font-bold px-10 py-5 rounded-full hover:bg-white transition-all duration-300 flex items-center gap-3 mx-auto group shadow-2xl">
-            {hero.ctaText}
-            <ArrowRight size={20} className="group-hover:translate-x-2 transition-transform duration-300" />
-          </button>
+          <div className="reveal-button">
+            <Link href="/about" className="bg-[#D8C29A] text-[#1A4331] font-bold px-8 py-3.5 rounded-full hover:bg-white transition-all duration-300 flex items-center justify-center gap-3 text-sm tracking-wide shadow-2xl group cursor-pointer inline-flex">
+              {hero.ctaText}
+              <ArrowRight size={16} className="group-hover:translate-x-1.5 transition-transform duration-300" />
+            </Link>
+          </div>
         </div>
       </div>
-
-      {/* Subtle overlay to improve legibility */}
-      <div className="absolute inset-0 bg-gradient-to-b from-brand-green/20 via-transparent to-brand-green/40 -z-10" />
     </section>
   );
-};
-
-const Triangle = ({ color, size, rotate, top, right, bottom, left, opacity }: any) => (
-  <div
-    className={cn("absolute", size, rotate, opacity)}
-    style={{
-      backgroundColor: color,
-      clipPath: "polygon(50% 0%, 0% 100%, 100% 100%)",
-      top, right, bottom, left
-    }}
-  />
-);
-
-function cn(...classes: string[]) {
-  return classes.filter(Boolean).join(" ");
 }
-
-export default CommunityHero;

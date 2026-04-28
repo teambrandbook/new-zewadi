@@ -20,30 +20,35 @@ const CommunityValues = () => {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      // Smooth Fade-In for Heading
-      gsap.from(".value-heading", {
-        opacity: 0,
-        y: 20,
-        duration: 1.2,
-        ease: "power3.out",
+      const tl = gsap.timeline({
         scrollTrigger: {
           trigger: sectionRef.current,
-          start: "top 85%",
+          start: "top 50%",
         },
       });
 
-      // Premium Staggered Fade-Up for Cards
-      gsap.from(".value-card", {
-        opacity: 0,
-        y: 30,
-        duration: 1.2,
+      // 1. Heading Line by Line Reveal
+      tl.to(".value-heading-line", {
+        y: 0,
+        opacity: 1,
+        duration: 1.0,
+        ease: "power4.out",
         stagger: 0.15,
-        ease: "power2.out",
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: "top 85%",
-        },
       });
+
+      // 2. Premium Staggered Fade-Up for Cards
+      tl.fromTo(".value-card", 
+        { opacity: 0, y: 40 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 1.2,
+          stagger: 0.15,
+          ease: "power2.out",
+          clearProps: "all"
+        }, 
+        "-=0.4"
+      );
     }, sectionRef);
     return () => ctx.revert();
   }, []);
@@ -73,10 +78,14 @@ const CommunityValues = () => {
 
           <div className="relative z-20 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10 lg:gap-12">
 
-            {/* Header Content - Direct Color for debugging */}
-            <div className="value-heading flex flex-col justify-start pt-12 relative z-30">
-              <h2 className="text-3xl md:text-4xl lg:text-[52px] font-playfair font-semibold text-[#1A4331] leading-[1.1] whitespace-pre-line tracking-tight">
-                {valuesGridSection.title}
+            {/* Header Content - Animated Line by Line */}
+            <div className="flex flex-col justify-start pt-12 relative z-30">
+              <h2 className="text-3xl md:text-4xl lg:text-[45px] font-playfair font-semibold text-[#1A4331] leading-[1.1] tracking-tight">
+                {valuesGridSection.title.split('\n').map((line: string, i: number) => (
+                  <span key={i} className="block overflow-hidden pb-2">
+                    <span className="block value-heading-line translate-y-full opacity-0">{line}</span>
+                  </span>
+                ))}
               </h2>
             </div>
 
@@ -86,16 +95,16 @@ const CommunityValues = () => {
               return (
                 <div
                   key={idx}
-                  className="value-card bg-white p-10 md:p-12 rounded-[2.5rem] shadow-[0_10px_40px_rgba(0,0,0,0.02)] flex flex-col items-start aspect-square relative z-30"
+                  className="value-card bg-white hover:bg-[#1A4331] p-10 md:p-12 rounded-[2.5rem] shadow-[0_10px_40px_rgba(0,0,0,0.02)] flex flex-col items-start aspect-square relative z-30 transition-colors duration-500 group cursor-default"
                 >
-                  <div className="w-16 h-16 md:w-20 md:h-20 rounded-full border border-[#1A4331]/20 flex items-center justify-center text-[#1A4331] mb-8">
+                  <div className="w-16 h-16 md:w-20 md:h-20 rounded-full border border-[#1A4331]/20 group-hover:border-white/30 flex items-center justify-center text-[#1A4331] group-hover:text-white mb-8 transition-colors duration-500">
                     <Icon size={28} className="stroke-[1.5px]" />
                   </div>
 
-                  <h4 className="text-xl md:text-2xl font-bold text-[#1A4331] mb-4 leading-tight font-inter">
+                  <h4 className="text-xl md:text-2xl font-bold text-[#1A4331] group-hover:text-white mb-4 leading-tight font-inter transition-colors duration-500">
                     {card.title}
                   </h4>
-                  <p className="text-[#333333] text-xs md:text-sm leading-relaxed max-w-[240px] font-medium font-inter">
+                  <p className="text-[#333333] group-hover:text-white/80 text-xs md:text-sm leading-relaxed max-w-[240px] font-medium font-inter transition-colors duration-500">
                     {card.description}
                   </p>
                 </div>

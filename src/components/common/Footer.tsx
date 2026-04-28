@@ -20,15 +20,16 @@ const Footer = () => {
 
   return (
     <footer className="relative overflow-hidden bg-[#1A4331] pb-12 pt-24 text-white">
-      <div className="pointer-events-none absolute inset-0 select-none opacity-40">
+      <div className="pointer-events-none absolute inset-0 select-none opacity-100">
         <Image
           src="/bg/world-map.png"
           alt="World Map Background"
           fill
-          className="scale-150 object-cover brightness-150 contrast-125 mix-blend-overlay"
+          className="scale-100 object-contain opacity-1000"
           priority
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#1A4331] via-transparent to-[#1A4331]/30" />
+        <div className="absolute inset-0 bg-[#1A4331]/40" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#1A4331] via-transparent to-[#1A4331]/60" />
       </div>
 
       <div className="container relative z-10 mx-auto px-6">

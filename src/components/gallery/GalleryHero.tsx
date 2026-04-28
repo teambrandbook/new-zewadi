@@ -7,14 +7,15 @@ const GalleryHero = () => {
   const { hero } = galleryData;
 
   return (
-    <section className="bg-[#1A4331] pt-32 pb-8 md:pt-48 md:pb-16 flex flex-col items-start relative z-10 transition-all border-none">
-      <div className="container mx-auto px-6 lg:px-20 relative">
-        {/* Simplified solid white box with no opacity animation to guarantee visibility */}
-        <div className="hero-box bg-white p-12 md:p-14 md:px-16 rounded-xl shadow-none text-left max-w-xl relative -mb-16 md:-mb-24 z-30 opacity-100">
-          <h1 className="text-4xl md:text-5xl font-serif font-bold text-[#1A4331] mb-4 leading-tight">
+    <section className="bg-[#1f4d3a] pt-20 sm:pt-24 pb-0 relative z-10">
+      <div className="container mx-auto px-4 sm:px-6 relative">
+        <div className="h-[140px] sm:h-[180px]" />
+        
+        <div className="hero-box relative -mb-px max-w-[440px] rounded-t-[24px] bg-white px-7 py-7 sm:px-10 sm:py-10 z-30">
+          <h1 className="font-playfair text-[2.25rem] md:text-[2.75rem] font-bold leading-none text-black mb-4">
             {hero.title}
           </h1>
-          <p className="text-[#1A4331]/60 text-[11px] md:text-xs font-bold tracking-widest uppercase">
+          <p className="mt-4 text-base md:text-lg font-bold text-[#1A4331] font-inter">
             {hero.subtitle}
           </p>
         </div>

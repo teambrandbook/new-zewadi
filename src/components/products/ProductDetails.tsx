@@ -95,21 +95,21 @@ const ProductDetails = () => {
           {/* Right: Product Info */}
           <div className="space-y-8">
             <div className="product-info-stagger opacity-0">
-              <h1 className="text-4xl md:text-5xl font-playfair font-bold text-[#1A4331] mb-4">
+              <h1 className="text-4xl md:text-5xl font-playfair font-bold text-black mb-4">
                 {details.title}
               </h1>
               <p className="text-xl font-bold text-gray-900">{details.price}</p>
             </div>
 
-            <p className="product-info-stagger opacity-0 text-gray-600 text-sm leading-relaxed max-w-lg font-inter">
+            <p className="product-info-stagger opacity-0 text-[#1A4331] text-sm leading-relaxed max-w-lg font-inter">
               {details.description}
             </p>
 
             <div className="product-info-stagger opacity-0 space-y-4">
-              <h3 className="font-bold text-gray-900">Benefits</h3>
+              <h3 className="font-bold text-black">Benefits</h3>
               <ul className="space-y-2">
                 {details.benefits.map((benefit, i) => (
-                  <li key={i} className="flex items-start gap-3 text-sm text-gray-600 font-inter">
+                  <li key={i} className="flex items-start gap-3 text-sm text-[#1A4331] font-inter">
                     <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#1A4331] shrink-0" />
                     {benefit}
                   </li>
@@ -152,8 +152,8 @@ const ProductDetails = () => {
         {/* Bottom: Description Section */}
         <div className="description-section mt-24 space-y-8">
           <div className="description-stagger opacity-0 space-y-4">
-            <h2 className="text-xl font-bold text-gray-900 border-b border-gray-100 pb-4">Description</h2>
-            <p className="text-gray-600 text-sm leading-relaxed max-w-4xl font-inter">
+            <h2 className="text-xl font-bold text-black border-b border-gray-200 pb-4">Description</h2>
+            <p className="text-[#1A4331] text-sm leading-relaxed max-w-4xl font-inter">
               {details.fullDescription}
             </p>
           </div>

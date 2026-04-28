@@ -9,14 +9,14 @@ export * from 'gsap';
 export { ScrollTrigger };
 
 // Reusable Animation Utilities
-export const animatePopUp = (target: gsap.TweenTarget, vars?: gsap.TweenVars, tl?: gsap.core.Timeline) => {
+export const animatePopUp = (target: gsap.TweenTarget, vars?: gsap.TweenVars, tl?: gsap.core.Timeline, position?: string | number) => {
   const settings = {
     duration: 0.8,
     ease: "elastic.out(1, 0.5)",
     ...vars
   };
   return tl 
-    ? tl.fromTo(target, { scale: 0, opacity: 0 }, { scale: 1, opacity: 1, ...settings }) 
+    ? tl.fromTo(target, { scale: 0, opacity: 0 }, { scale: 1, opacity: 1, ...settings }, position) 
     : gsap.fromTo(target, { scale: 0, opacity: 0 }, { scale: 1, opacity: 1, ...settings });
 };
 
