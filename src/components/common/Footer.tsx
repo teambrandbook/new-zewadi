@@ -42,7 +42,7 @@ const Footer = () => {
                 src="/logo/zewadi-logo.webp"
                 alt="Zewadi Logo"
                 fill
-                className="object-contain object-left scale-150"
+                className="object-contain object-left scale-130"
                />
             </Link>
 
