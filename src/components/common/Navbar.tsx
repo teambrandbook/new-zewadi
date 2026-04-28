@@ -75,11 +75,9 @@ const Navbar = () => {
       <nav
         className={cn(
           "fixed top-0 left-0 w-full z-[1000] transition-all duration-500",
-          isMenuBgVisible
-            ? "bg-[#1A4331]"
-            : isScrolled
-              ? "bg-[#1A4331]/95 backdrop-blur-md shadow-lg"
-              : "bg-transparent"
+          isMenuBgVisible || isScrolled || pathname !== "/"
+            ? "bg-[#1A4331]/95 backdrop-blur-md shadow-lg"
+            : "bg-[#1A4331]/95 backdrop-blur-md shadow-lg"
         )}
       >
         <div className="container mx-auto px-4 flex items-center justify-between h-14 md:h-20">
@@ -88,14 +86,9 @@ const Navbar = () => {
             <Link href="/" className="block">
               <div className={cn(
                 "absolute transition-all duration-500 overflow-hidden flex items-center justify-center p-2 md:p-3",
-                isScrolled || isMenuBgVisible
-                  ? "bg-[#1A4331] border-x border-b border-white/10 rounded-b-xl shadow-2xl w-[90px] h-[90px] md:w-[130px] md:h-[130px] -top-10 translate-y-0 left-2 md:left-8 lg:left-[-2rem]"
-                  : "bg-transparent border-transparent shadow-none w-[120px] h-[120px] md:w-[180px] md:h-[180px] top-1/2 -translate-y-1/2 left-0 md:left-4 lg:left-[-4rem]"
+                "bg-[#1A4331] border-x border-b border-white/10 rounded-b-xl shadow-2xl w-[90px] h-[90px] md:w-[130px] md:h-[130px] -top-10 translate-y-0 left-2 md:left-8 lg:left-[-2rem]"
               )}>
-                <div className={cn(
-                  "relative w-full h-full transition-transform duration-500",
-                  !isScrolled && !isMenuBgVisible ? "scale-110" : "scale-100"
-                )}>
+                <div className="relative w-full h-full scale-100 transition-transform duration-500">
                   <Image
                     src="/logo/zewadi-logo.webp"
                     alt="Zewadi Logo"

@@ -70,7 +70,7 @@ const HeroSection = () => {
 
         {/* Top Column (Mobile) / Right Column (Desktop): Giant Heading */}
         <div className="w-full lg:w-7/12 flex justify-center lg:justify-end">
-          <h1 className="font-['Playfair_Display'] font-black text-5xl md:text-8xl lg:text-[110px] xl:text-[140px] text-white text-center lg:text-right leading-[1] lg:leading-[0.95] tracking-tight fade-in">
+          <h1 className="font-['Playfair_Display'] font-black text-4xl md:text-7xl lg:text-[90px] xl:text-[115px] text-white text-center lg:text-right leading-[1] lg:leading-[0.95] tracking-tight fade-in">
             The Zewadi<br className="hidden md:block"/> Way of<br className="hidden md:block"/> Living
           </h1>
         </div>
