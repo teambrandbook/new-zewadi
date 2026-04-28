@@ -32,7 +32,7 @@ const Footer = () => {
         <div className="absolute inset-0 bg-gradient-to-t from-[#1A4331] via-transparent to-[#1A4331]/40" />
       </div>
 
-      <div className="container relative z-10 mx-auto px-6">
+      <div className="relative z-10 w-full px-4 lg:px-24">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
           
           {/* Logo & Info Column */}
