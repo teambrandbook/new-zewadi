@@ -13,21 +13,61 @@ const leftFaqs: FaqItem[] = [
   {
     question: "What is Zewadi?",
     answer:
-      "Lorem Ipsum is simply dummy text the printing and typese Lorem Ipsum has been the industry's standard dummy text ever",
+      "Zewadi is a premium food brand focused on simple, healthy, and meaningful living",
   },
-  { question: "Do you use additives or preservatives?" },
-  { question: "Do you offer delivery?" },
-  { question: "How can I order?" },
-  { question: "What is the Zewadi Community?" },
+  {
+    question: "Do you use additives or preservatives?",
+    answer:
+      "We keep additives and preservatives as minimal as possible, focusing on quality and balanced ingredients.",
+  },
+  {
+    question: "Do you offer delivery?",
+    answer:
+      "Yes, we offer delivery services to bring Zewadi products straight to your doorstep with convenience and care",
+  },
+  {
+    question: "How can I order?",
+    answer:
+      "You can order directly through our website by browsing products, adding items to your cart, and completing checkout.",
+  },
+  {
+    question: "What is the Zewadi Community?",
+    answer:
+      "The Zewadi Community is a group of people working toward healthier, better living together through simple daily choices.",
+  },
 ];
 
 const rightFaqs: FaqItem[] = [
-  { question: "Are your products healthy?" },
-  { question: "what are the key benefits of Buckwheat?" },
-  { question: "When I Get may order?" },
-  { question: "How Zewadi Can bring Healthy Life Style?" },
-  { question: "Is Buckwheat good For children's ?" },
-  { question: "Is zewadi products Deliver All over the other countries?" },
+  {
+    question: "Are your products healthy?",
+    answer:
+      "Yes, our products are made with carefully selected, balanced ingredients to support healthier everyday living.",
+  },
+  {
+    question: "what are the key benefits of Buckwheat?",
+    answer:
+      "Buckwheat is rich in fiber, protein, and nutrients, supports digestion and heart health, provides steady energy, and is naturally gluten-free.",
+  },
+  {
+    question: "When I Get may order?",
+    answer:
+      "You can expect your order delivery within the estimated time shown at checkout, depending on your location and product availability.",
+  },
+  {
+    question: "How Zewadi Can bring Healthy Life Style?",
+    answer:
+      "Zewadi supports a healthy lifestyle by offering quality food choices, encouraging balanced daily habits, and making wellness simple through small, meaningful everyday choices",
+  },
+  {
+    question: "Is Buckwheat good For children's ?",
+    answer:
+      "Yes, buckwheat is good for children as it is rich in fiber, protein, and essential nutrients, supporting healthy growth, digestion, and steady energy",
+  },
+  {
+    question: "Is zewadi products Deliver All over the other countries?",
+    answer:
+      "Yes, international delivery may be available depending on the country and product availability.",
+  },
 ];
 
 function FaqCard({
