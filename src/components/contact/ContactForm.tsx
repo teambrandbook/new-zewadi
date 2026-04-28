@@ -13,6 +13,8 @@ const ContactForm = () => {
   useEffect(() => {
     const ctx = gsap.context(() => {
       animateFadeInLeft(".contact-stagger", {
+        duration: 1.5,
+        stagger: 0.3,
         scrollTrigger: {
           trigger: sectionRef.current,
           start: "top 80%",

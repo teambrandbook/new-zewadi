@@ -40,17 +40,40 @@ const CommunityOverview = () => {
     if (!overviewSection) return;
 
     const ctx = gsap.context(() => {
-      // Smooth Fade-In from place (no movement)
-      gsap.from(".fade-in-target", {
-        opacity: 0,
-        duration: 1.2,
-        stagger: 0.2,
-        ease: "power2.out",
+      const tl = gsap.timeline({
         scrollTrigger: {
           trigger: sectionRef.current,
-          start: "top 85%",
+          start: "top 50%",
         },
       });
+
+      // 1. Image Wipe L->R
+      tl.fromTo("#overview-img",
+        { clipPath: "inset(0% 100% 0% 0%)" },
+        { clipPath: "inset(0% 0% 0% 0%)", duration: 1.5, ease: "power3.inOut", clearProps: "all" }
+      );
+
+      // 2. Green Bg Wipe L->R with a time gap!
+      tl.fromTo("#overview-green",
+        { clipPath: "inset(0% 100% 0% 0%)" },
+        { clipPath: "inset(0% 0% 0% 0%)", duration: 1.5, ease: "power3.inOut", clearProps: "all" },
+        "+=0.2" // The requested gap in swiping
+      );
+
+      // 3. Text Content Fades In
+      tl.fromTo(".overview-text",
+        { opacity: 0, y: 20 },
+        { opacity: 1, y: 0, duration: 1, stagger: 0.2 },
+        "-=0.4"
+      );
+
+      // 4. Floating Cards Fade In Sequentially
+      tl.fromTo(".overview-card",
+        { opacity: 0, y: 40 },
+        { opacity: 1, y: 0, duration: 1.2, stagger: 0.15 },
+        "-=0.6"
+      );
+
     }, sectionRef);
 
     return () => ctx.revert();
@@ -61,45 +84,49 @@ const CommunityOverview = () => {
   return (
     <section ref={sectionRef} className="py-24 bg-white">
       <div className="container mx-auto px-4 md:px-6">
-        {/* Main Combined Container - No global overflow-hidden to allow mobile float out */}
-        <div className="relative bg-brand-green rounded-[2.5rem] min-h-[600px] md:min-h-[650px] shadow-2xl flex flex-col md:flex-row mb-64 md:mb-12">
+        
+        {/* Outer Relative Layout to protect floating cards from clipPath */}
+        <div className="relative mb-64 md:mb-12">
 
-          {/* Left Side: Editorial Image - Has its own overflow-hidden */}
-          <div className="w-full md:w-[42%] relative min-h-[400px] md:min-h-full overflow-hidden rounded-t-[2.5rem] md:rounded-l-[2.5rem] md:rounded-tr-none">
-            <Image
-              src={overviewSection.image}
-              alt="Community Life"
-              fill
-              className="object-cover"
-            />
-            {/* Subtle Overlay */}
-            <div className="absolute inset-0 bg-black/5" />
-          </div>
-
-          {/* Right Side: Headlines */}
-          <div className="w-full md:w-[58%] p-8 md:p-16 lg:p-24 flex flex-col items-center md:items-start text-center md:text-left justify-start pb-48 md:pb-64">
-            <div className="fade-in-target flex items-center gap-4 mb-8 text-white/50">
-              <WavyArrow className="rotate-180" />
-              <span className="text-white text-xs font-dm font-bold tracking-[0.4em] uppercase">
-                {overviewSection.subtitle}
-              </span>
-              <WavyArrow />
+          {/* The Wrapper (No longer backgrounded, purely layout) */}
+          <div className="relative rounded-[2.5rem] min-h-[600px] md:min-h-[650px] shadow-2xl flex flex-col md:flex-row overflow-hidden bg-white">
+            
+            {/* Left Side: Editorial Image */}
+            <div id="overview-img" className="w-full md:w-[42%] relative min-h-[400px] md:min-h-full bg-gray-100">
+              <Image
+                src={overviewSection.image}
+                alt="Community Life"
+                fill
+                className="object-cover"
+              />
+              <div className="absolute inset-0 bg-black/5" />
             </div>
 
-            <h2 className="fade-in-target text-4xl md:text-5xl lg:text-7xl font-playfair font-medium text-white leading-[1.1] mb-12">
-              {overviewSection.title}
-            </h2>
+            {/* Right Side: Headlines (Now hosts the green bg itself) */}
+            <div id="overview-green" className="w-full md:w-[58%] bg-brand-green p-8 md:p-16 lg:p-24 flex flex-col items-center md:items-start text-center md:text-left justify-start pb-48 md:pb-64 z-10 relative">
+              <div className="overview-text flex items-center gap-4 mb-8 text-white/50">
+                <WavyArrow className="rotate-180" />
+                <span className="text-white text-xs font-dm font-bold tracking-[0.4em] uppercase">
+                  {overviewSection.subtitle}
+                </span>
+                <WavyArrow />
+              </div>
+
+              <h2 className="overview-text text-4xl md:text-5xl lg:text-7xl font-playfair font-medium text-white leading-[1.1] mb-12">
+                {overviewSection.title}
+              </h2>
+            </div>
           </div>
 
-          {/* Floating Cards: Mobile is OUTSIDE (-bottom-64), Desktop is INSIDE (bottom-20) */}
-          <div className="absolute -bottom-64 md:bottom-20 left-0 w-full px-6 md:px-12 z-20 translate-x-0">
+          {/* Floating Cards (Outside the Wiped Container boundaries) */}
+          <div className="absolute -bottom-64 md:bottom-20 left-0 w-full px-6 md:px-12 z-20">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-6 lg:gap-12 max-w-[95%] md:max-w-6xl mx-auto">
               {overviewSection.cards.map((card: any, idx: number) => {
                 const Icon = iconMap[card.icon];
                 return (
                   <div
                     key={idx}
-                    className="fade-in-target overview-card relative bg-[#F4F6F2] p-6 md:p-8 rounded-[2rem] shadow-xl flex flex-col justify-center min-h-[140px] md:min-h-[170px] hover:scale-[1.02] transition-transform duration-500 group cursor-default"
+                    className="overview-card relative bg-[#F4F6F2] p-6 md:p-8 rounded-[2rem] shadow-xl flex flex-col justify-center min-h-[140px] md:min-h-[170px] hover:scale-[1.02] transition-transform duration-500 group cursor-default"
                   >
                     {/* Hanging Icon Circle - Side Position */}
                     <div className="absolute -left-5 md:-left-7 top-1/2 -translate-y-1/2 w-11 h-11 md:w-16 md:h-16 bg-white rounded-full border border-gray-100 shadow-md flex items-center justify-center text-brand-green group-hover:bg-brand-green group-hover:text-white transition-all duration-300">
