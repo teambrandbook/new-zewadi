@@ -83,29 +83,29 @@ function FaqCard({
     <button
       type="button"
       onClick={onClick}
-      className={`w-full rounded-[20px] text-left shadow-[0_0_60px_rgba(0,0,0,0.05)] transition-colors ${
+      className={`w-full rounded-[18px] text-left shadow-[0_0_45px_rgba(0,0,0,0.04)] transition-colors ${
         isOpen ? "bg-[#f1f5eb]" : "bg-white"
       }`}
     >
-      <div className="flex items-start justify-between gap-4 px-5 py-5 sm:px-6 sm:py-6">
+      <div className="flex items-start justify-between gap-3 px-4 py-4 sm:px-5 sm:py-5">
         <div className="min-w-0">
-          <h3 className="text-[16px] font-semibold leading-relaxed text-[#1f4d3a] sm:text-[17px]">
+          <h3 className="text-[15px] font-semibold leading-relaxed text-[#1f4d3a] sm:text-[16px]">
             {item.question}
           </h3>
           {isOpen && item.answer ? (
-            <p className="mt-3 max-w-[480px] text-[14px] leading-[26px] text-[#727272]">
+            <p className="mt-2.5 max-w-[450px] text-[13px] leading-6 text-[#727272]">
               {item.answer}
             </p>
           ) : null}
         </div>
 
         <span
-          className={`mt-0.5 flex h-10 w-10 shrink-0 items-center justify-center rounded-full ${
+          className={`mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-full ${
             isOpen ? "bg-[#1f4d3a] text-white" : "bg-[#f1f5eb] text-[#1f4d3a]"
           }`}
         >
           <ChevronRight
-            size={16}
+            size={15}
             className={`transition-transform ${isOpen ? "-rotate-90" : ""}`}
           />
         </span>
@@ -121,10 +121,10 @@ export default function Faq() {
     <div className="bg-white">
       <ContentSection title="FAQ" subtitle="Frequently Asked Concerns" />
 
-      <section className="py-14 sm:py-20 pt-10 sm:pt-16">
+      <section className="pb-12 pt-8 sm:pb-16 sm:pt-12">
         <div className="container mx-auto px-4 sm:px-6">
-          <div className="mx-auto grid max-w-[1140px] gap-4 lg:grid-cols-2">
-            <div className="space-y-5">
+          <div className="mx-auto grid max-w-[1040px] gap-3 lg:grid-cols-2 lg:gap-4">
+            <div className="space-y-4">
               {leftFaqs.map((item) => (
                 <FaqCard
                   key={item.question}
@@ -139,7 +139,7 @@ export default function Faq() {
               ))}
             </div>
 
-            <div className="space-y-5">
+            <div className="space-y-4">
               {rightFaqs.map((item) => (
                 <FaqCard
                   key={item.question}

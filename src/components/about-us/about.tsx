@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useLayoutEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { ArrowRight, Leaf, MoveRight, SendHorizontal } from "lucide-react";
 import gsap from "@/lib/gsap";
@@ -136,9 +136,24 @@ export default function About() {
         }
     };
 
-    useEffect(() => {
+    useLayoutEffect(() => {
+        const initialPositions = getStoryPositions();
         storyItemsRef.current.forEach(item => {
             if (item) gsap.set(item, { xPercent: -50, yPercent: -50 });
+        });
+
+        storyItemsRef.current.forEach((item, index) => {
+            if (!item) return;
+            const logicalIndex = index % storyImageCount;
+            const pos = initialPositions[logicalIndex];
+
+            gsap.set(item, {
+                x: pos.x,
+                width: pos.width,
+                height: pos.height,
+                zIndex: pos.zIndex,
+                opacity: pos.opacity,
+            });
         });
     }, []);
 
@@ -156,7 +171,7 @@ export default function About() {
     const isInitialMount = useRef(true);
     const activeStoryIndex = normalizeRotation(rotation);
 
-    useEffect(() => {
+    useLayoutEffect(() => {
         const normalizedRotation = normalizeRotation(rotation);
         const positions = getStoryPositions();
 
@@ -170,21 +185,35 @@ export default function About() {
                 (index - normalizedRotation + storyImageCount) % storyImageCount;
             const pos = positions[logicalIndex];
             
-            // Animate zIndex smoothly so the back image stays behind until halfway
-            gsap.to(item, {
+            const animationProps = {
                 x: pos.x,
                 width: pos.width,
                 height: pos.height,
                 zIndex: pos.zIndex,
                 opacity: pos.opacity,
-                duration: duration,
+            };
+
+            if (duration === 0) {
+                gsap.set(item, animationProps);
+                completed++;
+                if (completed === storyImageCount) {
+                    isAnimating.current = false;
+                    isInitialMount.current = false;
+                }
+                return;
+            }
+
+            gsap.killTweensOf(item);
+            gsap.to(item, {
+                ...animationProps,
+                duration,
                 ease: "power2.inOut",
                 snap: "zIndex",
+                overwrite: "auto",
                 onComplete: () => {
                     completed++;
-                    if (completed === 3) {
+                    if (completed === storyImageCount) {
                         isAnimating.current = false;
-                        isInitialMount.current = false;
                     }
                 }
             });
@@ -201,18 +230,18 @@ export default function About() {
             });
 
             tl.fromTo(".intro-tall-wrapper", 
-                { opacity: 0, y: 32, scale: 0.96 },
-                { opacity: 1, y: 0, scale: 1, duration: 1, ease: "power3.out", clearProps: "opacity,transform" }
+                { clipPath: "inset(0% 0% 100% 0%)" },
+                { clipPath: "inset(0% 0% 0% 0%)", duration: 1.4, ease: "power3.inOut" }
             )
             .fromTo(".intro-top-wrapper",
-                { opacity: 0, y: 28, scale: 0.97 },
-                { opacity: 1, y: 0, scale: 1, duration: 0.9, ease: "power3.out", clearProps: "opacity,transform" },
-                "-=0.7"
+                { clipPath: "inset(0% 0% 100% 0%)" },
+                { clipPath: "inset(0% 0% 0% 0%)", duration: 1.2, ease: "power3.inOut" },
+                "-=1.0"
             )
             .fromTo(".intro-bottom-wrapper",
-                { opacity: 0, y: 30, scale: 0.97 },
-                { opacity: 1, y: 0, scale: 1, duration: 0.95, ease: "power3.out", clearProps: "opacity,transform" },
-                "-=0.7"
+                { clipPath: "inset(0% 0% 100% 0%)" },
+                { clipPath: "inset(0% 0% 0% 0%)", duration: 1.2, ease: "power3.inOut" },
+                "-=1.0"
             )
             .fromTo(".intro-health-card",
                 { scale: 0.8, opacity: 0, y: 20 },
@@ -231,14 +260,11 @@ export default function About() {
             );
 
             gsap.fromTo(".approach-image-wrapper",
-                { opacity: 0, y: 36, scale: 0.97 },
+                { clipPath: "inset(0% 0% 100% 0%)" },
                 { 
-                    opacity: 1,
-                    y: 0,
-                    scale: 1,
-                    duration: 1,
-                    ease: "power3.out",
-                    clearProps: "opacity,transform",
+                    clipPath: "inset(0% 0% 0% 0%)", 
+                    duration: 1.4, 
+                    ease: "power3.inOut",
                     scrollTrigger: {
                         trigger: ".approach-image-wrapper",
                         start: "top 80%",
@@ -378,20 +404,11 @@ export default function About() {
                         onWheel={handleWheel}
                     >
                         {storySlides.map((img, i) => {
-                            const storyPosition = getStoryPositionForIndex(i);
-
                             return (
                             <div
                                 key={i}
                                 ref={el => { storyItemsRef.current[i] = el; }}
                                 className="absolute top-1/2 left-1/2 overflow-hidden shadow-[0_0_24px_rgba(0,0,0,0.25)] cursor-pointer transition-shadow hover:shadow-[0_0_30px_rgba(0,0,0,0.4)]"
-                                style={{
-                                    width: storyPosition.width,
-                                    height: storyPosition.height,
-                                    opacity: storyPosition.opacity,
-                                    zIndex: storyPosition.zIndex,
-                                    transform: `translate(-50%, -50%) translateX(${storyPosition.x}px)`,
-                                }}
                                 onClick={() => {
                                     if (isAnimating.current) return;
                                     const pos =
@@ -485,8 +502,8 @@ export default function About() {
                         Real Stories from Everyday<br />Moments
                     </h2>
 
-                    <div className="relative mx-auto mt-12 grid max-w-[1140px] gap-8 md:min-h-[340px] md:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] md:items-center md:gap-0 md:translate-x-4 xl:-translate-x-8">
-                        <div className="testimonial-card relative z-20 overflow-hidden rounded-[32px] bg-[#f2f6ee] p-10 shadow-[0_20px_60px_rgba(0,0,0,0.04)] sm:p-14 md:max-w-[470px] md:p-8 lg:max-w-[540px] lg:translate-x-32 xl:translate-x-40">
+                    <div className="relative mx-auto mt-12 grid max-w-[1140px] gap-8 lg:min-h-[380px] lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] lg:items-center lg:gap-0 lg:-translate-x-[3%]">
+                        <div className="testimonial-card relative z-20 overflow-hidden rounded-[32px] bg-[#f2f6ee] p-10 shadow-[0_20px_60px_rgba(0,0,0,0.04)] sm:p-14 min-[768px]:max-[1024px]:translate-x-[2%] lg:max-w-[540px] lg:translate-x-[38%]">
                             {/* Large Background Quote Marks - Centered */}
                             <div className="pointer-events-none absolute inset-0 flex items-center justify-center text-[#1f4d3a]/5 translate-x-12">
                                 <svg width="280" height="200" viewBox="0 0 340 240" fill="none" stroke="currentColor" strokeWidth="8" xmlns="http://www.w3.org/2000/svg">
@@ -497,20 +514,20 @@ export default function About() {
                                 </svg>
                             </div>
 
-                            <p className="relative z-10 max-w-[36ch] text-[1.1rem] font-medium leading-[1.6] text-[#1f4d3a] md:text-[1.15rem] md:leading-[1.55] lg:text-[1.35rem] lg:leading-[1.5]">
+                            <p className="relative z-10 max-w-[36ch] text-[1.1rem] font-medium leading-[1.6] text-[#1f4d3a] sm:text-[1.35rem] sm:leading-[1.5]">
                                 Zewadi products truly changed the way I look at everyday food
                                 simple, high-quality, and made to fit effortlessly into my
                                 life.
                             </p>
 
-                            <div className="relative z-10 mt-8 flex items-center justify-between lg:mt-12">
+                            <div className="relative z-10 mt-12 flex items-center justify-between">
                                 <div className="flex items-center gap-4">
                                     <div className="h-14 w-14 rounded-full bg-[#d9d9d9] sm:h-16 sm:w-16" />
                                     <div>
-                                        <p className="text-base font-bold text-[#1a4331] md:text-lg lg:text-xl">
+                                        <p className="text-lg font-bold text-[#1a4331] sm:text-xl">
                                             Hamna Zaid
                                         </p>
-                                        <p className="text-xs font-medium text-[#727272] md:text-[13px] lg:text-sm">Happy Customer</p>
+                                        <p className="text-xs font-medium text-[#727272] sm:text-sm">Happy Customer</p>
                                     </div>
                                 </div>
 
@@ -533,13 +550,13 @@ export default function About() {
                             </div>
                         </div>
 
-                        <div className="testimonial-image relative z-10 overflow-hidden rounded-[32px] md:justify-self-end md:-ml-[180px] lg:-ml-[300px] xl:-ml-[440px]">
+                        <div className="testimonial-image relative z-10 overflow-hidden rounded-[32px] lg:-ml-[380px] lg:justify-self-end">
                             <img
                                 src={testimonialImage}
                                 alt="People stacking hands together"
                                 loading="lazy"
                                 decoding="async"
-                                className="h-[280px] w-full object-cover sm:h-[400px] md:h-[360px] md:w-[300px] lg:h-[500px] lg:w-[500px]"
+                                className="h-[280px] w-full object-cover sm:h-[400px] lg:h-[500px] lg:w-[500px]"
                             />
                         </div>
                     </div>
