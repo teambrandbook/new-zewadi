@@ -32,12 +32,12 @@ const Footer = () => {
         <div className="absolute inset-0 bg-gradient-to-t from-[#1A4331] via-transparent to-[#1A4331]/60" />
       </div>
 
-      <div className="container relative z-10 mx-auto px-6">
+      <div className="relative z-10 w-full px-4 lg:px-24">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
           
           {/* Logo & Info Column */}
-          <div className="lg:col-span-4 flex flex-col items-start lg:-ml-2">
-            <Link href="/" className="relative w-80 h-52 -mb-20 -top-20 -left-2 block ">
+          <div className="lg:col-span-4 flex flex-col items-start lg:-ml-20">
+            <Link href="/" className="relative w-80 h-52 -mb-20 -top-20 -left-4 block ">
                <Image 
                 src="/logo/zewadi-logo.webp"
                 alt="Zewadi Logo"
