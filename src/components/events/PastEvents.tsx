@@ -5,15 +5,13 @@ import { ArrowRight, Calendar } from "lucide-react";
 import { pastEvents } from './eventsData';
 
 export default function PastEventsSection() {
-  // Mock data matching your screenshot text
-
 
   return (
     <section className="w-full px-4 py-16 sm:px-6 lg:px-10 bg-white">
       {/* Main Rounded Container */}
-      <div className="relative mx-auto max-w-[1400px] overflow-hidden rounded-[40px] bg-[#f1f5eb] px-6 py-12 md:px-12 md:py-20">
+      <div className="relative mx-auto max-w-[1400px] overflow-hidden rounded-[40px] bg-[#f1f5eb] px-6 py-12 md:px-60 md:py-20">
 
-        {/* Background Leaf Pattern - Set to absolute and low opacity */}
+        {/* Background Leaf Pattern */}
         <div
           className="absolute inset-0 z-0 opacity-[0.08] pointer-events-none"
           style={{
@@ -28,7 +26,7 @@ export default function PastEventsSection() {
 
           {/* Header Row */}
           <div className="flex flex-col gap-6 md:flex-row md:items-center md:justify-between mb-12">
-            <h2 className="text-[#1f4d3a] text-3xl md:text-[42px] font-bold tracking-tight font-sans">
+            <h2 className="fade-in text-[#1f4d3a] text-3xl md:text-[42px] font-bold tracking-tight font-sans">
               Post Events By Zewadi
             </h2>
 
@@ -41,18 +39,18 @@ export default function PastEventsSection() {
             </Link>
           </div>
 
-          {/* Events Grid (2 columns on large screens) */}
+          {/* Events Grid */}
           <div className="grid gap-8 lg:grid-cols-2">
             {pastEvents.map((event, index) => (
               <div
                 key={index}
-                className="flex flex-col sm:flex-row overflow-hidden rounded-[28px] bg-white 
-               shadow-sm hover:shadow-md transition-shadow duration-300 
-               max-w-[650px] w-full mx-auto"
+                className="left-reveal flex flex-col sm:flex-row overflow-hidden rounded-[28px] bg-white 
+                shadow-sm hover:shadow-md transition-shadow duration-300 
+                max-w-[650px] w-full mx-auto"
               >
 
                 {/* Image */}
-                <div className="relative h-[200px] sm:h-[260px] sm:w-[40%] w-full shrink-0">
+                <div className="relative h-[140px] sm:h-[180px] sm:w-[40%] w-full shrink-0">
                   <Image
                     src={event.image}
                     alt={event.title}
@@ -62,18 +60,18 @@ export default function PastEventsSection() {
                 </div>
 
                 {/* Content */}
-                <div className="flex flex-col justify-center p-6 sm:p-8">
+                <div className="flex flex-col justify-center p-3 sm:p-4">
 
-                  <div className="mb-3 flex items-center gap-2 text-[12px] font-medium text-gray-400">
-                    <Calendar className="h-3.5 w-3.5" />
+                  <div className="mb-2 flex items-center gap-2 text-[11px] font-medium text-gray-400">
+                    <Calendar className="h-3 w-3" />
                     {event.date}
                   </div>
 
-                  <h3 className="mb-4 text-xl md:text-[22px] font-bold leading-tight text-[#1f4d3a]">
+                  <h3 className="mb-1 text-[17px] md:text-[18px] font-bold leading-tight text-[#1f4d3a]">
                     {event.title}
                   </h3>
 
-                  <p className="text-[13px] leading-relaxed text-gray-500 line-clamp-3">
+                  <p className="text-[11px] leading-relaxed text-gray-500 line-clamp-2">
                     {event.description}
                   </p>
 

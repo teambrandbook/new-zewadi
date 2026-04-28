@@ -4,7 +4,7 @@ export const upcomingPrimary = [
     date: "17",
     month: "March",
     image: "/event/event_organic_farming.png",
-    variant: "light" as const,
+    
   },
   {
     title: "Growing a Greener Future with Organic Practices",
@@ -13,7 +13,7 @@ export const upcomingPrimary = [
     image: "/event/event_health_culture.png",
     description:
       "We are committed to promoting sustainable agriculture through organic ...",
-    variant: "dark" as const,
+    
   },
 ];
 
@@ -35,14 +35,14 @@ export const pastEvents = [
     title: "Remote Destinations and Hideaways",
     date: "January 01, 2026",
     description:
-      "Lorem Ipsum is simply dummy text the printing an typese Destina tion Weddings Honeym",
+      "Discover peaceful escapes and quiet places where comfort, nature, and meaningful moments come together.",
     image: "/event/past_event_1.png",
   },
   {
     title: "Hiking Through Nature's Beauty",
     date: "January 13, 2026",
     description:
-      "Lorem Ipsum is simply dummy text the printing an typese Destina tion Weddings Honeym",
+      "Explore scenic trails, fresh air, and peaceful landscapes that bring you closer to nature and a healthier way of living.",
     image: "/event/past_event_2.png",
   },
 ];

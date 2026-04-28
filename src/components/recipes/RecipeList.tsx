@@ -15,12 +15,15 @@ export default function RecipeList({ recipes }: { recipes: Recipe[] }) {
     new Set([
       ALL_CATEGORY,
       ...recipes.flatMap((recipe) => recipe.categories),
-    ]),
+    ])
   );
+
   const filteredRecipes =
     activeCategory === ALL_CATEGORY
       ? recipes
-      : recipes.filter((recipe) => recipe.categories.includes(activeCategory));
+      : recipes.filter((recipe) =>
+          recipe.categories.includes(activeCategory)
+        );
 
   return (
     <section className="bg-white px-4 pb-24 pt-16 sm:px-6 md:pb-32 md:pt-20 lg:px-0">

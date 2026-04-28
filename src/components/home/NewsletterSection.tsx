@@ -14,7 +14,7 @@ const NewsletterSection = () => {
           {/* Left Side Image */}
           <div className="w-full lg:w-1/2 relative h-[300px] lg:h-full">
             <Image
-              src="/home/newsletterBg.png"
+              src="/home/newsletterBg.webp"
               alt="newsletter"
               fill
               className="object-cover"

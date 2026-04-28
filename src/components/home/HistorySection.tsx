@@ -1,69 +1,260 @@
-import React from 'react';
-import Image from 'next/image';
+"use client";
+
+import React, { useEffect, useRef, useState } from "react";
+import Image from "next/image";
+import { historySliderAnimation } from "@/utils/animations";
+
+const historyItems = [
+  {
+    image: "/home/historyImg1.webp",
+    text:
+      "Zewadi started with one simple belief: food should feel warm, personal, and worth gathering around.",
+  },
+  {
+    image: "/home/historyImg4.webp",
+    text:
+      "As the idea grew, each dish became part of a bigger story about comfort, care, and everyday connection.",
+  },
+  {
+    image: "/home/historyImg2.webp",
+    text:
+      "The journey kept expanding through shared tables, thoughtful details, and moments people wanted to come back to.",
+  },
+  {
+    image: "/home/historyImg3.webp",
+    text:
+      "Today, Zewadi continues to grow by turning simple meals into memorable experiences for the people around it.",
+  },
+];
 
 const HistorySection = () => {
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [slideDirection, setSlideDirection] = useState<1 | -1>(1);
+  const sectionRef = useRef<HTMLElement | null>(null);
+  const wheelLockRef = useRef(false);
+  const wheelDeltaRef = useRef(0);
+  const wheelResetTimeoutRef = useRef<number | null>(null);
+  const touchStartYRef = useRef<number | null>(null);
+
+  useEffect(() => {
+    if (!sectionRef.current) return;
+
+    historySliderAnimation(sectionRef.current, slideDirection);
+  }, [activeIndex, slideDirection]);
+
+  const next = () => {
+    setSlideDirection(1);
+    setActiveIndex((prev) => (prev + 1) % historyItems.length);
+  };
+
+  const prev = () => {
+    setSlideDirection(-1);
+    setActiveIndex((prev) => (prev - 1 + historyItems.length) % historyItems.length);
+  };
+
+  const isSmallScreen = () => window.matchMedia("(max-width: 1023px)").matches;
+
+  const isSectionCentered = () => {
+    if (!sectionRef.current) return false;
+
+    const rect = sectionRef.current.getBoundingClientRect();
+    const viewportHeight = window.innerHeight;
+
+    return rect.top < viewportHeight * 0.45 && rect.bottom > viewportHeight * 0.55;
+  };
+
+  const handleWheel = (event: React.WheelEvent<HTMLElement>) => {
+    const mobileLikeScroll = isSmallScreen();
+
+    if (mobileLikeScroll) {
+      return;
+    }
+
+    const primaryDelta = mobileLikeScroll ? event.deltaY : event.deltaX;
+    const secondaryDelta = mobileLikeScroll ? event.deltaX : event.deltaY;
+
+    if (Math.abs(primaryDelta) < Math.abs(secondaryDelta)) {
+      return;
+    }
+
+    if (mobileLikeScroll && !isSectionCentered()) {
+      return;
+    }
+
+    event.preventDefault();
+
+    if (wheelLockRef.current) {
+      return;
+    }
+
+    wheelDeltaRef.current += primaryDelta;
+
+    if (wheelResetTimeoutRef.current) {
+      window.clearTimeout(wheelResetTimeoutRef.current);
+    }
+
+    wheelResetTimeoutRef.current = window.setTimeout(() => {
+      wheelDeltaRef.current = 0;
+    }, 180);
+
+    if (Math.abs(wheelDeltaRef.current) < 55) {
+      return;
+    }
+
+    wheelLockRef.current = true;
+
+    if (wheelDeltaRef.current > 0) {
+      next();
+    } else {
+      prev();
+    }
+
+    wheelDeltaRef.current = 0;
+
+    window.setTimeout(() => {
+      wheelLockRef.current = false;
+    }, 560);
+  };
+
+  const handleTouchStart = (event: React.TouchEvent<HTMLElement>) => {
+    touchStartYRef.current = event.touches[0]?.clientY ?? null;
+  };
+
+  const handleTouchMove = (event: React.TouchEvent<HTMLElement>) => {
+    if (!isSmallScreen() || !isSectionCentered()) {
+      return;
+    }
+  };
+
+  const handleTouchEnd = () => {
+    touchStartYRef.current = null;
+  };
+
+  useEffect(() => {
+    return () => {
+      if (wheelResetTimeoutRef.current) {
+        window.clearTimeout(wheelResetTimeoutRef.current);
+      }
+    };
+  }, []);
+
   return (
-    <section className="relative w-full py-24 lg:py-32 bg-white">
+    <section
+      ref={sectionRef}
+      onWheel={handleWheel}
+      onTouchStart={handleTouchStart}
+      onTouchMove={handleTouchMove}
+      onTouchEnd={handleTouchEnd}
+      className="relative w-full bg-white py-20 lg:py-32"
+    >
       <div className="container mx-auto px-6 lg:px-12">
-        <div className="bg-[#244d3a] rounded-[40px] lg:rounded-[50px] p-8 lg:p-20 w-full overflow-hidden">
-          
-          {/* Header Row */}
-          <div className="flex flex-col lg:flex-row gap-12 items-start lg:items-end justify-between mb-16">
-            <div className="w-full lg:w-2/3 flex flex-col gap-6 fade-in">
-               <h2 className="text-white text-4xl lg:text-[48px] font-semibold font-['Playfair_Display'] leading-[1.2] uppercase text-left">
-                  Where It Began
-               </h2>
-               <p className="text-white/80 text-sm lg:text-[14px] font-medium font-['Inter'] leading-relaxed max-w-[600px]">
-                  More than just a meal, Zewadi is a growing story of connection, comfort, and everyday joy shared around food.
-               </p>
+        <div className="w-full overflow-hidden rounded-[40px] bg-[#244d3a] p-8 lg:rounded-[50px] lg:p-20">
+          <div className="mb-16 flex flex-col items-start justify-between gap-12 lg:flex-row lg:items-end">
+            <div className="fade-in flex w-full flex-col gap-6 lg:w-2/3">
+              <h2 className="font-['Playfair_Display'] text-4xl font-semibold uppercase text-white lg:text-[48px]">
+                Where It Began
+              </h2>
+              <p className="max-w-[600px] text-sm text-white/80 lg:text-[14px]">
+                More than just a meal, Zewadi is a growing story of connection, comfort, and everyday joy shared around food.
+              </p>
             </div>
-            
-            {/* Arrow Buttons */}
-            <div className="flex justify-end gap-4 shrink-0 lg:mb-4">
-               <button className="w-[45px] h-[45px] rounded-full border border-white/50 text-white flex items-center justify-center hover:bg-white/10 transition-colors">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M19 12H5M5 12L12 19M5 12L12 5"/></svg>
-               </button>
-               <button className="w-[45px] h-[45px] rounded-full bg-[#b47800] text-white hover:bg-[#8c5e00] flex items-center justify-center transition-colors">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12H19M19 12L12 5M19 12L12 19"/></svg>
-               </button>
+
+            <div className="flex gap-4">
+              <button
+                onClick={prev}
+                aria-label="Previous history slide"
+                className="flex h-[45px] w-[45px] items-center justify-center rounded-full border border-white/50 text-white transition-colors hover:bg-[#b47800]"
+              >
+                <span aria-hidden="true" className="text-lg leading-none">
+                  &larr;
+                </span>
+              </button>
+
+              <button
+                onClick={next}
+                aria-label="Next history slide"
+                className="flex h-[45px] w-[45px] items-center justify-center rounded-full border border-white/50 text-white transition-colors hover:bg-[#b47800]"
+              >
+                <span aria-hidden="true" className="text-lg leading-none">
+                  &rarr;
+                </span>
+              </button>
             </div>
           </div>
 
-          {/* Timeline Graphic */}
-          <div className="relative w-full h-[1px] bg-white/30 my-16 flex items-center justify-between px-[10%]">
-             <div className="w-8 h-8 rounded-full bg-white flex items-center justify-center relative"><div className="w-3 h-3 bg-[#244d3a] rounded-full"></div></div>
-             <div className="w-8 h-8 rounded-full bg-[#244d3a] border border-white flex items-center justify-center relative"><div className="w-3 h-3 bg-white rounded-full"></div></div>
-             <div className="w-8 h-8 rounded-full bg-white flex items-center justify-center relative"><div className="w-3 h-3 bg-[#244d3a] rounded-full"></div></div>
-             <div className="w-8 h-8 rounded-full bg-white flex items-center justify-center relative"><div className="w-3 h-3 bg-[#244d3a] rounded-full"></div></div>
-          </div>
-
-          {/* Images Grid/Row */}
-          <div className="grid grid-cols-1 md:grid-cols-5 gap-4 lg:gap-6 items-stretch">
-             
-             {/* Small Image 1 */}
-             <div className="col-span-1 relative h-[300px] lg:h-[422px] rounded-[20px] overflow-hidden">
-                <Image src="/home/historyImg1.png" alt="History 1" fill className="object-cover" />
-             </div>
-
-             {/* Large Center Image */}
-             <div className="col-span-1 md:col-span-2 relative h-[300px] lg:h-[422px] rounded-[20px] overflow-hidden shadow-2xl z-10">
-                <Image src="/home/historyImg4.png" alt="History Main" fill className="object-cover" />
-                <div className="absolute bottom-4 left-1/2 -translate-x-1/2 w-[90%] bg-[#244d3a] rounded-[10px] p-6 text-white text-[12px] font-medium font-['Inter'] leading-relaxed shadow-lg">
-                   Zewadi started with a simple thought—food should be more than just filling. It should bring people together, create small moments, and add meaning to daily life. That idea took root and kept growing, turning into more than we ever planned.
+          <div className="my-10 flex items-center justify-between lg:my-12 lg:pl-40">
+            {historyItems.map((_, i) => (
+              <div key={i} className="flex flex-1 items-center">
+                <div
+                  className={`timeline-dot z-10 flex h-8 w-8 items-center justify-center rounded-full ${
+                    i === activeIndex ? "dot-active bg-[#b47800]" : "bg-white"
+                  }`}
+                >
+                  <div
+                    className={`h-3 w-3 rounded-full ${
+                      i === activeIndex ? "bg-white" : "bg-[#244d3a]"
+                    }`}
+                  />
                 </div>
-             </div>
 
-             {/* Small Image 3 */}
-             <div className="hidden md:block col-span-1 relative h-[300px] lg:h-[422px] rounded-[20px] overflow-hidden">
-                <Image src="/home/historyImg2.png" alt="History 2" fill className="object-cover" />
-             </div>
-
-             {/* Small Image 4 */}
-             <div className="hidden md:block col-span-1 relative h-[300px] lg:h-[422px] rounded-[20px] overflow-hidden">
-                <Image src="/home/historyImg3.png" alt="History 3" fill className="object-cover" />
-             </div>
+                {i !== historyItems.length - 1 && <div className="h-[1px] flex-1 bg-white/30" />}
+              </div>
+            ))}
           </div>
 
+          <div className="relative min-h-[380px] overflow-hidden lg:hidden">
+            <div
+              key={historyItems[activeIndex].image}
+              data-history-card
+              className="active-card relative z-10 h-[380px] w-full"
+            >
+              <div className="history-image relative h-full w-full overflow-hidden rounded-[20px]">
+                <Image
+                  src={historyItems[activeIndex].image}
+                  alt={`Zewadi history moment ${activeIndex + 1}`}
+                  fill
+                  className="object-cover"
+                />
+              </div>
+
+              <div className="active-text absolute bottom-4 left-1/2 w-[90%] -translate-x-1/2 rounded-[10px] bg-[#244d3a] p-5 text-[12px] text-white shadow-lg">
+                {historyItems[activeIndex].text}
+              </div>
+            </div>
+          </div>
+
+          <div className="hidden overflow-hidden lg:flex lg:min-h-[420px] lg:items-end lg:gap-6">
+            {historyItems.map((item, i) => {
+              const isActive = i === activeIndex;
+
+              return (
+                <div
+                  key={item.image}
+                  data-history-card
+                  className={`relative transition-all duration-700 ease-out ${
+                    isActive
+                      ? "active-card z-10 h-[420px] w-[50%]"
+                      : "inactive-card h-[300px] w-[20%] opacity-70"
+                  }`}
+                >
+                  <div className="history-image relative h-full w-full overflow-hidden rounded-[24px]">
+                    <Image
+                      src={item.image}
+                      alt={`Zewadi history moment ${i + 1}`}
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
+
+                  {isActive && (
+                    <div className="active-text absolute bottom-4 left-1/2 w-[90%] -translate-x-1/2 rounded-[10px] bg-[#244d3a] p-5 text-[12px] text-white shadow-lg">
+                      {item.text}
+                    </div>
+                  )}
+                </div>
+              );
+            })}
+          </div>
         </div>
       </div>
     </section>

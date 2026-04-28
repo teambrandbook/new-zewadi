@@ -5,13 +5,17 @@ export function EventLink({ dark = false }: { dark?: boolean }) {
   return (
     <div
       className={`inline-flex items-center gap-2 font-sans text-[13px] font-semibold ${
-        dark ? "text-[#afb8ac]" : "text-[#7d8978]"
+        dark
+          ? "text-[#afb8ac]"
+          : "text-[#7d8978] transition-colors duration-300 group-hover:text-[#afb8ac]"
       }`}
     >
       <span>More Details</span>
       <span
         className={`inline-flex h-5 w-5 items-center justify-center rounded-full ${
-          dark ? "bg-[#ffcd1e] text-[#0e2207]" : "bg-white text-[#1f6306]"
+          dark
+            ? "bg-[#ffcd1e] text-[#0e2207]"
+            : "bg-white text-[#1f6306] transition-colors duration-300 group-hover:bg-[#ffcd1e] group-hover:text-[#0e2207]"
         }`}
       >
         <ArrowRight className="h-3.5 w-3.5" />
@@ -32,7 +36,9 @@ export function DateBadge({
   return (
     <div
       className={`flex h-[58px] w-[62px] flex-col items-center justify-center rounded-[8px] ${
-        inverse ? "bg-white text-[#0e2207]" : "bg-[#1f6306] text-white"
+        inverse
+          ? "bg-white text-[#0e2207]"
+          : "bg-[#1f6306] text-white transition-colors duration-300 group-hover:bg-white group-hover:text-[#0e2207]"
       }`}
     >
       <span className="font-sans text-[22px] font-bold leading-none">{day}</span>
@@ -49,21 +55,17 @@ export function UpcomingCard({
   month,
   image,
   description,
-  variant,
 }: {
   title: string;
   date: string;
   month: string;
   image: string;
   description?: string;
-  variant: "light" | "dark";
 }) {
-  const dark = variant === "dark";
-
   return (
     <article className="group relative h-[450px] w-full overflow-hidden rounded-[20px]">
   {/* Background Image */}
-  <div className="absolute inset-0">
+  <div className="image-topdown absolute inset-0">
     <Image 
       src={image} 
       alt={title} 
@@ -73,38 +75,32 @@ export function UpcomingCard({
   </div>
 
   {/* Content Card Overlay */}
-  <div className="absolute inset-x-0 bottom-0 p-4 sm:p-5">
+  <div className="zoom-item upcoming-zoom-item absolute inset-x-0 bottom-0 p-4 sm:p-5">
     <div
-      className={`relative rounded-[15px] p-6 shadow-xl ${
-        dark ? "bg-[#0b1d05]/95 backdrop-blur-sm" : "bg-white"
-      }`}
+      className="relative rounded-[15px] bg-white p-6 shadow-xl transition-colors duration-300 group-hover:bg-[#0b1d05]/95 group-hover:backdrop-blur-sm"
     >
       {/* Floating Date Badge */}
       <div className="absolute -top-6 left-6">
-        <DateBadge day={date} month={month} inverse={dark} />
+        <DateBadge day={date} month={month} />
       </div>
 
       <div className="mt-4">
         <h3
-          className={`text-[20px] font-bold leading-tight ${
-            dark ? "text-white" : "text-[#0e2207]"
-          }`}
+          className="text-[20px] font-bold leading-tight text-[#0e2207] transition-colors duration-300 group-hover:text-white"
         >
           {title}
         </h3>
         
         {description && (
           <p
-            className={`mt-3 line-clamp-2 text-[14px] leading-relaxed ${
-              dark ? "text-gray-400" : "text-gray-600"
-            }`}
+            className="mt-3 line-clamp-2 text-[14px] leading-relaxed text-gray-600 transition-colors duration-300 group-hover:text-gray-400"
           >
             {description}
           </p>
         )}
 
         <div className="mt-5">
-          <EventLink dark={dark} />
+          <EventLink />
         </div>
       </div>
     </div>
@@ -123,7 +119,7 @@ export function CompactEventCard({
   month: string;
 }) {
   return (
-    <article className="relative mt-8 rounded-[10px] bg-[#f1f4eb] px-6 pb-6 pt-10">
+    <article className="zoom-item upcoming-zoom-item relative mt-8 rounded-[10px] bg-[#f1f4eb] px-6 pb-6 pt-10">
   {/* Positioning the DateBadge to overlap the top border */}
   <div className="absolute -top-6 left-6">
     <DateBadge day={date} month={month} />
@@ -141,4 +137,3 @@ export function CompactEventCard({
 </article>
   );
 }
-

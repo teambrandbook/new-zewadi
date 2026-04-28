@@ -14,10 +14,11 @@ export default function RecipeCard({
 
   return (
     <article
-      className={`px-6 sm:px-8 lg:px-16 grid items-center gap-8 lg:grid-cols-[480px_minmax(0,1fr)] lg:gap-[90px] ${reverse
-        ? "lg:[&>div:first-child]:order-2 lg:[&>div:last-child]:order-1"
-        : ""
-        }`}
+      className={`origin-top px-5 sm:px-6 lg:pt-10 grid items-center gap-8 lg:grid-cols-[480px_minmax(0,1fr)] lg:gap-[90px] ${
+        reverse
+          ? "lg:[&>div:first-child]:order-2 lg:[&>div:last-child]:order-1"
+          : ""
+      }`}
     >
       {/* Image */}
       <div className="relative mx-auto h-[360px] w-full max-w-[480px] overflow-hidden rounded-[14px] sm:h-[460px] lg:h-[600px]">
@@ -33,7 +34,7 @@ export default function RecipeCard({
       <div className="max-w-[560px]">
 
         {/* Heading */}
-        <h2 className="text-black font-[600] text-[28px] leading-[36px] md:text-[42px] md:leading-[48px] [font-family:'Playfair_Display'] ">
+        <h2 className="text-black font-[600] text-[28px] leading-[36px] md:text-[42px] md:leading-[48px] [font-family:'Playfair_Display']">
           {recipe.title}
         </h2>
 
@@ -43,7 +44,7 @@ export default function RecipeCard({
         </p>
 
         {/* Benefits Title */}
-        {benefits.length > 0 ? (
+        {benefits.length > 0 && (
           <>
             <h3 className="mt-4 text-black font-[800] text-[18px] md:text-[21px] leading-normal [font-family:'Inter']">
               Benefits
@@ -56,7 +57,7 @@ export default function RecipeCard({
               ))}
             </ul>
           </>
-        ) : null}
+        )}
 
         {/* Button */}
         <Link

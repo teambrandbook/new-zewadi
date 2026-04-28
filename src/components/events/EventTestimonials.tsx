@@ -21,7 +21,7 @@ export default function EventTestimonials() {
         <div className="relative flex flex-col items-center lg:flex-row">
           
           {/* Testimonial Card */}
-          <div className="relative z-20 w-full lg:-mr-32 lg:w-[60%]">
+          <div className="left-move relative z-20 w-full lg:-mr-32 lg:w-[60%]">
             <div className="relative overflow-hidden rounded-[20px] bg-[#f2f6eb] p-8 shadow-2xl shadow-black/5 md:p-14">
               
               {/* Giant Quote SVG Background */}
@@ -32,14 +32,14 @@ export default function EventTestimonials() {
               </div>
 
               <div className="relative z-10">
-                <p className="text-[18px] md:text-[22px] leading-[1.6] text-[#1f4d3a] font-medium">
+                <p className="fade-in text-[18px] md:text-[22px] leading-[1.6] text-[#1f4d3a] font-medium">
                   Zewadi products truly changed the way I look at everyday food simple,
                   high-quality, and made to fit effortlessly into my life
                 </p>
 
                 <div className="mt-10 flex items-center justify-between">
                   {/* User Info */}
-                  <div className="flex items-center gap-4">
+                  <div className="fade-in flex items-center gap-4">
                     <div className="h-14 w-14 rounded-full bg-[#dcdcd8]" />
                     <div>
                       <p className="text-[16px] font-bold text-[#1f4d3a]">Hamna Zaid</p>
@@ -63,7 +63,7 @@ export default function EventTestimonials() {
 
           {/* Featured Image */}
           <div className="mt-8 w-full lg:mt-0 lg:w-[50%]">
-            <div className="relative h-[350px] w-full overflow-hidden rounded-[20px] lg:h-[500px]">
+            <div className="image-topdown relative h-[350px] w-full overflow-hidden rounded-[20px] lg:h-[500px]">
               <Image
                 src="/event/community_hands.png" 
                 alt="Community hands"
