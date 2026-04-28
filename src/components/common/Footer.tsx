@@ -36,8 +36,8 @@ const Footer = () => {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
           
           {/* Logo & Info Column */}
-          <div className="lg:col-span-4 flex flex-col items-start">
-            <Link href="/" className="relative w-50 h-52 -mb-20 -top-20 block overflow-hidden rounded-xl ">
+          <div className="lg:col-span-4 flex flex-col items-start lg:-ml-2">
+            <Link href="/" className="relative w-80 h-52 -mb-20 -top-20 -left-2 block ">
                <Image 
                 src="/logo/zewadi-logo.webp"
                 alt="Zewadi Logo"
