@@ -98,17 +98,17 @@ export default function CommunityHero() {
         "-=2"
       );
 
-      // Continuous slow, wide, premium floating movement for particles
+      // Continuous floating movement for particles (slightly more active)
       gsap.to(".triangle-particle", {
-        y: "random(-80, 80)",
-        x: "random(-80, 80)",
-        rotation: "random(-45, 45)",
-        duration: "random(15, 30)",
+        y: "random(-120, 120)",
+        x: "random(-120, 120)",
+        rotation: "random(-90, 90)",
+        duration: "random(10, 20)",
         repeat: -1,
         yoyo: true,
         ease: "sine.inOut",
         stagger: {
-          each: 0.2,
+          each: 0.3,
           from: "random",
         }
       });
