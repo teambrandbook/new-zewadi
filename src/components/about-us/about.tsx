@@ -231,32 +231,32 @@ export default function About() {
 
             tl.fromTo(".intro-tall-wrapper", 
                 { clipPath: "inset(0% 0% 100% 0%)" },
-                { clipPath: "inset(0% 0% 0% 0%)", duration: 1.4, ease: "power3.inOut" }
+                { clipPath: "inset(0% 0% 0% 0%)", duration: 1.15, ease: "power3.inOut" }
             )
             .fromTo(".intro-top-wrapper",
                 { clipPath: "inset(0% 0% 100% 0%)" },
-                { clipPath: "inset(0% 0% 0% 0%)", duration: 1.2, ease: "power3.inOut" },
-                "-=1.0"
+                { clipPath: "inset(0% 0% 0% 0%)", duration: 1.0, ease: "power3.inOut" },
+                "-=0.82"
             )
             .fromTo(".intro-bottom-wrapper",
                 { clipPath: "inset(0% 0% 100% 0%)" },
-                { clipPath: "inset(0% 0% 0% 0%)", duration: 1.2, ease: "power3.inOut" },
-                "-=1.0"
+                { clipPath: "inset(0% 0% 0% 0%)", duration: 1.0, ease: "power3.inOut" },
+                "-=0.82"
             )
             .fromTo(".intro-health-card",
                 { scale: 0.8, opacity: 0, y: 20 },
-                { scale: 1, opacity: 1, y: 0, duration: 0.6, ease: "back.out(1.5)" },
-                "-=0.4"
+                { scale: 1, opacity: 1, y: 0, duration: 0.5, ease: "back.out(1.5)" },
+                "-=0.3"
             )
             .fromTo(".intro-text-heading",
                 { opacity: 0, y: 30 },
-                { opacity: 1, y: 0, duration: 1, ease: "power3.out" },
-                "-=1.2"
+                { opacity: 1, y: 0, duration: 0.82, ease: "power3.out" },
+                "-=1.0"
             )
             .fromTo(".intro-text-card",
                 { opacity: 0, y: 40 },
-                { opacity: 1, y: 0, duration: 0.8, stagger: 0.15, ease: "power2.out" },
-                "-=0.8"
+                { opacity: 1, y: 0, duration: 0.68, stagger: 0.12, ease: "power2.out" },
+                "-=0.62"
             );
 
             gsap.fromTo(".approach-image-wrapper",
