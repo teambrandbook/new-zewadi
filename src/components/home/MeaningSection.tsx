@@ -33,9 +33,9 @@ const MeaningSection = () => {
             </p>
 
             {/* Horizontal Image - Height Adjusted */}
-            <div className="relative w-full aspect-[16/8] mb-12 overflow-hidden shadow-sm">
+            <div className="image-topdown relative w-full aspect-[16/8] mb-12 overflow-hidden shadow-sm">
               <Image
-                src="/home/meaningImg2.png"
+                src="/home/meaningImg2.webp"
                 alt="Shared meals"
                 fill
                 className="object-cover"
@@ -46,9 +46,9 @@ const MeaningSection = () => {
 
           {/* Right Content Column - Tall Image */}
           <div className="w-full lg:w-1/2 pt-12">
-            <div className="relative w-full aspect-[3/4] lg:h-[600px] overflow-hidden shadow-sm">
+            <div className="image-topdown relative w-full aspect-[3/4] lg:h-[600px] overflow-hidden shadow-sm">
               <Image
-                src="/home/meaningImg1.png"
+                src="/home/meaningImg1.webp"
                 alt="Meaningful moments"
                 fill
                 className="object-cover"

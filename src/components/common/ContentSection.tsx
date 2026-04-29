@@ -25,7 +25,7 @@ const ContentSection = ({
 }: ContentSectionProps) => {
   return (
     <section className={cn("bg-[#1f4d3a] pt-20 sm:pt-24 pb-0", sectionClassName)}>
-      <div className={cn("container mx-auto px-4 sm:px-6", containerClassName)}>
+      <div className={cn("container mx-auto px-4 sm:px-40", containerClassName)}>
         <div className={cn("h-[140px] sm:h-[180px]", spacerClassName)} />
 
         <div

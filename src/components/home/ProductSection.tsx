@@ -1,66 +1,122 @@
-import React from 'react';
-import Image from 'next/image';
+"use client";
+
+import React, { useEffect, useRef, useState } from "react";
+import Image from "next/image";
+import { productCarouselAnimation } from "@/utils/animations";
+
+const products = [
+  { image: "/home/productImg1.webp", text: "Fresh organic products" },
+  { image: "/home/productImg2.webp", text: "Healthy daily ingredients" },
+  { image: "/home/productImg3.webp", text: "Smart farming solutions" },
+];
 
 const ProductSection = () => {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const wheelLockRef = useRef(false);
+  const wheelDeltaRef = useRef(0);
+  const wheelResetTimeoutRef = useRef<number | null>(null);
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [isAnimating, setIsAnimating] = useState(false);
+
+  const next = () => {
+    if (isAnimating) return;
+    setActiveIndex((prev) => (prev + 1) % products.length);
+  };
+
+  const prev = () => {
+    if (isAnimating) return;
+    setActiveIndex((prev) => (prev - 1 + products.length) % products.length);
+  };
+
+  const handleWheel = (event: React.WheelEvent<HTMLElement>) => {
+    if (Math.abs(event.deltaX) < Math.abs(event.deltaY)) {
+      return;
+    }
+
+    event.preventDefault();
+
+    if (isAnimating || wheelLockRef.current) {
+      return;
+    }
+
+    wheelDeltaRef.current += event.deltaX;
+
+    if (wheelResetTimeoutRef.current) {
+      window.clearTimeout(wheelResetTimeoutRef.current);
+    }
+
+    wheelResetTimeoutRef.current = window.setTimeout(() => {
+      wheelDeltaRef.current = 0;
+    }, 180);
+
+    if (Math.abs(wheelDeltaRef.current) < 55) {
+      return;
+    }
+
+    wheelLockRef.current = true;
+
+    if (wheelDeltaRef.current > 0) {
+      next();
+    } else {
+      prev();
+    }
+
+    wheelDeltaRef.current = 0;
+
+    window.setTimeout(() => {
+      wheelLockRef.current = false;
+    }, 520);
+  };
+
+  useEffect(() => {
+    if (!containerRef.current) return;
+
+    productCarouselAnimation(
+      containerRef.current,
+      activeIndex,
+      setIsAnimating
+    );
+  }, [activeIndex]);
+
+  useEffect(() => {
+    return () => {
+      if (wheelResetTimeoutRef.current) {
+        window.clearTimeout(wheelResetTimeoutRef.current);
+      }
+    };
+  }, []);
+
   return (
-    <section className="w-full bg-[#1f4b3f] py-6 lg:py-8">
-      
-      <div className="w-full px-6 lg:px-20">
-        
-        {/* Title */}
-        <h2 className="text-[#fdf6ee] text-2xl lg:text-4xl font-serif mb-5 fade-in">
+    <section
+      ref={containerRef}
+      onWheel={handleWheel}
+      className="w-full overflow-hidden bg-[#1f4b3f] py-12 lg:py-16"
+    >
+      <div className="w-full px-6 lg:px-24">
+        <h2 className="mb-8 font-serif text-3xl text-[#fdf6ee] sm:text-4xl lg:text-5xl">
           Our Product
         </h2>
 
-        {/* Images */}
-        <div className="relative flex items-center justify-center h-[240px] sm:h-[260px] lg:h-[300px]">
-          
-          {/* Left Image */}
-          <div className="absolute left-2 sm:left-[20%] lg:left-[35%] 
-                          w-[120px] sm:w-[140px] lg:w-[150px] 
-                          h-[160px] sm:h-[180px] lg:h-[200px] 
-                          rounded-lg overflow-hidden opacity-90">
-            <Image 
-              src="/home/productImg1.png" 
-              alt="Product Left" 
-              fill 
-              className="object-cover" 
-            />
-          </div>
-
-          {/* Right Image */}
-          <div className="absolute right-2 sm:right-[20%] lg:right-[35%] 
-                          w-[120px] sm:w-[140px] lg:w-[150px] 
-                          h-[160px] sm:h-[180px] lg:h-[200px] 
-                          rounded-lg overflow-hidden opacity-90">
-            <Image 
-              src="/home/productImg2.png" 
-              alt="Product Right" 
-              fill 
-              className="object-cover" 
-            />
-          </div>
-
-          {/* Center Image */}
-          <div className="relative 
-                          w-[160px] sm:w-[180px] lg:w-[200px] 
-                          h-[220px] sm:h-[240px] lg:h-[260px] 
-                          rounded-lg overflow-hidden shadow-xl z-10">
-            <Image 
-              src="/home/productImg3.png" 
-              alt="Product Center" 
-              fill 
-              className="object-cover" 
-            />
-          </div>
-
+        <div className="relative flex h-[280px] items-center justify-center sm:h-[360px] lg:h-[440px]">
+          {products.map((item, i) => (
+            <div
+              key={i}
+              className={`card absolute h-[180px] w-[130px] overflow-hidden rounded-xl opacity-90 sm:h-[260px] sm:w-[190px] lg:h-[300px] lg:w-[220px]`}
+              style={{ left: "50%", transform: "translateX(-50%)" }}
+            >
+              <Image
+                src={item.image}
+                alt="product"
+                fill
+                className="object-cover"
+              />
+            </div>
+          ))}
         </div>
 
-        {/* Bottom Text */}
-        <p className="text-center text-[#fdf6ee]/80 text-xs mt-5 max-w-[500px] mx-auto fade-in">
-          Bridging the gap between technology and<br/> agriculture to redefine your food experience.
+        <p className="mx-auto mt-6 max-w-[600px] text-center text-sm text-[#fdf6ee]/80">
+          {products[activeIndex].text}
         </p>
-
       </div>
     </section>
   );
