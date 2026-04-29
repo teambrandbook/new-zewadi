@@ -86,7 +86,7 @@ const Navbar = () => {
             <Link href="/" className="block">
               <div className={cn(
                 "absolute transition-all duration-500 overflow-hidden flex items-center justify-center p-2 md:p-3",
-                "bg-[#1A4331] border-x border-b border-white/10 rounded-b-xl shadow-2xl w-[90px] h-[90px] md:w-[130px] md:h-[130px] -top-10 translate-y-0 left-2 md:left-8 lg:left-[-2rem]"
+                "bg-[#1A4331] border-x border-b border-white/10 rounded-b-xl shadow-2xl w-[85px] h-[85px] md:w-[105px] md:h-[105px] lg:w-[120px] lg:h-[120px] xl:w-[135px] xl:h-[135px] -top-10 translate-y-0 left-2 md:left-6 lg:left-1 xl:left-4 2xl:left-[-2rem]"
               )}>
                 <div className="relative w-full h-full scale-100 transition-transform duration-500">
                   <Image

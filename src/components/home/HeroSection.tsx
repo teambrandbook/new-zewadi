@@ -39,7 +39,7 @@ const HeroSection = () => {
         <div className="absolute inset-0 bg-black/40" />
       </div>
 
-      <div className="container mx-auto px-6 lg:px-20 relative z-10 flex flex-col-reverse lg:flex-row items-center lg:items-center justify-between h-full pt-28 pb-12 lg:py-0">
+      <div className="container mx-auto px-6 lg:px-32 xl:px-40 relative z-10 flex flex-col-reverse lg:flex-row items-center lg:items-center justify-between h-full pt-28 pb-12 lg:py-0">
 
         {/* Bottom Column (Mobile) / Left Column (Desktop): Copy and CTA */}
         <div className="w-full lg:w-5/12 flex flex-col items-center lg:items-start z-20 mt-12 lg:mt-0">
