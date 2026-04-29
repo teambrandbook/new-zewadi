@@ -11,12 +11,12 @@ const LearnMoreSection = () => {
 
           {/* Left Content */}
           <div className="w-full lg:w-1/2 flex flex-col items-start z-10 mb-10 lg:mb-24">
-            <h2 className="text-[#d9c5a7] text-4xl lg:text-[54px] font-bold font-['Playfair_Display'] leading-[1.1] mb-6 tracking-tight">
+            <h2 className="fade-in text-[#d9c5a7] text-4xl lg:text-[54px] font-bold font-['Playfair_Display'] leading-[1.1] mb-6 tracking-tight">
               LEARN MORE<br />
               ABOUT ZEWADI
             </h2>
 
-            <p className="text-white/90 text-sm lg:text-[16px] font-normal font-['Inter'] leading-relaxed mb-10 max-w-[440px]">
+            <p className="fade-in text-white/90 text-sm lg:text-[16px] font-normal font-['Inter'] leading-relaxed mb-10 max-w-[440px]">
               Zewadi is deeper than what you see on the surface. Get to know the thinking, the purpose, and the story behind it all.
             </p>
 

@@ -25,6 +25,7 @@ export const fadeIn = (selector: string) => {
 };
 
 
+
 // ----------------------------------
 
 
@@ -40,7 +41,7 @@ export const zoomInStagger = (selector: string) => {
     {
       scale: 1,
       opacity: 1,
-      duration: 0.8,
+      duration: 3,
       ease: "power3.out",
       stagger: 0.25,
       scrollTrigger: {
@@ -80,14 +81,14 @@ export const historySliderAnimation = (
       activeCard,
       isMobile
         ? {
-            opacity: 0,
-            x: direction > 0 ? 72 : -72,
-          }
+          opacity: 0,
+          x: direction > 0 ? 72 : -72,
+        }
         : {
-            scale: 0.975,
-            opacity: 1,
-            x: 24,
-          },
+          scale: 0.975,
+          opacity: 1,
+          x: 24,
+        },
       {
         scale: 1,
         opacity: 1,
@@ -335,7 +336,7 @@ export const leftReveal = (selector: string) => {
  */
 export const animateSequence = (selector: string, delay: number = 0) => {
   const elements = gsap.utils.toArray<HTMLElement>(selector);
-  
+
   if (elements.length === 0) return;
 
   gsap.fromTo(
@@ -353,9 +354,100 @@ export const animateSequence = (selector: string, delay: number = 0) => {
       stagger: 0.2,
       scrollTrigger: {
         trigger: elements[0],
-        start: "top 85%",
+        start: "top 70%",
         once: true,
       },
     }
   );
+};
+
+
+
+// -----------------------------------------------------------
+
+
+export const stackRecipeCards = (selector: string) => {
+  const triggerIdPrefix = "recipe-stack-";
+  const cards = gsap.utils.toArray<HTMLElement>(selector);
+  const disableOnSmallScreen = window.matchMedia("(max-width: 639px)").matches;
+  const topOffset = window.matchMedia("(max-width: 767px)").matches
+    ? 70
+    : window.matchMedia("(max-width: 1023px)").matches
+      ? 96
+      : 120;
+
+  ScrollTrigger.getAll().forEach((trigger) => {
+    if (
+      typeof trigger.vars.id === "string" &&
+      trigger.vars.id.startsWith(triggerIdPrefix)
+    ) {
+      trigger.kill();
+    }
+  });
+
+  cards.forEach((card) => {
+    const parentBackground =
+      card.parentElement
+        ? window.getComputedStyle(card.parentElement).backgroundColor
+        : "";
+
+    gsap.killTweensOf(card);
+    gsap.set(card, {
+      clearProps: "position,top,zIndex,opacity,visibility,willChange,transform",
+      backgroundColor:
+        parentBackground && parentBackground !== "rgba(0, 0, 0, 0)"
+          ? parentBackground
+          : "#ffffff",
+    });
+  });
+
+  if (disableOnSmallScreen || cards.length < 2) {
+    ScrollTrigger.refresh();
+    return;
+  }
+
+  cards.forEach((card, i) => {
+    const isLastCard = i === cards.length - 1;
+
+    gsap.set(card, {
+      position: isLastCard ? "relative" : "sticky",
+      top: isLastCard ? "auto" : topOffset,
+      zIndex: i + 1,
+      willChange: "transform",
+    });
+
+    if (!isLastCard) {
+      ScrollTrigger.create({
+        id: `${triggerIdPrefix}${i}`,
+        trigger: card,
+        start: `top ${topOffset}px`,
+        endTrigger: cards[cards.length - 1],
+        end: "bottom bottom",
+        invalidateOnRefresh: true,
+      });
+    }
+
+    gsap.fromTo(
+      card,
+      {
+        y: 32,
+        scale: 0.985,
+      },
+      {
+        y: 0,
+        scale: 1,
+        ease: "none",
+        scrollTrigger: {
+          id: `${triggerIdPrefix}-motion-${i}`,
+          trigger: card,
+          start: "top 88%",
+          end: `top ${topOffset + 40}px`,
+          scrub: 1.1,
+          invalidateOnRefresh: true,
+        },
+      }
+    );
+  });
+
+  ScrollTrigger.refresh();
 };
