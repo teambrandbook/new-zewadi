@@ -2,6 +2,7 @@
 
 import React, { useEffect, useRef } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import gsap, { animatePopUp, animateFadeInLeft, animateSwipeReveal, animateCounter } from "@/lib/gsap";
 import { Leaf, ArrowRight } from "lucide-react";
 import communityData from "@/data/community.json";
@@ -86,10 +87,12 @@ const CommunityStats = () => {
                   {statsSection.card.description}
                 </p>
                 <div className="text-animate-left">
-                  <button className="border border-brand-green/20 text-brand-green font-bold px-8 py-3 rounded-full hover:bg-brand-green hover:text-white transition-all duration-300 flex items-center gap-2 w-fit group">
-                    {statsSection.card.ctaText}
-                    <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
-                  </button>
+                  <Link href="/login">
+                    <button className="border border-brand-green/20 text-brand-green font-bold px-8 py-3 rounded-full hover:bg-brand-green hover:text-white transition-all duration-300 flex items-center gap-2 w-fit group">
+                      {statsSection.card.ctaText}
+                      <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
+                    </button>
+                  </Link>
                 </div>
               </div>
               <div

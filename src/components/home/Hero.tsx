@@ -78,7 +78,7 @@ const Hero = () => {
           </span>
         </div>
 
-        <h1 className="hero-title text-5xl md:text-7xl lg:text-8xl font-black text-white mb-8 leading-[0.95] perspective-1000">
+        <h1 className="hero-title text-5xl md:text-7xl lg:text-7xl font-black text-white mb-8 leading-[0.95] perspective-1000">
           <span className="inline-block mr-4">{hero.titleMain}</span>
           <span className="inline-block mr-4">{hero.titleSecondary}</span>
           <span className="inline-block bg-gradient-to-r from-brand-primary to-indigo-400 bg-clip-text text-transparent">

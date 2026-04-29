@@ -28,21 +28,21 @@ const Footer = () => {
           className="scale-100 object-contain opacity-1000"
           priority
         />
-        <div className="absolute inset-0 bg-[#1A4331]/40" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#1A4331] via-transparent to-[#1A4331]/60" />
+        <div className="absolute inset-0 bg-[#1A4331]/20" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#1A4331] via-transparent to-[#1A4331]/40" />
       </div>
 
       <div className="relative z-10 w-full px-4 lg:px-24">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
           
           {/* Logo & Info Column */}
-          <div className="lg:col-span-4 flex flex-col items-start lg:-ml-20">
-            <Link href="/" className="relative w-80 h-52 -mb-20 -top-20 -left-4 block ">
+          <div className="lg:col-span-4 flex flex-col items-start mb-12 lg:mb-0">
+            <Link href="/" className="relative w-44 h-44 md:w-52 md:h-52 lg:w-64 lg:h-64 -mb-16 md:-mb-20 lg:-mb-28 -top-16 md:-top-20 lg:-top-28 block overflow-hidden rounded-xl">
                <Image 
                 src="/logo/zewadi-logo.webp"
                 alt="Zewadi Logo"
                 fill
-                className="object-contain object-left scale-130"
+                className="object-contain object-left scale-150 transition-transform duration-500 hover:scale-[1.6]"
                />
             </Link>
 

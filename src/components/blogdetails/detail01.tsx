@@ -1,22 +1,22 @@
 import BlogDetailTemplate from "./detail-template";
 
-const image = "https://www.figma.com/api/mcp/asset/a03eae76-3977-4853-b2c9-0c92085baa47";
+const image = "/blogs/blog-1.webp";
 
 const popularPosts = [
   {
     title: "Find Your Adventure Live Your Passion",
     image:
-      "https://www.figma.com/api/mcp/asset/c4dbba35-adcd-4df8-ab16-851f1c8715ba",
+      "/blogs/blog-1.webp",
   },
   {
     title: "Ravel Beyond Your Products",
     image:
-      "https://www.figma.com/api/mcp/asset/e1da7d73-ad5c-40f4-a900-9ca6b6c9eab8",
+      "/blogs/blog-2.webp",
   },
   {
     title: "Healthy Eating on a Budget",
     image:
-      "https://www.figma.com/api/mcp/asset/336db613-9f10-44fb-b77f-a21310e7dac4",
+      "/blogs/blog-3.webp",
   },
 ];
 
