@@ -90,7 +90,7 @@
     ]
   },
   "valuesGridSection": {
-    "title": "Lorem ipsum\ndolor sit amet,\nconsectetur\nadipiscing elit",
+    "title": "Rooted by Values,\nDriven in\npurpose",
     "backgroundImage": "/community/com-value.webp",
     "cards": [
       {
@@ -114,8 +114,8 @@
         "icon": "LayoutGrid"
       },
       {
-        "title": "Lorem ipsum dolor",
-        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+        "title": "Everyday Inspiration",
+        "description": "Small, everyday changes build up over time.",
         "icon": "Layers"
       }
     ]

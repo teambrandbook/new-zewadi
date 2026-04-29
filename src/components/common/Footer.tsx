@@ -20,28 +20,29 @@ const Footer = () => {
 
   return (
     <footer className="relative overflow-hidden bg-[#1A4331] pb-12 pt-24 text-white">
-      <div className="pointer-events-none absolute inset-0 select-none opacity-40">
+      <div className="pointer-events-none absolute inset-0 select-none opacity-100">
         <Image
           src="/bg/world-map.png"
           alt="World Map Background"
           fill
-          className="scale-150 object-cover brightness-150 contrast-125 mix-blend-overlay"
+          className="scale-100 object-contain opacity-1000"
           priority
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#1A4331] via-transparent to-[#1A4331]/30" />
+        <div className="absolute inset-0 bg-[#1A4331]/40" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#1A4331] via-transparent to-[#1A4331]/60" />
       </div>
 
-      <div className="container relative z-10 mx-auto px-6">
+      <div className="relative z-10 w-full px-4 lg:px-24">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
           
           {/* Logo & Info Column */}
-          <div className="lg:col-span-4 flex flex-col items-start">
-            <Link href="/" className="relative w-50 h-52 -mb-20 -top-20 block overflow-hidden rounded-xl ">
+          <div className="lg:col-span-4 flex flex-col items-start lg:-ml-20">
+            <Link href="/" className="relative w-80 h-52 -mb-20 -top-20 -left-4 block ">
                <Image 
                 src="/logo/zewadi-logo.webp"
                 alt="Zewadi Logo"
                 fill
-                className="object-contain object-left scale-150"
+                className="object-contain object-left scale-130"
                />
             </Link>
 

@@ -23,7 +23,7 @@ const CommunityGrid = () => {
         ease: "power2.out",
         scrollTrigger: {
           trigger: sectionRef.current,
-          start: "top 85%",
+          start: "top 50%",
           toggleActions: "play none none none",
         },
       });
@@ -36,7 +36,7 @@ const CommunityGrid = () => {
         ease: "power3.out",
         scrollTrigger: {
           trigger: ".footer-text",
-          start: "top 90%",
+          start: "top 50%",
         },
       });
     }, sectionRef);

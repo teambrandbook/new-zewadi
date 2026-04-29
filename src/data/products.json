@@ -1,20 +1,20 @@
 {
   "hero": {
     "title": "Products",
-    "subtitle": "ZEWADI BUCKWHEAT"
+    "subtitle": "Zewadi Buckwheat"
   },
   "details": {
     "title": "Zewadi Buckwheat",
     "price": "$ 120.00 USD",
-    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    "description": "Zewadi Buckwheat is a wholesome, naturally gluten-free grain packed with fiber, protein, and essential nutrients. It supports healthy digestion, steady energy, and overall wellness, making it a perfect choice for a balanced and healthier lifestyle.",
     "benefits": [
-      "Only the finest local and seasonal ingredients.",
-      "Healthy, chemical-free components for every dish.",
-      "Supporting local farmers and sustainable produce.",
-      "Each ingredient carefully selected for peak flavor.",
-      "Ingredients that celebrate each season's best.",
-      "Top-quality meats, seafood, and plant-based options.",
-      "Freshly baked, handmade, or house-prepared items."
+      "Better digestion.",
+      "Steady energy.",
+      "Supports heart health",
+      "Helps balance blood sugar",
+      "Rich in fiber and protein",
+      "Naturally gluten-free",
+      "Supports healthy lifestyle"
     ],
     "images": [
       "/product/p-main.webp",
@@ -22,7 +22,7 @@
       "/product/p-3.webp",
       "/product/p-4.webp"
     ],
-    "fullDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+    "fullDescription": "Zewadi Buckwheat is a wholesome and naturally gluten-free superfood packed with fiber, protein, and essential nutrients that support a healthier lifestyle. It helps improve digestion, provides steady energy throughout the day, and supports heart health and balanced blood sugar levels. Rich in important minerals and plant-based nutrition, buckwheat is a great choice for everyday meals. Whether used in porridge, wraps, pancakes, salads, or traditional dishes, Zewadi Buckwheat makes healthy eating simple, tasty, and part of your daily routine."
   },
   "items": [
     {

@@ -27,11 +27,11 @@
       { "name": "Contact Us", "href": "/contact" }
     ],
     "innerPages": [
-      { "name": "Recipes", "href": "#" },
-      { "name": "Events", "href": "#" },
+      { "name": "Recipes", "href": "/recipes" },
+      { "name": "Events", "href": "/events" },
       { "name": "Gallery", "href": "/gallery" },
-      { "name": "Blogs", "href": "#" },
-      { "name": "FAQs", "href": "#" }
+      { "name": "Blogs", "href": "/blogs" },
+      { "name": "FAQs", "href": "/faq" }
     ],
     "support": [
       { "name": "Term and Conditions", "href": "#" },

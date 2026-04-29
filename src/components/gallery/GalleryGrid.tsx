@@ -43,16 +43,16 @@ const GalleryGrid = () => {
       <div className="container mx-auto px-6">
         
         {/* Category Filters */}
-        <div className="flex flex-wrap items-center justify-center gap-4 mb-20 animate-fade-in">
+        <div className="flex flex-wrap items-center justify-center gap-3 md:gap-4 mb-16 md:mb-20 max-w-[360px] md:max-w-none mx-auto animate-fade-in w-full">
           {categories.map((category) => (
             <button
               key={category}
               onClick={() => setActiveCategory(category)}
               className={cn(
-                "px-8 py-2.5 rounded-full text-[13px] font-bold tracking-widest transition-all duration-300 uppercase border",
+                "px-4 sm:px-6 md:px-8 py-2 md:py-2.5 rounded-full text-[10px] sm:text-[11px] md:text-[13px] font-bold tracking-widest transition-all duration-300 uppercase border whitespace-nowrap",
                 activeCategory === category
                   ? "bg-[#A67C00] border-[#A67C00] text-white shadow-lg"
-                  : "bg-white border-gray-300 text-gray-700 hover:border-[#A67C00] hover:text-[#A67C00]"
+                  : "bg-white border-gray-200 text-[#1A4331] hover:border-[#A67C00] hover:text-[#A67C00]"
               )}
             >
               {category}
@@ -65,7 +65,7 @@ const GalleryGrid = () => {
           {filteredItems.map((item) => (
             <div
               key={item.id}
-              className="gallery-item opacity-0 group relative aspect-square  overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-500 cursor-pointer"
+              className="gallery-item opacity-0 group relative aspect-square rounded-2xl overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-500 cursor-pointer"
             >
               <Image
                 src={item.image}
