@@ -56,7 +56,7 @@ const CommunityOverview = () => {
       // 2. Green Bg Wipe L->R with a time gap!
       tl.fromTo("#overview-green",
         { clipPath: "inset(0% 100% 0% 0%)" },
-        { clipPath: "inset(0% 0% 0% 0%)", duration: 1.5, ease: "power3.inOut", clearProps: "all" },
+        { clipPath: "inset(0% 0% 0% 0%)", duration: 1.0, ease: "power3.inOut", clearProps: "all" },
         "+=0.2" // The requested gap in swiping
       );
 
