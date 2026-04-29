@@ -276,8 +276,8 @@ export default function About() {
                 { clipPath: "inset(0% 100% 0% 0%)" },
                 {
                     clipPath: "inset(0% 0% 0% 0%)",
-                    duration: 1.2,
-                    stagger: 0.2,
+                    duration: 1.176,
+                    stagger: 0.196,
                     ease: "power3.out",
                     scrollTrigger: {
                         trigger: ".approach-steps-container",
@@ -289,18 +289,19 @@ export default function About() {
             const testimonialTl = gsap.timeline({
                 scrollTrigger: {
                     trigger: ".testimonial-section",
-                    start: "top 75%"
+                    start: "top 68%",
+                    once: true,
                 }
             });
 
             testimonialTl.fromTo(".testimonial-heading",
                 { opacity: 0, y: 30 },
-                { opacity: 1, y: 0, duration: 1, ease: "power3.out" }
+                { opacity: 1, y: 0, duration: 1.4, ease: "power2.out" }
             )
             .fromTo([".testimonial-card", ".testimonial-image"],
                 { opacity: 0, y: 40 },
-                { opacity: 1, y: 0, duration: 0.8, stagger: 0.15, ease: "power2.out" },
-                "-=0.6"
+                { opacity: 1, y: 0, duration: 1.2, stagger: 0.2, ease: "power2.out" },
+                "-=0.5"
             );
         }, containerRef);
 
@@ -473,7 +474,7 @@ export default function About() {
                             ))}
 
                             <Link
-                                href="/products"
+                                href="/community"
                                 className="group inline-flex items-center rounded-full bg-[#1f4d3a] pl-9 pr-0 py-0 text-[13px] font-bold uppercase tracking-[0.15em] text-white transition-colors duration-300 hover:bg-[#1a4331]"
                             >
                                 <span className="py-4">Learn More</span>
@@ -486,9 +487,9 @@ export default function About() {
                 </div>
             </section>
 
-            <section className="testimonial-section pb-12 pt-24 sm:pt-36 lg:pt-48 sm:pb-24 lg:pb-32">
+            <section className="testimonial-section pb-12 pt-12 sm:pt-16 lg:pt-20 sm:pb-24 lg:pb-32">
                 <div className="container mx-auto px-4 sm:px-6">
-                    <div className="flex justify-center mb-8 pt-10">
+                    <div className="flex justify-center mb-8 pt-4 sm:pt-6">
                         <div className="inline-flex items-center gap-5 rounded-full bg-[#1a4331] px-7 py-2.5 shadow-sm border border-white/10">
                             <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-white/80">
                                 Client Testimonials
@@ -503,7 +504,7 @@ export default function About() {
                     </h2>
 
                     <div className="relative mx-auto mt-12 grid max-w-[1140px] gap-8 lg:min-h-[380px] lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] lg:items-center lg:gap-0 lg:-translate-x-[3%]">
-                        <div className="testimonial-card relative z-20 overflow-hidden rounded-[32px] bg-[#f2f6ee] p-10 shadow-[0_20px_60px_rgba(0,0,0,0.04)] sm:p-14 min-[768px]:max-[1024px]:translate-x-[2%] lg:max-w-[540px] lg:translate-x-[38%]">
+                        <div className="testimonial-card relative z-20 -translate-x-[2%] overflow-hidden rounded-[32px] bg-[#f2f6ee] p-10 shadow-[0_20px_60px_rgba(0,0,0,0.04)] sm:p-14 min-[768px]:max-[1024px]:translate-x-0 lg:max-w-[540px] lg:translate-x-[31%]">
                             {/* Large Background Quote Marks - Centered */}
                             <div className="pointer-events-none absolute inset-0 flex items-center justify-center text-[#1f4d3a]/5 translate-x-12">
                                 <svg width="280" height="200" viewBox="0 0 340 240" fill="none" stroke="currentColor" strokeWidth="8" xmlns="http://www.w3.org/2000/svg">

@@ -121,7 +121,7 @@ export default function Faq() {
     <div className="bg-white">
       <ContentSection title="FAQ" subtitle="Frequently Asked Concerns" />
 
-      <section className="pb-12 pt-8 sm:pb-16 sm:pt-12">
+      <section className="mt-14 pb-12 pt-14 sm:mt-16 sm:pb-16 sm:pt-16">
         <div className="container mx-auto px-4 sm:px-6">
           <div className="mx-auto grid max-w-[1040px] gap-3 lg:grid-cols-2 lg:gap-4">
             <div className="space-y-4">
