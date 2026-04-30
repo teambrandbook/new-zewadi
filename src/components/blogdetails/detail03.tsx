@@ -7,16 +7,19 @@ const popularPosts = [
     title: "Find Your Adventure Live Your Passion",
     image:
       "/blogs/blog-1.webp",
+    href: "/blogdetails/detail01",
   },
   {
     title: "Ravel Beyond Your Products",
     image:
       "/blogs/blog-2.webp",
+    href: "/blogdetails/detail02",
   },
   {
     title: "Healthy Eating on a Budget",
     image:
       "/blogs/blog-3.webp",
+    href: "/blogdetails/detail03",
   },
 ];
 

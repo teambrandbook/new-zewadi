@@ -366,7 +366,7 @@ export default function About() {
                             </div>
                         </div>
 
-                        <div className="self-start lg:self-stretch lg:pl-4 xl:pl-6">
+                        <div className="self-start pt-10 sm:pt-12 lg:self-stretch lg:pl-4 lg:pt-24 xl:pl-6 xl:pt-28">
                             <div className="flex h-full flex-col lg:min-h-[476px] lg:justify-between">
                             <h2 className="intro-text-heading max-w-[16ch] font-serif font-bold text-[1.3rem] leading-[1.3] sm:text-[1.8rem] sm:leading-[1.2] text-[#034833] tracking-normal">
                                 Food That Feels Right,<br />
