@@ -30,8 +30,8 @@ export default function RecipeCard({
       {/* Content */}
       <div className="max-w-[480px] ">
 
-        {/* Heading */}
-        <h2 className="text-black font-[600] text-[20px] leading-[28px] md:text-[28px] md:leading-[34px] [font-family:'Playfair_Display']">
+        {/* Heading (INCREASED SIZE) */}
+        <h2 className="text-black font-[600] text-[26px] leading-[34px] md:text-[36px] md:leading-[42px] [font-family:'Playfair_Display']">
           {recipe.title}
         </h2>
 
@@ -56,16 +56,16 @@ export default function RecipeCard({
           </>
         )}
 
-        {/* Button */}
+        {/* Button (INCREASED SIZE) */}
         <Link
           href={`/recipes/${recipe.id}`}
-          className="mt-3 relative inline-flex items-center rounded-full bg-[#1f4d3a] pl-4 pr-10 py-2 text-[8px] md:text-[9px] font-medium uppercase tracking-[0.08em] text-white"
+          className="mt-4 relative inline-flex items-center rounded-full bg-[#1f4d3a] pl-6 pr-14 py-4 text-[10px] md:text-[12px] font-medium uppercase tracking-[0.08em] text-white"
         >
           <span>Learn More</span>
 
           {/* Arrow Circle */}
-          <span className="absolute right-[-16px] flex h-[32px] w-[32px] items-center justify-center rounded-full bg-[#1f4d3a] border-2 border-white">
-            <ArrowRight className="h-3 w-3 text-white" />
+          <span className="absolute right-[-18px] flex h-[45px] w-[45px] items-center justify-center rounded-full bg-[#1f4d3a] border-2 border-white">
+            <ArrowRight className="h-4 w-4 text-white" />
           </span>
         </Link>
 
