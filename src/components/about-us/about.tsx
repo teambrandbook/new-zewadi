@@ -308,22 +308,23 @@ export default function About() {
         return () => ctx.revert();
     }, []);
 
+
     return (
         <div className="bg-white text-[#121414]" ref={containerRef}>
             <ContentSection title="About Zewadi" subtitle="What is Zewadi" />
 
-            <section className="py-20 sm:py-28 lg:py-40">
+            <section className="pt-20 pb-32 sm:pt-28 sm:pb-40 lg:pt-40 lg:pb-56">
                 <div className="container mx-auto px-4 sm:px-6 max-w-[1150px]">
-                    <div className="grid gap-12 lg:grid-cols-[1fr_1.1fr] lg:items-center lg:gap-20">
-                        <div className="intro-images-grid mx-auto grid w-full max-w-[480px] grid-cols-2 gap-4 sm:gap-5 items-start lg:grid-cols-[1.05fr_0.95fr] lg:translate-x-16 xl:translate-x-24">
-                            <div className="space-y-4 sm:space-y-4">
+                    <div className="grid gap-12 lg:grid-cols-[1fr_1.1fr] lg:items-stretch lg:gap-20">
+                        <div className="intro-images-grid mx-auto grid w-full max-w-[480px] grid-cols-2 gap-4 sm:gap-5 items-start lg:items-stretch lg:h-full lg:grid-cols-[1.05fr_0.95fr] lg:translate-x-16 xl:translate-x-24">
+                            <div className="space-y-4 sm:space-y-4 lg:flex lg:h-full lg:min-h-[476px] lg:flex-col lg:justify-between lg:space-y-0">
                                 <div className="intro-tall-wrapper overflow-hidden rounded-[20px]">
                                     <img
                                         src={introTallImage}
                                         alt="Fresh salad bowl"
                                         loading="lazy"
                                         decoding="async"
-                                        className="h-[240px] w-full object-cover sm:h-[300px] lg:h-[360px] -scale-x-100"
+                                        className="h-[260px] w-full object-cover sm:h-[320px] lg:h-[390px] -scale-x-100"
                                     />
                                 </div>
                                 <div className="intro-health-card rounded-[20px] border-2 border-[#1A4331] bg-white px-4 py-4 shadow-[0_10px_26px_rgba(0,0,0,0.05)] sm:px-5 sm:py-5">
@@ -343,7 +344,7 @@ export default function About() {
                                 </div>
                             </div>
 
-                            <div className="space-y-3 pt-0 sm:space-y-4 lg:pt-1">
+                            <div className="space-y-3 pt-0 sm:space-y-4 lg:flex lg:h-full lg:min-h-[476px] lg:flex-col lg:justify-between lg:space-y-0">
                                 <div className="intro-top-wrapper overflow-hidden rounded-[20px]">
                                     <img
                                         src={introTopImage}
@@ -359,17 +360,18 @@ export default function About() {
                                         alt="Hands holding a seedling"
                                         loading="lazy"
                                         decoding="async"
-                                        className="h-[200px] w-full object-cover sm:h-[320px] lg:h-[330px]"
+                                        className="h-[240px] w-full object-cover sm:h-[340px] lg:h-[370px]"
                                     />
                                 </div>
                             </div>
                         </div>
 
-                        <div className="lg:pl-4 xl:pl-6">
-                            <h2 className="intro-text-heading font-serif font-bold text-[1.3rem] leading-[1.3] sm:text-[1.8rem] sm:leading-[1.2] text-[#034833] tracking-normal">
+                        <div className="self-start lg:self-stretch lg:pl-4 xl:pl-6">
+                            <div className="flex h-full flex-col lg:min-h-[476px] lg:justify-between">
+                            <h2 className="intro-text-heading max-w-[16ch] font-serif font-bold text-[1.3rem] leading-[1.3] sm:text-[1.8rem] sm:leading-[1.2] text-[#034833] tracking-normal">
                                 Food That Feels Right,<br />
-                                Every Day Thoughtfully<br />
-                                Crafted for You.
+                                Every Day<br />
+                                Thoughtfully Crafted for You.
                             </h2>
 
                             <div className="mt-6 space-y-4">
@@ -387,6 +389,7 @@ export default function About() {
                                     </article>
                                 ))}
                             </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -398,31 +401,51 @@ export default function About() {
                         The story behind the flavors
                     </h2>
 
-                    <div 
-                        className="relative mx-auto mt-10 h-[300px] w-full max-w-[820px] md:h-[380px]"
-                        onTouchStart={handleTouchStart}
-                        onTouchEnd={handleTouchEnd}
-                        onWheel={handleWheel}
-                    >
-                        {storySlides.map((img, i) => {
-                            return (
-                            <div
-                                key={i}
-                                ref={el => { storyItemsRef.current[i] = el; }}
-                                className="absolute top-1/2 left-1/2 overflow-hidden shadow-[0_0_24px_rgba(0,0,0,0.25)] cursor-pointer transition-shadow hover:shadow-[0_0_30px_rgba(0,0,0,0.4)]"
-                                onClick={() => {
-                                    if (isAnimating.current) return;
-                                    const pos =
-                                        (i - normalizeRotation(rotation) + storyImageCount) %
-                                        storyImageCount;
-                                    if (pos === 0) handlePrev();
-                                    if (pos === 2) handleNext();
-                                }}
-                            >
-                                <img src={img.image} alt={img.alt} loading="lazy" decoding="async" className="h-full w-full object-cover" />
-                            </div>
-                            );
-                        })}
+                    <div className="relative mx-auto mt-10 flex w-full max-w-[1020px] items-center justify-between">
+                        <button 
+                            type="button"
+                            onClick={handlePrev}
+                            aria-label="Previous slide"
+                            className="hidden md:flex z-30 h-12 w-12 shrink-0 items-center justify-center rounded-full border border-white/30 bg-transparent text-white transition-colors hover:bg-[#b47800] hover:border-[#b47800] active:bg-[#b47800] active:border-[#b47800]"
+                        >
+                            <ArrowRight size={20} className="rotate-180" />
+                        </button>
+
+                        <div 
+                            className="relative h-[300px] w-full max-w-[820px] md:h-[380px]"
+                            onTouchStart={handleTouchStart}
+                            onTouchEnd={handleTouchEnd}
+                            onWheel={handleWheel}
+                        >
+                            {storySlides.map((img, i) => {
+                                return (
+                                <div
+                                    key={i}
+                                    ref={el => { storyItemsRef.current[i] = el; }}
+                                    className="absolute top-1/2 left-1/2 overflow-hidden rounded-[20px] cursor-pointer"
+                                    onClick={() => {
+                                        if (isAnimating.current) return;
+                                        const pos =
+                                            (i - normalizeRotation(rotation) + storyImageCount) %
+                                            storyImageCount;
+                                        if (pos === 0) handlePrev();
+                                        if (pos === 2) handleNext();
+                                    }}
+                                >
+                                    <img src={img.image} alt={img.alt} loading="lazy" decoding="async" className="h-full w-full object-cover" />
+                                </div>
+                                );
+                            })}
+                        </div>
+
+                        <button 
+                            type="button"
+                            onClick={handleNext}
+                            aria-label="Next slide"
+                            className="hidden md:flex z-30 h-12 w-12 shrink-0 items-center justify-center rounded-full border border-white/30 bg-transparent text-white transition-colors hover:bg-[#b47800] hover:border-[#b47800] active:bg-[#b47800] active:border-[#b47800]"
+                        >
+                            <ArrowRight size={20} />
+                        </button>
                     </div>
 
                     <p className="mx-auto mt-8 max-w-[840px] text-sm font-semibold leading-6 text-[#cecece] sm:text-[1.15rem] sm:leading-8">
