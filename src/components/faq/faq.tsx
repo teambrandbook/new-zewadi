@@ -44,31 +44,31 @@ const rightFaqs: FaqItem[] = [
       "Yes, our products are made with carefully selected, balanced ingredients to support healthier everyday living.",
   },
   {
-    question: "what are the key benefits of Buckwheat?",
+    question: "What are the key benefits of Buckwheat?",
     answer:
       "Buckwheat is rich in fiber, protein, and nutrients, supports digestion and heart health, provides steady energy, and is naturally gluten-free.",
   },
   {
-    question: "When I Get may order?",
+    question: "When will I receive my order?",
     answer:
       "You can expect your order delivery within the estimated time shown at checkout, depending on your location and product availability.",
   },
   {
-    question: "How Zewadi Can bring Healthy Life Style?",
+    question: "How can Zewadi support a healthy lifestyle?",
     answer:
       "Zewadi supports a healthy lifestyle by offering quality food choices, encouraging balanced daily habits, and making wellness simple through small, meaningful everyday choices",
   },
   {
-    question: "Is Buckwheat good For children's ?",
-    answer:
-      "Yes, buckwheat is good for children as it is rich in fiber, protein, and essential nutrients, supporting healthy growth, digestion, and steady energy",
-  },
-  {
-    question: "Is zewadi products Deliver All over the other countries?",
+    question: "Does Zewadi deliver to other countries?",
     answer:
       "Yes, international delivery may be available depending on the country and product availability.",
   },
 ];
+
+const faqRows = leftFaqs.map((leftFaq, index) => ({
+  left: leftFaq,
+  right: rightFaqs[index],
+}));
 
 function FaqCard({
   item,
@@ -83,11 +83,11 @@ function FaqCard({
     <button
       type="button"
       onClick={onClick}
-      className={`w-full rounded-[18px] text-left shadow-[0_0_45px_rgba(0,0,0,0.04)] transition-colors ${
-        isOpen ? "bg-[#f1f5eb]" : "bg-white"
+      className={`h-full w-full rounded-[18px] border text-left shadow-[0_0_45px_rgba(0,0,0,0.04)] transition-colors ${
+        isOpen ? "border-[#1f4d3a] bg-[#f1f5eb]" : "border-[#e3dbd8] bg-white"
       }`}
     >
-      <div className="flex items-start justify-between gap-3 px-4 py-4 sm:px-5 sm:py-5">
+      <div className="flex h-full items-start justify-between gap-3 px-4 py-4 sm:px-5 sm:py-5">
         <div className="min-w-0">
           <h3 className="text-[15px] font-semibold leading-relaxed text-[#1f4d3a] sm:text-[16px]">
             {item.question}
@@ -123,36 +123,26 @@ export default function Faq() {
 
       <section className="mt-14 pb-12 pt-14 sm:mt-16 sm:pb-16 sm:pt-16">
         <div className="container mx-auto px-4 sm:px-6">
-          <div className="mx-auto grid max-w-[1040px] gap-3 lg:grid-cols-2 lg:gap-4">
-            <div className="space-y-4">
-              {leftFaqs.map((item) => (
-                <FaqCard
-                  key={item.question}
-                  item={item}
-                  isOpen={openQuestion === item.question}
-                  onClick={() =>
-                    setOpenQuestion((current) =>
-                      current === item.question ? "" : item.question
-                    )
-                  }
-                />
-              ))}
-            </div>
-
-            <div className="space-y-4">
-              {rightFaqs.map((item) => (
-                <FaqCard
-                  key={item.question}
-                  item={item}
-                  isOpen={openQuestion === item.question}
-                  onClick={() =>
-                    setOpenQuestion((current) =>
-                      current === item.question ? "" : item.question
-                    )
-                  }
-                />
-              ))}
-            </div>
+          <div className="mx-auto grid max-w-[1040px] gap-4">
+            {faqRows.map((row) => (
+              <div
+                key={row.left.question}
+                className="grid gap-4 lg:grid-cols-2 lg:items-stretch"
+              >
+                {[row.left, row.right].filter(Boolean).map((item) => (
+                  <FaqCard
+                    key={item.question}
+                    item={item}
+                    isOpen={openQuestion === item.question}
+                    onClick={() =>
+                      setOpenQuestion((current) =>
+                        current === item.question ? "" : item.question
+                      )
+                    }
+                  />
+                ))}
+              </div>
+            ))}
           </div>
         </div>
       </section>

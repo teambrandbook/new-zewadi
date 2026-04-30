@@ -216,7 +216,7 @@ export default function Blogs() {
               </div>
             </div>
 
-            <aside className="space-y-10">
+            <aside className="sticky h-fit space-y-10 self-start" style={{ top: 'min(128px, calc(100vh - 100% - 24px))' }}>
               <div className="rounded-[24px] bg-white p-8 shadow-[0_4px_40px_rgba(0,0,0,0.03)] border border-black/[0.03]">
                 <h3 className="text-[1.3rem] font-bold leading-tight text-[#1a4331]">
                   Search Here
