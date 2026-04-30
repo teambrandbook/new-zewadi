@@ -5,9 +5,9 @@ import Image from "next/image";
 import { productCarouselAnimation } from "@/utils/animations";
 
 const products = [
-  { image: "/home/productImg1.webp", text: "Fresh organic products" },
-  { image: "/home/productImg2.webp", text: "Healthy daily ingredients" },
-  { image: "/home/productImg3.webp", text: "Smart farming solutions" },
+  { image: "/home/productImg1.webp", text: "Bridging the gap between technology and agriculture to redefine your food experience." },
+  { image: "/home/productImg2.webp", text: "Connecting innovation with agriculture to transform how you experience food." },
+  { image: "/home/productImg3.webp", text: "Transforming agriculture through technology for a more meaningful food connection." },
 ];
 
 const ProductSection = () => {
