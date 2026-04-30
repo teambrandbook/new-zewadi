@@ -83,7 +83,7 @@ const Navbar = () => {
       >
         <div className="container mx-auto px-4 flex items-center justify-between h-14 md:h-20">
           {/* Hanging Logo Container */}
-          <div className="relative z-50 w-[100px] md:w-[160px]">
+          <div className="relative z-50 w-[100px] md:w-[160px] lg:ml-20">
             <Link href="/" className="block">
               <div className={cn(
                 "absolute transition-all duration-500 overflow-hidden flex items-center justify-center p-2 md:p-3",
@@ -153,9 +153,11 @@ const Navbar = () => {
             </div>
 
             {/* Profile Icon */}
-            <div className="w-10 h-10 bg-white/15 rounded-full flex items-center justify-center text-white cursor-pointer hover:bg-brand-primary hover:text-brand-dark transition-all shadow-inner">
-              <User size={22} />
-            </div>
+            <Link href="/login">
+  <div className="w-10 h-10 bg-white/15 rounded-full flex items-center justify-center text-white cursor-pointer hover:bg-brand-primary hover:text-brand-dark transition-all shadow-inner">
+    <User size={22} />
+  </div>
+</Link>
 
             {/* Mobile Toggle */}
             <button

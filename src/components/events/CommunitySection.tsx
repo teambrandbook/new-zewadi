@@ -57,7 +57,7 @@ export default function CommunitySection() {
           </p>
           <div className="mt-8 flex flex-col gap-5 sm:flex-row sm:items-center">
             <Link
-              href="#"
+              href="/gallery"
               className="inline-flex h-[54px] w-fit items-center gap-2 sm:gap-3 rounded-full border border-[#1f4d3a] px-4 sm:px-6 font-sans text-[14px] font-semibold text-[#1f4d3a] transition hover:bg-[#1f4d3a] hover:text-white"
             >
               <span>Read More</span>

@@ -20,8 +20,8 @@ export default function UpcomingEvents() {
             </p>
           </div>
           <Link
-            href="#"
-            className="inline-flex h-[54px] w-[220px] items-center justify-between rounded-full bg-[#1f6306] px-2 pl-4 font-sans text-[14px] font-semibold text-white transition hover:bg-[#174b05]"
+            href="/login"
+            className="inline-flex h-[54px] w-[220px] items-center justify-between rounded-full bg-[#1A4331]/95 px-2 pl-4 font-sans text-[14px] font-semibold text-white transition hover:bg-[#174b05]"
           >
             <span>Join the event</span>
 

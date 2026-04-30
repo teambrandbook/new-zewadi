@@ -3,6 +3,8 @@
 
 import Image from 'next/image';
 import React, { useEffect, useState } from "react";
+import Link from "next/link";
+
 
 
 const images = [
@@ -50,14 +52,29 @@ const HeroSection = () => {
           </div>
 
           <div className="w-full lg:w-auto flex justify-center lg:justify-start">
-            <button className="bg-white rounded-full pl-6 pr-1.5 py-1.5 flex items-center gap-5 hover:bg-gray-100 transition-all group mb-12 lg:mb-32">
-              <span className="font-['Inter'] text-[13px] text-[#0e2207] font-bold">Discover More</span>
-              <div className="w-9 h-9 rounded-full bg-[#b47800] flex items-center justify-center">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>
-              </div>
-            </button>
+            <Link href="/about">
+              <button className="bg-white rounded-full pl-6 pr-1.5 py-1.5 flex items-center gap-5 hover:bg-gray-100 transition-all group mb-12 lg:mb-32">
+                <span className="font-['Inter'] text-[13px] text-[#0e2207] font-bold">
+                  Discover More
+                </span>
+                <div className="w-9 h-9 rounded-full bg-[#b47800] flex items-center justify-center">
+                  <svg
+                    width="18"
+                    height="18"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                  >
+                    <path
+                      d="M5 12H19M19 12L12 5M19 12L12 19"
+                      stroke="white"
+                      strokeWidth="2.5"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                </div>
+              </button>
+            </Link>
           </div>
 
           {/* About Us Card */}
