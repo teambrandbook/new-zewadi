@@ -101,14 +101,14 @@ const ProductSection = () => {
           {products.map((item, i) => (
             <div
               key={i}
-              className={`card absolute h-[180px] w-[130px] overflow-hidden rounded-xl opacity-90 sm:h-[260px] sm:w-[190px] lg:h-[300px] lg:w-[220px]`}
+              className={`card absolute h-[180px] w-[130px] overflow-hidden rounded-xl opacity-90 sm:h-[260px] sm:w-[190px] lg:h-[300px] lg:w-[330px]`}
               style={{ left: "50%", transform: "translateX(-50%)" }}
             >
               <Image
                 src={item.image}
                 alt="product"
                 fill
-                className="object-cover"
+                className="object-cover object-center"
               />
             </div>
           ))}

@@ -41,7 +41,7 @@ export const zoomInStagger = (selector: string) => {
     {
       scale: 1,
       opacity: 1,
-      duration: 3,
+      duration: 2,
       ease: "power3.out",
       stagger: 0.25,
       scrollTrigger: {
@@ -175,7 +175,7 @@ export const imageAnimationtopdown = (selector: string) => {
       {
         clipPath: "inset(0 0 0% 0)",
         autoAlpha: 1,
-        duration: 2,
+        duration: 1,
         ease: "expo.inOut",
       }
     )
@@ -205,7 +205,7 @@ export const imageAnimationLeftToRight = (selector: string) => {
       {
         clipPath: "inset(0 0% 0 0)", // reveal to right
         autoAlpha: 1,
-        duration: 2,
+        duration: 1,
         ease: "expo.inOut",
       }
     )
@@ -308,7 +308,7 @@ export const leftReveal = (selector: string) => {
       {
         x: 0,
         opacity: 1,
-        duration: 1,
+        duration: 0.5,
         ease: "power3.out",
         scrollTrigger: {
           trigger: el,
