@@ -6,13 +6,13 @@ export default function CommunitySection() {
   return (
     <section className="px-4 py-10 sm:px-6 lg:px-0">
       <div className="mx-auto grid max-w-[1200px] gap-10 lg:grid-cols-[280px_282px_minmax(0,1fr)] lg:items-start">
-        <div className="image-topdown relative mx-auto w-full max-w-[267px]">
+        <div className="image-topdown relative mx-auto w-full max-w-[267px] ">
           <div className="image-topdownrelative h-[320px] overflow-hidden rounded-[20px] sm:h-[357px]">
             <Image
               src="/event/community_hands.png"
               alt="Hands joining in a community moment"
               fill
-              className="object-cover"
+              className="object-cover rounded-[20px]"
             />
           </div>
           <div className="pointer-events-none absolute inset-x-[14px] inset-y-[20px] rounded-[20px] border border-[#1f4d3a]" />
