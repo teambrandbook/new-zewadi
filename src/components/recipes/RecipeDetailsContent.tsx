@@ -22,14 +22,14 @@ export default function RecipeDetailsContent({
   }, []);
 
   return (
-    <main className="bg-white text-[#0e2207]">
+    <main className="bg-white text-[#0e2207] lg:">
       <ContentSection
         title="Zewadi Recipes"
         subtitle="Delicious Zewadi Buckwheat Recipes"
       />
 
       <section className="px-4 pb-12 pt-8 sm:px-6 md:pb-24 md:pt-16 lg:px-0">
-        <div className="mx-auto max-w-[1130px]">
+        <div className="mx-auto max-w-[1190px]">
           <div className="grid gap-8 lg:grid-cols-[450px_1fr] lg:items-start lg:gap-[100px]">
             <div className="recipe-detail-image-topdown relative mx-auto w-full max-w-[450px] overflow-hidden rounded-[12px]">
               <div className="relative aspect-[4/5] sm:aspect-[450/540]">

@@ -14,7 +14,7 @@ export default function RecipeCard({
 
   return (
     <article
-      className={`recipe-card min-h-screen origin-top px-4 sm:px-5 lg:pt-20 grid items-start gap-6 lg:grid-cols-[380px_minmax(0,1fr)] lg:gap-[200px] lg:pl-30
+      className={`pt-10 recipe-card min-h-screen origin-top px-4 sm:px-5 lg:pt-20 grid items-start gap-6 lg:grid-cols-[380px_minmax(0,1fr)] lg:gap-[200px] lg:pl-30
       ${reverse ? "lg:[&>div:first-child]:order-2 lg:[&>div:last-child]:order-1" : ""}`}
     >
       {/* Image */}
@@ -28,7 +28,7 @@ export default function RecipeCard({
       </div>
 
       {/* Content */}
-      <div className="max-w-[480px] ">
+      <div className="max-w-[450px] ">
 
         {/* Heading (INCREASED SIZE) */}
         <h2 className="text-black font-[600] text-[26px] leading-[34px] md:text-[36px] md:leading-[42px] [font-family:'Playfair_Display']">

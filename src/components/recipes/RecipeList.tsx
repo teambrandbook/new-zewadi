@@ -5,7 +5,6 @@ import RecipeCard from "@/components/recipes/RecipeCard";
 import RecipeFilter from "@/components/recipes/RecipeFilter";
 import { type Recipe } from "@/components/recipes/recipeTypes";
 import { stackRecipeCards } from "@/utils/animations";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 const ALL_CATEGORY = "SHOW ALL";
 const DEFAULT_CATEGORY = "BREAKFAST";
@@ -33,8 +32,8 @@ export default function RecipeList({ recipes }: { recipes: Recipe[] }) {
   }, [activeCategory]);
 
   return (
-    <section className="bg-white px-4 pb-24 pt-16 sm:px-6 md:pb-32 md:pt-20 lg:px-0">
-      <div className="mx-auto max-w-[1320px]">
+    <section className="bg-white px- pb-24 pt-16 sm:px-6 md:pb-32 md:pt-20 lg:px-23">
+      <div className="mx-auto max-w-[1920px]">
         <RecipeFilter
           categories={categories}
           activeCategory={activeCategory}

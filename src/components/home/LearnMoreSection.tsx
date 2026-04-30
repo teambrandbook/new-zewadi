@@ -6,7 +6,7 @@ const LearnMoreSection = () => {
   return (
     <section className="relative w-full">
       {/* 1. Green Section */}
-      <div className="bg-[#244d3a] w-full pt-16 lg:pt-24 pb-0">
+      <div className="bg-[#244d3a] w-full pt-16 lg:pt-24 lg:pl-30 pb-0">
         <div className="container mx-auto px-6 lg:px-20 relative flex flex-col lg:flex-row items-center">
 
           {/* Left Content */}

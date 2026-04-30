@@ -182,7 +182,7 @@ const HistorySection = () => {
             </div>
           </div>
 
-          <div className="my-10 flex items-center justify-between lg:my-12 lg:pl-40">
+          <div className="my-10 flex items-center justify-between ml-10 md:pl-18 lg:my-12 lg:pl-50">
             {historyItems.map((_, i) => (
               <div key={i} className="flex flex-1 items-center">
                 <div

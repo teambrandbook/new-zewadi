@@ -62,7 +62,7 @@ const CommunitySection = () => {
 <div className="w-full lg:w-[55%] relative h-[350px] lg:h-[550px] mt-12 lg:mt-0 flex justify-center lg:block">
   
   {/* Inner wrapper to keep absolute elements contained and centered on mobile */}
-  <div className="relative w-full max-w-[400px] lg:max-w-none h-full">
+  <div className="relative w-full max-w-[400px] lg:max-w-none h-full lg:mt-10">
 
     {/* 1. Dark Green Background Box (Far Right) */}
     {/* Changed right-[-30] to right-0 for better mobile containment */}

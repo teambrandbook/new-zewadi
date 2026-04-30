@@ -79,12 +79,12 @@ const HeroSection = () => {
 
           {/* About Us Card */}
           <div className="relative w-full max-w-[420px] lg:absolute lg:bottom-12">
-            <div className="inline-block bg-white px-6 py-2 ">
+            <div className="inline-block bg-white px-6 py-2 rounded-t-lg">
               <span className="font-['Playfair_Display'] font-bold text-[15px] text-[#121414]">
                 About Us
               </span>
             </div>
-            <div className="bg-white   p-5 flex items-center gap-5 shadow-2xl">
+            <div className="bg-white   p-5 flex items-center gap-5 shadow-2xl rounded-b-lg rounded-tr-lg">
               <div className="relative w-[100px] h-[70px] lg:w-[110px] lg:h-[75px] shrink-0 rounded overflow-hidden">
                 <Image
                   src={images[current]}
@@ -109,7 +109,7 @@ const HeroSection = () => {
         </div>
 
         {/* Top Column (Mobile) / Right Column (Desktop): Giant Heading */}
-        <div className="w-full lg:w-7/12 flex justify-center lg:justify-end">
+        <div className="w-full lg:w-7/12 flex justify-center lg:justify-end -mt-6 lg:-mt-17">
           <h1 className="font-['Playfair_Display'] font-black text-4xl md:text-7xl lg:text-[90px] xl:text-[110px] text-white text-center lg:text-right leading-[1] lg:leading-[0.95] tracking-tight fade-in">
             The Zewadi<br className="hidden md:block" /> Way of<br className="hidden md:block" /> Living
           </h1>

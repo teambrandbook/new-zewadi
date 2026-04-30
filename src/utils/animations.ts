@@ -263,12 +263,12 @@ export const productCarouselAnimation = (
     }
 
     // 👉 LEFT CARD
-    else if (pos === -1) {
-      x = -sideOffset;
-      scale = 0.9;
-      opacity = 0.6;
-      zIndex = 20;
-    }
+      else if (pos === -1) {
+        x = -sideOffset;
+        scale = 0.9;
+        opacity = 0.6;
+        zIndex = 20;
+      }
 
     // 👉 HIDDEN CARDS
     else {
@@ -408,6 +408,7 @@ export const stackRecipeCards = (selector: string) => {
 
   cards.forEach((card, i) => {
     const isLastCard = i === cards.length - 1;
+    const nextCard = cards[i + 1];
 
     gsap.set(card, {
       position: isLastCard ? "relative" : "sticky",
@@ -447,6 +448,27 @@ export const stackRecipeCards = (selector: string) => {
         },
       }
     );
+
+    if (nextCard) {
+      gsap.fromTo(
+        card,
+        {
+          opacity: 1,
+        },
+        {
+          opacity: 0,
+          ease: "none",
+          scrollTrigger: {
+            id: `${triggerIdPrefix}-fade-${i}`,
+            trigger: nextCard,
+            start: "top 88%",
+            end: "top 50%",
+            scrub: 1.1,
+            invalidateOnRefresh: true,
+          },
+        }
+      );
+    }
   });
 
   ScrollTrigger.refresh();

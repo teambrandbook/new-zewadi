@@ -59,11 +59,10 @@ export default function LoginComponent() {
                     <button
                       type="button"
                       onClick={() => setLoginType("guest")}
-                      className={`h-[36px] w-[110px] rounded-md border text-xs font-semibold transition-all ${
-                        loginType === "guest"
+                      className={`h-[36px] w-[110px] rounded-md border text-xs font-semibold transition-all ${loginType === "guest"
                           ? "border-[#9f8151] bg-[#fdfaf3] text-[#9f8151]"
                           : "border-gray-200 bg-white text-gray-400 opacity-60"
-                      }`}
+                        }`}
                     >
                       Guest
                     </button>
@@ -73,11 +72,10 @@ export default function LoginComponent() {
                     <button
                       type="button"
                       onClick={() => setLoginType("member")}
-                      className={`h-[36px] w-[110px] rounded-md text-xs font-semibold transition-all ${
-                        loginType === "member"
+                      className={`h-[36px] w-[110px] rounded-md text-xs font-semibold transition-all ${loginType === "member"
                           ? "bg-[#0a4833] text-white shadow"
                           : "bg-gray-100 text-gray-400 opacity-60"
-                      }`}
+                        }`}
                     >
                       Member
                     </button>
@@ -142,14 +140,12 @@ export default function LoginComponent() {
                     Sign In
                   </button>
 
-                  <div className="relative py-1">
-                    <div className="absolute inset-0 flex items-center">
-                      <span className="w-full border-t border-gray-100"></span>
-                    </div>
-                    <div className="relative flex justify-center text-[9px] uppercase">
-                      <span className="bg-white px-2 text-gray-400">Social Login</span>
-                    </div>
-                  </div>
+                  <p className="mt-3 text-center text-[10px] text-gray-500">
+                    Don’t have an account?{" "}
+                    <Link href="/signup" className="font-bold text-[#0a4833] hover:underline">
+                      Create Account
+                    </Link>
+                  </p>
 
                   <button
                     type="button"

@@ -106,6 +106,12 @@ export default function SignupComponent() {
                 {showPassword ? <EyeOff size={14} /> : <Eye size={14} />}
               </button>
             </div>
+            <div className="mt-3 flex gap-2">
+              <div className="h-[3px] flex-1 rounded-full bg-[#e5e7eb]" />
+              <div className="h-[3px] flex-1 rounded-full bg-[#e5e7eb]" />
+              <div className="h-[3px] flex-1 rounded-full bg-[#e5e7eb]" />
+              <div className="h-[3px] flex-1 rounded-full bg-[#e5e7eb]" />
+            </div>
           </div>
 
           <div>
