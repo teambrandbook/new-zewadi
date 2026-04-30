@@ -3,6 +3,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { productCarouselAnimation } from "@/utils/animations";
+import { ArrowLeft, ArrowRight } from "lucide-react";
 
 const products = [
   { image: "/home/productImg1.webp", text: "Bridging the gap between technology and agriculture to redefine your food experience." },
@@ -93,15 +94,42 @@ const ProductSection = () => {
       className="w-full overflow-hidden bg-[#1f4b3f] py-12 lg:py-16"
     >
       <div className="w-full px-6 lg:px-24">
-        <h2 className="mb-8 font-serif text-3xl text-[#fdf6ee] sm:text-4xl lg:text-5xl">
-          Our Product
-        </h2>
+        {/* Header Container for Mobile Positioning */}
+        <div className="relative mb-8 flex items-center justify-between">
+          <h2 className="font-serif text-3xl text-[#fdf6ee] sm:text-4xl lg:text-5xl">
+            Our Product
+          </h2>
+          
+          {/* Mobile Arrows (Top Right) - Hidden on sm and up */}
+          <div className="flex gap-2 sm:hidden">
+            <button
+              onClick={prev}
+              className="group flex h-10 w-10 items-center justify-center rounded-full border border-[#fdf6ee]/30 transition-all duration-300 hover:border-[#b47b00] hover:bg-[#b47b00]"
+            >
+              <ArrowLeft className="h-5 w-5 text-[#fdf6ee]" />
+            </button>
+            <button
+              onClick={next}
+              className="group flex h-10 w-10 items-center justify-center rounded-full border border-[#fdf6ee]/30 transition-all duration-300 hover:border-[#b47b00] hover:bg-[#b47b00]"
+            >
+              <ArrowRight className="h-5 w-5 text-[#fdf6ee]" />
+            </button>
+          </div>
+        </div>
 
         <div className="relative flex h-[280px] items-center justify-center sm:h-[360px] lg:h-[440px]">
+          {/* Desktop/Tablet Arrows - Hidden on mobile */}
+          <button
+            onClick={prev}
+            className="group absolute left-0 z-50 hidden h-10 w-10 items-center justify-center rounded-full border border-[#fdf6ee]/30 transition-all duration-300 hover:border-[#b47b00] hover:bg-[#b47b00] sm:flex lg:left-20 lg:h-12 lg:w-12"
+          >
+            <ArrowLeft className="h-5 w-5 text-[#fdf6ee]" />
+          </button>
+
           {products.map((item, i) => (
             <div
               key={i}
-              className={`card absolute h-[180px] w-[130px] overflow-hidden rounded-xl opacity-90 sm:h-[260px] sm:w-[190px] lg:h-[300px] lg:w-[330px]`}
+              className={`card absolute h-[180px] w-[160px] overflow-hidden rounded-xl opacity-90 sm:h-[260px] sm:w-[190px] lg:h-[300px] lg:w-[330px]`}
               style={{ left: "50%", transform: "translateX(-50%)" }}
             >
               <Image
@@ -112,6 +140,13 @@ const ProductSection = () => {
               />
             </div>
           ))}
+
+          <button
+            onClick={next}
+            className="group absolute right-0 z-50 hidden h-10 w-10 items-center justify-center rounded-full border border-[#fdf6ee]/30 transition-all duration-300 hover:border-[#b47b00] hover:bg-[#b47b00] sm:flex lg:right-20 lg:h-12 lg:w-12"
+          >
+            <ArrowRight className="h-5 w-5 text-[#fdf6ee]" />
+          </button>
         </div>
 
         <p className="mx-auto mt-6 max-w-[600px] text-center text-sm text-[#fdf6ee]/80">
