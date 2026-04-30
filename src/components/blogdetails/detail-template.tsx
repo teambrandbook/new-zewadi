@@ -3,6 +3,7 @@
 import React, { useEffect, useRef } from "react";
 import { CalendarDays, Check, Search } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import ContentSection from "../common/ContentSection";
@@ -10,6 +11,7 @@ import ContentSection from "../common/ContentSection";
 type PopularPost = {
   title: string;
   image: string;
+  href: string;
 };
 
 type BlogDetailTemplateProps = {
@@ -231,7 +233,7 @@ export default function BlogDetailTemplate({
               </div>
             </article>
 
-            <aside className="space-y-10">
+            <aside className="sticky h-fit space-y-10 self-start" style={{ top: 'min(128px, calc(100vh - 100% - 24px))' }}>
               <div className="rounded-[24px] bg-white p-8 shadow-[0_4px_40px_rgba(0,0,0,0.03)] border border-black/[0.03]">
                 <h3 className="text-[1.3rem] font-bold leading-tight text-[#1a4331]">
                   Search Here
@@ -252,10 +254,14 @@ export default function BlogDetailTemplate({
                   Popular Post
                 </h3>
                 <div className="mt-4 h-px w-full bg-[#e3dbd8]" />
-                <div className="mt-6 space-y-5">
+                <div className="mt-6 space-y-6">
                   {popularPosts.map((post) => (
-                    <article key={post.title} className="flex items-center gap-4">
-                      <div className="popular-post-image relative h-[65px] w-[65px] flex-shrink-0 overflow-hidden rounded-[18px] bg-[#d9d9d9]">
+                    <Link
+                      key={post.title}
+                      href={post.href}
+                      className="group flex items-center gap-4"
+                    >
+                      <div className="popular-post-image relative h-[75px] w-[75px] flex-shrink-0 overflow-hidden rounded-[16px] bg-[#d9d9d9]">
                         <Image
                           src={post.image}
                           alt={post.title}
@@ -264,16 +270,16 @@ export default function BlogDetailTemplate({
                           className="object-cover"
                         />
                       </div>
-                      <div className="min-w-0">
-                        <div className="popular-post-text flex items-center gap-2 text-xs text-[#727272]">
-                          <CalendarDays size={13} className="text-[#1f4d3a]" />
-                          <span>October 19, 2022</span>
+                      <div className="min-w-0 flex-1">
+                        <div className="popular-post-text flex items-center gap-1.5 text-[11px] font-semibold text-[#727272]">
+                          <CalendarDays size={13} className="text-[#1a4331]" />
+                          October 19, 2022
                         </div>
-                        <p className="popular-post-text mt-2 text-[1.05rem] font-semibold leading-7 text-[#1f4d3a]">
+                        <h4 className="popular-post-text mt-1.5 text-[14px] font-bold leading-snug text-[#1a4331] group-hover:text-[#1f6306]">
                           {post.title}
-                        </p>
+                        </h4>
                       </div>
-                    </article>
+                    </Link>
                   ))}
                 </div>
               </div>
