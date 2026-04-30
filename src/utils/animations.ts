@@ -175,7 +175,7 @@ export const imageAnimationtopdown = (selector: string) => {
       {
         clipPath: "inset(0 0 0% 0)",
         autoAlpha: 1,
-        duration: 2,
+        duration: 1,
         ease: "expo.inOut",
       }
     )
@@ -205,7 +205,7 @@ export const imageAnimationLeftToRight = (selector: string) => {
       {
         clipPath: "inset(0 0% 0 0)", // reveal to right
         autoAlpha: 1,
-        duration: 2,
+        duration: 1,
         ease: "expo.inOut",
       }
     )
