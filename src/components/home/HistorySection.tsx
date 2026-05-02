@@ -148,8 +148,17 @@ const HistorySection = () => {
       className="relative w-full bg-white py-20 lg:py-32"
     >
       <div className="container mx-auto px-6 lg:px-12">
-        <div className="w-full overflow-hidden rounded-[40px] bg-[#244d3a] p-8 lg:rounded-[50px] lg:p-20">
-          <div className="mb-16 flex flex-col items-start justify-between gap-12 lg:flex-row lg:items-end">
+        <div className="relative w-full overflow-hidden rounded-[40px] bg-[#244d3a] p-8 lg:rounded-[50px] lg:p-20">
+          <div className="pointer-events-none absolute inset-0 opacity-10">
+            <Image
+              src="/Patterns-03.webp"
+              alt=""
+              fill
+              className="object-cover object-center"
+            />
+          </div>
+
+          <div className="relative z-10 mb-16 flex flex-col items-start justify-between gap-12 lg:flex-row lg:items-end">
             <div className="fade-in flex w-full flex-col gap-6 lg:w-2/3">
               <h2 className="font-['Playfair_Display'] text-4xl font-semibold uppercase text-white lg:text-[48px]">
                 Where It Began
@@ -182,7 +191,7 @@ const HistorySection = () => {
             </div>
           </div>
 
-          <div className="my-10 flex items-center justify-between ml-10 md:pl-18 lg:my-12 lg:pl-50">
+          <div className="relative z-10 my-10 flex items-center justify-between ml-10 md:pl-18 lg:my-12 lg:pl-50">
             {historyItems.map((_, i) => (
               <div key={i} className="flex flex-1 items-center">
                 <div
@@ -202,7 +211,7 @@ const HistorySection = () => {
             ))}
           </div>
 
-          <div className="relative min-h-[380px] overflow-hidden lg:hidden">
+          <div className="relative z-10 min-h-[380px] overflow-hidden lg:hidden">
             <div
               key={historyItems[activeIndex].image}
               data-history-card
@@ -223,7 +232,7 @@ const HistorySection = () => {
             </div>
           </div>
 
-          <div className="hidden overflow-hidden lg:flex lg:min-h-[420px] lg:items-end lg:gap-6">
+          <div className="relative z-10 hidden overflow-hidden lg:flex lg:min-h-[420px] lg:items-end lg:gap-6">
             {historyItems.map((item, i) => {
               const isActive = i === activeIndex;
 

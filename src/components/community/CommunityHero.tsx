@@ -122,6 +122,15 @@ export default function CommunityHero() {
       ref={containerRef}
       className="relative min-h-screen bg-[#1F4130] flex flex-col items-center justify-center pt-32 overflow-hidden text-center text-white"
     >
+      <div
+        className="pointer-events-none absolute inset-0 opacity-10"
+        style={{
+          backgroundImage: "url('/Patterns-03.webp')",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }}
+      />
+
       {/* Dynamic Background Clusters (Mimicking the reference design) */}
       <div className="absolute inset-0 pointer-events-none">
         {particles.map((p) => (

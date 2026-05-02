@@ -91,9 +91,18 @@ const ProductSection = () => {
     <section
       ref={containerRef}
       onWheel={handleWheel}
-      className="w-full overflow-hidden bg-[#1f4b3f] py-12 lg:py-16"
+      className="relative w-full overflow-hidden bg-[#1f4b3f] py-12 lg:py-16"
     >
-      <div className="w-full px-6 lg:px-24">
+      <div className="pointer-events-none absolute inset-0 opacity-10">
+        <Image
+          src="/Patterns-03.webp"
+          alt=""
+          fill
+          className="object-cover object-center"
+        />
+      </div>
+
+      <div className="relative z-10 w-full px-6 lg:px-24">
         {/* Header Container for Mobile Positioning */}
         <div className="relative mb-8 flex items-center justify-between">
           <h2 className="font-serif text-3xl text-[#fdf6ee] sm:text-4xl lg:text-5xl">

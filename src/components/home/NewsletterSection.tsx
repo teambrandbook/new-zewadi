@@ -9,10 +9,18 @@ const NewsletterSection = () => {
       {/* Inner Green Box */}
       <div className=" rounded-md overflow-hidden">
 
-        <div className="flex flex-col lg:flex-row w-full h-auto lg:h-[562px] bg-[#244d3a]">
+        <div className="relative flex w-full h-auto flex-col bg-[#244d3a] lg:h-[562px] lg:flex-row">
+          <div className="pointer-events-none absolute inset-0 opacity-10">
+            <Image
+              src="/Patterns-03.webp"
+              alt=""
+              fill
+              className="object-cover object-center"
+            />
+          </div>
 
           {/* Left Side Image */}
-          <div className="w-full lg:w-1/2 relative h-[300px] lg:h-full">
+          <div className="relative z-10 h-[300px] w-full lg:h-full lg:w-1/2">
             <Image
               src="/home/newsletterBg.webp"
               alt="newsletter"
@@ -31,7 +39,7 @@ const NewsletterSection = () => {
           </div>
 
           {/* Right Side */}
-          <div className="w-full lg:w-1/2 flex flex-col justify-center px-8 py-12 lg:px-20">
+          <div className="relative z-10 flex w-full flex-col justify-center px-8 py-12 lg:w-1/2 lg:px-20">
 
             <h2 className="text-white text-3xl lg:text-[50px] font-semibold leading-[1.1] mb-6">
               Subscribe to Our <br /> Newsletter

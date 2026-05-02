@@ -28,6 +28,14 @@ const HeroSection = () => {
     <section className="relative w-full min-h-screen lg:h-screen flex items-center overflow-hidden bg-[#0e2207]">
       {/* Background Image with Dark Overlay */}
       <div className="absolute inset-0 z-0">
+        <div className="absolute inset-0 opacity-10 pointer-events-none">
+          <Image
+            src="/Patterns-03.webp"
+            alt=""
+            fill
+            className="object-cover object-center"
+          />
+        </div>
         <video
           autoPlay
           loop
