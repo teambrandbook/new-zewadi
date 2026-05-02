@@ -21,21 +21,16 @@ const NewsletterSection = () => {
 
           {/* Left Side Image */}
           <div className="relative z-10 h-[300px] w-full lg:h-full lg:w-1/2">
-            <Image
-              src="/home/newsletterBg.webp"
-              alt="newsletter"
-              fill
-              className="object-cover"
+            <video
+              src="/home/newsletterBg.webm"
+              autoPlay
+              loop
+              muted
+              playsInline
+              className="absolute inset-0 h-full w-full object-cover"
             />
 
-            {/* Play Button */}
-            <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 
-                            w-14 h-14 lg:w-[80px] lg:h-[80px] bg-[#8dae84] rounded-full 
-                            flex items-center justify-center shadow-lg">
-              <svg width="24" height="24" fill="white" viewBox="0 0 24 24">
-                <path d="M8 5v14l11-7z" />
-              </svg>
-            </div>
+          
           </div>
 
           {/* Right Side */}
