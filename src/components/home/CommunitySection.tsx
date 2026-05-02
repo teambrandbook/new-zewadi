@@ -58,46 +58,55 @@ const CommunitySection = () => {
         </div>
 
         {/* Right Content - Image Stack */}
-       {/* Right Content - Image Stack */}
-<div className="w-full lg:w-[55%] relative h-[350px] lg:h-[550px] mt-12 lg:mt-0 flex justify-center lg:block">
-  
-  {/* Inner wrapper to keep absolute elements contained and centered on mobile */}
-  <div className="relative w-full max-w-[400px] lg:max-w-none h-full lg:mt-10">
+        {/* Right Content - Image Stack */}
+        <div className="w-full lg:w-[55%] relative h-[350px] lg:h-[550px] mt-12 lg:mt-0 flex justify-center lg:block">
 
-    {/* 1. Dark Green Background Box (Far Right) */}
-    {/* Changed right-[-30] to right-0 for better mobile containment */}
-    <div className="zoom-item absolute right-0 lg:right-[-30px] top-0 w-[40%] h-[95%] bg-[#1a3d2e] rounded-lg z-0" />
+          {/* Inner wrapper to keep absolute elements contained and centered on mobile */}
+          <div className="relative w-full max-w-[400px] lg:max-w-none h-full lg:mt-10">
 
-    {/* 2. Main Image (Middle Stack) */}
-    <div className="zoom-item absolute right-[5%] top-[15%] w-[65%] h-[80%] rounded-xl overflow-hidden shadow-2xl z-10">
-      <Image
-        src="/home/communityBase.webp"
-        alt="Sunset Field"
-        fill
-        className="object-cover"
-      />
+            {/* 1. Dark Green Background Box (Far Right) */}
+            {/* Changed right-[-30] to right-0 for better mobile containment */}
+            <div className="zoom-item absolute right-0 top-0 z-0 h-[95%] w-[40%] overflow-hidden rounded-lg bg-[#1a3d2e] lg:right-[-30px]">
+              <div
+                className="pointer-events-none absolute inset-0 opacity-10"
+                style={{
+                  backgroundImage: "url('/Patterns-03.webp')",
+                  backgroundSize: "cover",
+                  backgroundPosition: "center",
+                }}
+              />
+            </div>
 
-      {/* 100% Organic Floating Badge */}
-      <div className="absolute bottom-2 left-2 right-2 lg:bottom-4 lg:left-4 lg:right-4 bg-[#1a3d2e]/90 backdrop-blur-md px-4 py-3 lg:px-6 lg:py-4 rounded-tl-2xl lg:rounded-tl-3xl rounded-tr-2xl lg:rounded-tr-3xl rounded-bl-2xl lg:rounded-bl-3xl rounded-br-none text-white flex items-center gap-3 lg:gap-4 z-20">
-        <span className="text-2xl lg:text-4xl font-bold font-['Inter']">100%</span>
-        <span className="text-[10px] lg:text-[14px] leading-tight font-medium opacity-90 uppercase tracking-wide">
-          Organic<br />products
-        </span>
-      </div>
-    </div>
+            {/* 2. Main Image (Middle Stack) */}
+            <div className="zoom-item absolute right-[5%] top-[15%] w-[65%] h-[80%] rounded-xl overflow-hidden shadow-2xl z-10">
+              <Image
+                src="/home/communityBase.webp"
+                alt="Sunset Field"
+                fill
+                className="object-cover"
+              />
 
-    {/* 3. Overlapping Small Image (Top Left) */}
-    <div className="zoom-item absolute left-0 top-5 lg:top-10 w-[45%] h-[55%] rounded-xl overflow-hidden shadow-xl z-20 border-4 border-white">
-      <Image
-        src="/home/communityBase1.webp"
-        alt="Crops"
-        fill
-        className="object-cover"
-      />
-    </div>
-    
-  </div>
-</div>
+              {/* 100% Organic Floating Badge */}
+              <div className="absolute bottom-2 left-2 right-2 lg:bottom-4 lg:left-4 lg:right-4 bg-[#1a3d2e]/90 backdrop-blur-md px-4 py-3 lg:px-6 lg:py-4 rounded-tl-2xl lg:rounded-tl-3xl rounded-tr-2xl lg:rounded-tr-3xl rounded-bl-2xl lg:rounded-bl-3xl rounded-br-none text-white flex items-center gap-3 lg:gap-4 z-20">
+                <span className="text-2xl lg:text-4xl font-bold font-['Inter']">100%</span>
+                <span className="text-[10px] lg:text-[14px] leading-tight font-medium opacity-90 uppercase tracking-wide">
+                  Organic<br />products
+                </span>
+              </div>
+            </div>
+
+            {/* 3. Overlapping Small Image (Top Left) */}
+            <div className="zoom-item absolute left-0 top-5 lg:top-10 w-[45%] h-[55%] rounded-xl overflow-hidden shadow-xl z-20 border-4 border-white">
+              <Image
+                src="/home/communityBase1.webp"
+                alt="Crops"
+                fill
+                className="object-cover"
+              />
+            </div>
+
+          </div>
+        </div>
       </div>
     </section>
   );

@@ -9,7 +9,7 @@ export default function CommunitySection() {
         <div className="image-topdown relative mx-auto w-full max-w-[267px] ">
           <div className="image-topdownrelative h-[320px] overflow-hidden rounded-[20px] sm:h-[357px]">
             <Image
-              src="/event/community_hands.png"
+              src="/event/community_hands.webp"
               alt="Hands joining in a community moment"
               fill
               className="object-cover rounded-[20px]"
@@ -35,7 +35,7 @@ export default function CommunitySection() {
           </div>
           <div className="image-topdown relative h-[360px] overflow-hidden rounded-[20px] sm:h-[464px]">
             <Image
-              src="/event/community_gathering.png"
+              src="/event/community_gathering.webp"
               alt="People gathered outdoors"
               fill
               className="object-cover"

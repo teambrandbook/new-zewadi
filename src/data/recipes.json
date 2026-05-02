@@ -12,7 +12,7 @@
       "Made with simple, clean, and wholesome ingredients",
       "Easily customizable with vegetables and proteins"
     ],
-    "image": "/recipe/recipe-1.png",
+    "image": "/recipe/recipe-1.webp",
     "categories": [
       "BREAKFAST"
     ],
@@ -59,7 +59,7 @@
       "Crunchy, satisfying, and nutrient-dense",
       "Perfect as a quick, healthy snack or breakfast option"
     ],
-    "image": "/recipe/recipe-2.png",
+    "image": "/recipe/recipe-2.webp",
     "categories": [
       "BREAKFAST"
     ],
@@ -106,7 +106,7 @@
       "Can be made sweet or savory for versatility",
       "Made with simple, wholesome ingredients"
     ],
-    "image": "/recipe/recipe-3.png",
+    "image": "/recipe/recipe-3.webp",
     "categories": [
       "BREAKFAST"
     ],
@@ -152,7 +152,7 @@
       "Crunchy, satisfying, and nutrient-dense",
       "Perfect as a quick, healthy snack or breakfast option"
     ],
-    "image": "/recipe/recipe-4.png",
+    "image": "/recipe/recipe-4.webp",
     "categories": [
       "BREAKFAST"
     ],
@@ -200,7 +200,7 @@
       "Helps in healthy weight management",
       "Boosts energy levels throughout the day"
     ],
-    "image": "/recipe/lunch-1.png",
+    "image": "/recipe/lunch-1.webp",
     "categories": [
       "LUNCH"
     ],
@@ -247,7 +247,7 @@
       "Packed with iron, magnesium, and B vitamins",
       "Balanced meal with protein, carbs, and nutrients"
     ],
-    "image": "/recipe/lunch-2.png",
+    "image": "/recipe/lunch-2.webp",
     "categories": [
       "LUNCH"
     ],
@@ -296,7 +296,7 @@
       "Good source of plant-based protein",
       "Light, nutritious, and perfect for everyday meals"
     ],
-    "image": "/recipe/lunch-3.png",
+    "image": "/recipe/lunch-3.webp",
     "categories": [
       "LUNCH"
     ],
@@ -347,7 +347,7 @@
       "Helps in weight management and reduced cravings",
       "Nutritious, filling, and perfect for balanced meals"
     ],
-    "image": "/recipe/lunch-4.png",
+    "image": "/recipe/lunch-4.webp",
     "categories": [
       "LUNCH"
     ],
@@ -407,12 +407,14 @@
       "protein": "6g"
     },
     "ingredients": [
-      "Buckwheat groats (roasted)",
-      "Dates (seedless)",
+      "Buckwheat flour",
+      "Soft dates",
       "Almonds",
-      "Cashews",
-      "Coconut (grated)",
+      "Walnuts",
+      "Chia seeds",
+      "Cocoa powder",
       "Honey",
+      "Coconut flakes",
       "Cardamom powder"
     ],
     "optional": [
@@ -453,13 +455,15 @@
     },
     "ingredients": [
       "Buckwheat flour",
-      "Eggs",
-      "Milk",
+      "Banana",
+      "Egg",
       "Honey",
+      "Milk",
       "Baking powder",
+      "Cinnamon powder",
       "Vanilla extract",
-      "Chocolate chips",
-      "Oats"
+      "Olive oil",
+      "Salt"
     ],
     "optional": [
       "Nuts",
@@ -499,12 +503,15 @@
     },
     "ingredients": [
       "Buckwheat flour",
-      "Carrot",
       "Onion",
-      "Spinach",
+      "Carrot",
+      "Cabbage",
       "Green chili",
-      "Coriander",
+      "Coriander leaves",
+      "Cumin seeds",
       "Salt",
+      "Black pepper",
+      "Water",
       "Oil"
     ],
     "optional": [

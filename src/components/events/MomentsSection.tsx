@@ -9,7 +9,7 @@ export default function MomentsSection() {
           {/* ✅ Reduced image height */}
           <div className="image-topdown relative h-[180px] sm:h-[280px] lg:h-[380px]">
             <Image
-              src="/event/moments_main.png"
+              src="/event/moments_main.webp"
               alt="People enjoying a Zewadi gathering"
               fill
               priority
