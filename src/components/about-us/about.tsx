@@ -395,8 +395,17 @@ export default function About() {
                 </div>
             </section>
 
-            <section className="bg-[#1f4d3a] py-12 text-white sm:py-16">
-                <div className="container mx-auto px-4 text-center sm:px-6">
+            <section className="relative bg-[#1f4d3a] py-12 text-white sm:py-16">
+                <div
+                    className="pointer-events-none absolute inset-0 opacity-10"
+                    style={{
+                        backgroundImage: "url('/Patterns-03.webp')",
+                        backgroundSize: "cover",
+                        backgroundPosition: "center",
+                    }}
+                />
+
+                <div className="relative z-10 container mx-auto px-4 text-center sm:px-6">
                     <h2 className="mx-auto max-w-[16ch] font-serif text-[1.8rem] leading-tight sm:text-[2.75rem] sm:leading-[1.15]">
                         The story behind the flavors
                     </h2>
@@ -490,18 +499,42 @@ export default function About() {
                                             {step.label}
                                         </p>
                                     </div>
-                                    <div className="flex h-8 w-8 items-center justify-center rounded-full text-sm font-bold sm:h-10 sm:w-10 sm:text-lg bg-[#1f4d3a] text-white transition-colors group-hover:bg-white group-hover:text-[#1f4d3a]">
-                                        {step.number}
+                                    <div className="relative flex h-8 w-8 items-center justify-center overflow-hidden rounded-full bg-[#1f4d3a] text-sm font-bold text-white transition-colors group-hover:bg-white group-hover:text-[#1f4d3a] sm:h-10 sm:w-10 sm:text-lg">
+                                        <div
+                                            className="pointer-events-none absolute inset-0 opacity-10 group-hover:hidden"
+                                            style={{
+                                                backgroundImage: "url('/Patterns-03.webp')",
+                                                backgroundSize: "cover",
+                                                backgroundPosition: "center",
+                                            }}
+                                        />
+                                        <span className="relative z-10">{step.number}</span>
                                     </div>
                                 </div>
                             ))}
 
                             <Link
                                 href="/community"
-                                className="group inline-flex items-center rounded-full bg-[#1f4d3a] pl-9 pr-0 py-0 text-[13px] font-bold uppercase tracking-[0.15em] text-white transition-colors duration-300 hover:bg-[#1a4331]"
+                                className="group relative inline-flex items-center overflow-hidden rounded-full bg-[#1f4d3a] pl-9 pr-0 py-0 text-[13px] font-bold uppercase tracking-[0.15em] text-white transition-colors duration-300 hover:bg-[#1a4331]"
                             >
-                                <span className="py-4">Learn More</span>
-                                <span className="relative -right-6 flex h-[52px] w-[52px] items-center justify-center rounded-full border-2 border-white bg-[#1f4d3a] text-white shadow-[0_4px_15px_rgba(0,0,0,0.2)]">
+                                <div
+                                    className="pointer-events-none absolute inset-0 opacity-10 group-hover:hidden"
+                                    style={{
+                                        backgroundImage: "url('/Patterns-03.webp')",
+                                        backgroundSize: "cover",
+                                        backgroundPosition: "center",
+                                    }}
+                                />
+                                <span className="relative z-10 py-4">Learn More</span>
+                                <span className="relative -right-6 z-10 flex h-[52px] w-[52px] items-center justify-center overflow-hidden rounded-full border-2 border-white bg-[#1f4d3a] text-white shadow-[0_4px_15px_rgba(0,0,0,0.2)]">
+                                    <div
+                                        className="pointer-events-none absolute inset-0 opacity-10 group-hover:hidden"
+                                        style={{
+                                            backgroundImage: "url('/Patterns-03.webp')",
+                                            backgroundSize: "cover",
+                                            backgroundPosition: "center",
+                                        }}
+                                    />
                                     <MoveRight size={22} />
                                 </span>
                             </Link>
@@ -513,12 +546,20 @@ export default function About() {
             <section className="testimonial-section pb-12 pt-12 sm:pt-16 lg:pt-20 sm:pb-24 lg:pb-32">
                 <div className="container mx-auto px-4 sm:px-6">
                     <div className="flex justify-center mb-8 pt-4 sm:pt-6">
-                        <div className="inline-flex items-center gap-5 rounded-full bg-[#1a4331] px-7 py-2.5 shadow-sm border border-white/10">
-                            <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-white/80">
+                        <div className="relative inline-flex items-center gap-5 overflow-hidden rounded-full border border-white/10 bg-[#1a4331] px-7 py-2.5 shadow-sm">
+                            <div
+                                className="pointer-events-none absolute inset-0 opacity-10"
+                                style={{
+                                    backgroundImage: "url('/Patterns-03.webp')",
+                                    backgroundSize: "cover",
+                                    backgroundPosition: "center",
+                                }}
+                            />
+                            <p className="relative z-10 text-[10px] font-bold uppercase tracking-[0.3em] text-white/80">
                                 Client Testimonials
                             </p>
-                            <div className="h-3 w-px bg-white/20" />
-                            <SendHorizontal size={15} className="text-[#83cd20]" />
+                            <div className="relative z-10 h-3 w-px bg-white/20" />
+                            <SendHorizontal size={15} className="relative z-10 text-[#83cd20]" />
                         </div>
                     </div>
 

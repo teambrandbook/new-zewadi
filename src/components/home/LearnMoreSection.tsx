@@ -6,7 +6,16 @@ const LearnMoreSection = () => {
   return (
     <section className="relative w-full">
       {/* 1. Green Section */}
-      <div className="bg-[#244d3a] w-full pt-16 lg:pt-24 lg:pl-30 pb-0">
+      <div className="relative bg-[#244d3a] w-full pt-16 lg:pt-24 lg:pl-30 pb-0">
+        <div className="absolute inset-0 pointer-events-none opacity-10">
+          <Image
+            src="/Patterns-03.webp"
+            alt=""
+            fill
+            className="object-cover object-center"
+          />
+        </div>
+
         <div className="container mx-auto px-6 lg:px-20 relative flex flex-col lg:flex-row items-center">
 
           {/* Left Content */}

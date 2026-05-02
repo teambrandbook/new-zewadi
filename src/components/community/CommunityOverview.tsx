@@ -103,8 +103,17 @@ const CommunityOverview = () => {
             </div>
 
             {/* Right Side: Headlines (Now hosts the green bg itself) */}
-            <div id="overview-green" className="w-full md:w-[58%] bg-brand-green p-8 md:p-16 lg:p-24 flex flex-col items-center md:items-start text-center md:text-left justify-start pb-48 md:pb-64 z-10 relative">
-              <div className="overview-text flex items-center gap-4 mb-8 text-white/50">
+            <div id="overview-green" className="relative z-10 flex w-full flex-col items-center justify-start overflow-hidden bg-brand-green p-8 pb-48 text-center md:w-[58%] md:items-start md:p-16 md:pb-64 md:text-left lg:p-24">
+              <div
+                className="pointer-events-none absolute inset-0 opacity-10"
+                style={{
+                  backgroundImage: "url('/Patterns-03.webp')",
+                  backgroundSize: "cover",
+                  backgroundPosition: "center",
+                }}
+              />
+
+              <div className="overview-text relative z-10 mb-8 flex items-center gap-4 text-white/50">
                 <WavyArrow className="rotate-180" />
                 <span className="text-white text-xs font-dm font-bold tracking-[0.4em] uppercase">
                   {overviewSection.subtitle}
@@ -112,7 +121,7 @@ const CommunityOverview = () => {
                 <WavyArrow />
               </div>
 
-              <h2 className="overview-text text-4xl md:text-5xl lg:text-7xl font-playfair font-medium text-white leading-[1.1] mb-12">
+              <h2 className="overview-text relative z-10 mb-12 text-4xl font-playfair font-medium leading-[1.1] text-white md:text-5xl lg:text-7xl">
                 {overviewSection.title}
               </h2>
             </div>

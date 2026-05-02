@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 
 import { cn } from "@/lib/utils";
 
@@ -24,8 +25,17 @@ const ContentSection = ({
   subtitleClassName,
 }: ContentSectionProps) => {
   return (
-    <section className={cn("bg-[#1f4d3a] pt-20 sm:pt-24 pb-0", sectionClassName)}>
-      <div className={cn("container mx-auto px-4 sm:px-40", containerClassName)}>
+    <section className={cn("relative overflow-hidden bg-[#1f4d3a] pt-20 pb-0 sm:pt-24", sectionClassName)}>
+      <div className="pointer-events-none absolute inset-0 opacity-10">
+        <Image
+          src="/Patterns-03.webp"
+          alt=""
+          fill
+          className="object-cover object-center"
+        />
+      </div>
+
+      <div className={cn("relative z-10 container mx-auto px-4 sm:px-40", containerClassName)}>
         <div className={cn("h-[140px] sm:h-[180px]", spacerClassName)} />
 
         <div

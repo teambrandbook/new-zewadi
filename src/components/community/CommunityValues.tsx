@@ -60,21 +60,17 @@ const CommunityValues = () => {
       <div className="container mx-auto px-4 md:px-0">
         <div className="relative w-full max-w-7xl mx-auto bg-[#F3F7F2] rounded-[2rem] md:rounded-[2rem] py-16 px-8 md:py-24 md:px-20">
 
-          {/* Background Layer with Image */}
-          {valuesGridSection.backgroundImage && (
-            <div className="absolute inset-0 pointer-events-none select-none overflow-hidden rounded-[3rem] md:rounded-[5rem] z-0">
-              <Image
-                src={valuesGridSection.backgroundImage}
-                alt="Background Pattern"
-                fill
-                className="object-cover opacity-50 transition-opacity duration-700"
-                priority
-              />
-              {/* White Overlay to soften the image */}
-              <div className="absolute inset-0 bg-white/80 mix-blend-overlay" />
-              <div className="absolute inset-0 bg-[#F3F7F2]/40" />
-            </div>
-          )}
+          <div className="absolute inset-0 pointer-events-none select-none overflow-hidden rounded-[3rem] md:rounded-[5rem] z-0">
+            <Image
+              src="/Patterns-03.webp"
+              alt="Background Pattern"
+              fill
+              className="object-cover opacity-3 transition-opacity duration-700"
+              priority
+            />
+            <div className="absolute inset-0 bg-white/80 mix-blend-overlay" />
+            <div className="absolute inset-0 bg-[#F3F7F2]/40" />
+          </div>
 
           <div className="relative z-20 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10 lg:gap-12">
 

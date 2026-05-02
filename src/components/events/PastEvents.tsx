@@ -13,9 +13,9 @@ export default function PastEventsSection() {
 
         {/* Background Leaf Pattern */}
         <div
-          className="absolute inset-0 z-0 opacity-[0.08] pointer-events-none"
+          className="absolute inset-0 z-0 pointer-events-none opacity-3"
           style={{
-            backgroundImage: "url('/event/event_banner_bg.png')",
+            backgroundImage: "url('/Patterns-03.webp')",
             backgroundSize: 'cover',
             backgroundPosition: 'center',
           }}
