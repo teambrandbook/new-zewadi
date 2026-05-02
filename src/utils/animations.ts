@@ -32,6 +32,8 @@ export const fadeIn = (selector: string) => {
 export const zoomInStagger = (selector: string) => {
   const elements = gsap.utils.toArray<HTMLElement>(selector);
 
+  if (elements.length === 0) return;
+
   gsap.fromTo(
     elements,
     {
@@ -463,7 +465,7 @@ export const stackRecipeCards = (selector: string) => {
             trigger: nextCard,
             start: "top 88%",
             end: "top 50%",
-            scrub: 1.1,
+            scrub: 0.5,
             invalidateOnRefresh: true,
           },
         }

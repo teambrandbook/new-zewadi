@@ -93,8 +93,10 @@ const imageSources = [
 ];
 
 const videoSources = [
+  "/event/moments_main.webm",
   "/home/heroBg.webm",
   "/home/learnMoreBg.webm",
+  "/home/newsletterBg.webm",
 ];
 
 export default function AppWrapper({ children }) {

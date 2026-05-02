@@ -5,15 +5,16 @@ export default function MomentsSection() {
     <section className="bg-white px-4 pb-10 pt-6 sm:px-6 md:pb-14 md:pt-8 lg:px-0">
       <div className="mx-auto max-w-[1200px] pt-20">
         <div className="relative overflow-hidden rounded-[12px]">
-          
+
           {/* ✅ Reduced image height */}
           <div className="image-topdown relative h-[180px] sm:h-[280px] lg:h-[380px]">
-            <Image
-              src="/event/moments_main.webp"
-              alt="People enjoying a Zewadi gathering"
-              fill
-              priority
-              className="object-cover"
+            <video
+              src="/event/moments_main.webm"
+              autoPlay
+              loop
+              muted
+              playsInline
+              className="absolute inset-0 h-full w-full object-cover"
             />
           </div>
 
@@ -21,7 +22,7 @@ export default function MomentsSection() {
 
         {/* ✅ Reduced box size */}
         <div className="relative z-10 mx-auto -mt-6 max-w-[750px] rounded-[8px] bg-white px-5 py-5 shadow-[0_20px_40px_rgba(0,0,0,0.08)] sm:px-8 md:-mt-10 md:py-8">
-          
+
           <h2 className=" font-sans text-[20px] font-semibold text-[#1f4d3a] md:text-[21px] fade-in">
             The moments that connect us
           </h2>
