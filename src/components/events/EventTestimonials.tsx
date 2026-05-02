@@ -65,7 +65,7 @@ export default function EventTestimonials() {
           <div className="mt-8 w-full lg:mt-0 lg:w-[50%]">
             <div className="image-topdown relative h-[350px] w-full overflow-hidden rounded-[20px] lg:h-[500px]">
               <Image
-                src="/event/community_hands.png" 
+                src="/event/community_hands.webp" 
                 alt="Community hands"
                 fill
                 className="object-cover"

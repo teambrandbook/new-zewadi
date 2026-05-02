@@ -12,7 +12,7 @@ export const fadeIn = (selector: string) => {
       { opacity: 0 }, // start
       {
         opacity: 1,   // end
-        duration: 5,
+        duration: 3.5,
         ease: "power2.out",
         scrollTrigger: {
           trigger: el,

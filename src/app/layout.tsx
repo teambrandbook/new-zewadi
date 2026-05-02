@@ -3,6 +3,7 @@ import { Inter, Playfair_Display, DM_Sans, Caveat } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/common/Navbar";
 import Footer from "@/components/common/Footer";
+import AppWrapper from "@/components/AppWrapper"; // ✅ ADD THIS
 
 const inter = Inter({
   variable: "--inter-font",
@@ -37,13 +38,19 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`scroll-smooth ${inter.variable} ${dmSans.variable} ${playfair.variable} ${caveat.variable}`}>
-      <body
-        className="antialiased font-sans"
-      >
-        <Navbar />
-        <main>{children}</main>
-        <Footer />
+    <html
+      lang="en"
+      className={`scroll-smooth ${inter.variable} ${dmSans.variable} ${playfair.variable} ${caveat.variable}`}
+    >
+      <body className="antialiased font-sans">
+
+        {/* ✅ WRAP EVERYTHING */}
+        <AppWrapper>
+          <Navbar />
+          <main>{children}</main>
+          <Footer />
+        </AppWrapper>
+
       </body>
     </html>
   );
